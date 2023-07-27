@@ -1,4 +1,7 @@
-.MuiBox-root .MuiTypography-body1:hover{
+/* HERO */
+
+
+.MuiBox-root .css-fjajjq-MuiTypography-root:hover{
     color: #5AB65F;
     cursor: pointer;
   }
@@ -19,3 +22,6 @@
   /* .MuiInputLabel-shrink{
     display: none !important;
   } */
+
+  /* FEATURES */
+  

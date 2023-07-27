@@ -1,0 +1,11 @@
+
+.slide-container {
+  width: 90vw;
+  margin-top: 50px;
+}
+.react-slideshow-container .MuiSvgIcon-root {
+  margin-left: -25px;
+}
+.react-slideshow-container .MuiSvgIcon-root {
+  margin-right: -25px;
+}
