@@ -46,11 +46,11 @@ export default function Navbar() {
       >
         <Toolbar
           sx={{
-            width: { xs: '100vw', md: '80vw' },
+            width: { xs: '90vw', md: '80vw' },
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding: '0px 0px 0px 100px !important',
+            padding: {xs: '0px', md: '0px 0px 0px 100px !important'},
           }}
         >
           <IconButton
@@ -60,7 +60,7 @@ export default function Navbar() {
             aria-label="menu"
             sx={{ mr: 2, display: { xs: 'flex', md: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{color: 'green.darker'}}/>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ color: 'black' }}>
             Icon

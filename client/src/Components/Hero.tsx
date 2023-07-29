@@ -16,20 +16,29 @@ const Hero = () => {
     >
       <Box
         sx={{
-          minHeight: '270px',
+          minHeight: { xs: '50vh', sm: '250px', md: '270px' },
           display: 'flex',
-          alignItems: 'flex-start',
+          alignItems: {xs: 'center', sm: 'flex-start'},
           justifyContent: 'space-between',
           flexDirection: 'column',
-          marginLeft: { xs: '0px', md: '100px' },
+          margin: { xs: '165px 0px', sm: '0 35px', md: '0 100px' },
+          padding: {xs:'20px', sm: '0px'},
         }}
       >
-        <Typography variant="h3" component="div">
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{
+            fontSize: { xs: '40px !important', sm: '50px !important', md: '64px' },
+            width: { xs: '90vw', sm: '500px', md: '650px' },
+            textAlign: {xs:'center', sm: 'left'}
+          }}
+        >
           Lorem ipsum dolor sit amet, consectetuer
         </Typography>
         <Typography
           variant="h6"
-          sx={{ color: 'green.darker', fontSize: '16px' }}
+          sx={{ color: 'green.darker', fontSize: '16px', textAlign:{xs:'center', sm: 'left'} }}
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         </Typography>
@@ -37,8 +46,10 @@ const Hero = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            flexDirection: 'row',
-            minWidth: '700px',
+            flexDirection: {xs:'column', sm: 'row'},
+            width: {xs:'90vw', sm: '500px', md: '700px' },
+            alignItems: 'center', 
+            minHeight:{xs: '130px', sm:'0px'}
           }}
         >
           <Button
@@ -70,7 +81,7 @@ const Hero = () => {
             <Button
               sx={{
                 bgcolor: 'green.darker',
-                height: '56px',
+                height: {xs: '57px', sm: '57px', md: '56px' },
                 borderRadius: '10px',
                 position: 'relative',
                 left: '10px',
@@ -91,7 +102,7 @@ const Hero = () => {
               id="outlined-controlled"
               label="Search By Product"
               sx={{
-                width: '350px',
+                width: {sm:'300px', md: '350px'},
                 '& .MuiOutlinedInput-root': {
                   backgroundColor: 'transparent',
                   color: 'green.darker',
@@ -128,7 +139,7 @@ const Hero = () => {
                 },
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Search/>
+                    <Search />
                   </InputAdornment>
                 ),
               }}
