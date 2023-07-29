@@ -26,5 +26,5 @@ const width900 = useMediaQuery('(min-width:900px)');
       window.removeEventListener('scroll', navScrolled);
     };
   }, [scrollp]);
-  return [scroll, open, toggleDrawer, width900] as const;
+  return [scroll, open, toggleDrawer, width900, scrollp] as const;
 }
