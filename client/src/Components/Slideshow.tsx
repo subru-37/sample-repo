@@ -1,18 +1,21 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import '../styles/SlideShow.css'
+import '../styles/SlideShow.css';
 import NavigationIcon from '@mui/icons-material/Navigation';
 type props = {
   components: any;
   color?: string;
   indicators?: boolean;
   arrows?: boolean;
-  slshow: number;
-  slscroll:number;
 };
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function SlideShow(props: props) {
+  const width1100 = useMediaQuery('(min-width:1100px)');
+  const width900 = useMediaQuery('(min-width:900px)');
+  const width600 = useMediaQuery('(min-width:600px)');
+  const width400 = useMediaQuery('(min-width:400px)');
   const divStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -25,8 +28,8 @@ export default function SlideShow(props: props) {
       <Slide
         duration={2500}
         transitionDuration={700}
-        slidesToScroll={props.slscroll}
-        slidesToShow={props.slshow}
+        slidesToScroll={1}
+        slidesToShow={!width1100 ? (!width900 ? (!width600 ? 1 : 2) : 3) : 4}
         prevArrow={
           <NavigationIcon
             sx={{

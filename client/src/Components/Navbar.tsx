@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link as NavLink } from '@mui/material';
+import { Drawer, Link as NavLink } from '@mui/material';
 import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
@@ -42,6 +42,8 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          width: '100vw',
+          left: '0px',
         }}
       >
         <Toolbar
@@ -50,7 +52,7 @@ export default function Navbar() {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding: {xs: '0px', md: '0px 0px 0px 100px !important'},
+            padding: { xs: '0px', md: '0px 0px 0px 100px !important' },
           }}
         >
           <IconButton
@@ -59,8 +61,9 @@ export default function Navbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2, display: { xs: 'flex', md: 'none' } }}
+            onClick={() => setValue(true)}
           >
-            <MenuIcon sx={{color: 'green.darker'}}/>
+            <MenuIcon sx={{ color: 'green.darker' }} />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ color: 'black' }}>
             Icon
@@ -94,9 +97,46 @@ export default function Navbar() {
             })}
             <Cart />
           </Box>
-          <Button color="inherit"><SignIcon/></Button>
+          <Button color="inherit">
+            <SignIcon />
+          </Button>
         </Toolbar>
       </AppBar>
+      <Drawer
+        anchor="left"
+        open={open}
+        onClose={() => setValue(false)}
+      >
+        <Box
+          sx={{
+            minWidth: '50vw',
+            minHeight:'100dvh',
+            background: '#F5FCE7',
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent:'center', 
+            flexDirection: 'column'
+          }}
+        >
+          {navlinks.map((value, index) => {
+            return (
+              <Typography
+                sx={{
+                  color: '#00584A',
+                  fontfamily: 'Plus Jakarta Sans',
+                  fontSize: '16px',
+                  fontStyle: 'normal',
+                  fontWeight: '500',
+                  lineHeight: 'normal',
+                  margin: '20px 0'
+                }}
+              >
+                {value.name}
+              </Typography>
+            );
+          })}
+        </Box>
+      </Drawer>
     </Box>
   );
 }

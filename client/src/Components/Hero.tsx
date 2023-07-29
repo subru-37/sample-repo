@@ -7,38 +7,47 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: '90vh',
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: {xs:'center', sm:'flex-start'},
         justifyContent: 'center',
         flexDirection: 'column',
       }}
     >
       <Box
         sx={{
-          minHeight: { xs: '50vh', sm: '250px', md: '270px' },
+          minHeight: { xs: '45vh', sm: '250px', md: '270px' },
           display: 'flex',
-          alignItems: {xs: 'center', sm: 'flex-start'},
+          alignItems: { xs: 'center !important', sm: 'flex-start' },
           justifyContent: 'space-between',
           flexDirection: 'column',
-          margin: { xs: '165px 0px', sm: '0 35px', md: '0 100px' },
-          padding: {xs:'20px', sm: '0px'},
+          margin: { xs: '0px 0px 40px 0px', sm: '0 35px', md: '0 100px' },
+          padding: { xs: '10px', sm: '0px' },
         }}
       >
         <Typography
           variant="h3"
           component="div"
           sx={{
-            fontSize: { xs: '40px !important', sm: '50px !important', md: '64px' },
+            fontSize: {
+              xs: '40px !important',
+              sm: '50px !important',
+              md: '64px',
+            },
             width: { xs: '90vw', sm: '500px', md: '650px' },
-            textAlign: {xs:'center', sm: 'left'}
+            textAlign: { xs: 'center', sm: 'left' },
           }}
         >
           Lorem ipsum dolor sit amet, consectetuer
         </Typography>
         <Typography
           variant="h6"
-          sx={{ color: 'green.darker', fontSize: '16px', textAlign:{xs:'center', sm: 'left'} }}
+          sx={{
+            color: 'green.darker',
+            fontSize: '16px',
+            textAlign: { xs: 'center', sm: 'left' },
+            marginBottom: { xs: '50px', sm: '0px' },
+          }}
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         </Typography>
@@ -46,18 +55,18 @@ const Hero = () => {
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            flexDirection: {xs:'column', sm: 'row'},
-            width: {xs:'90vw', sm: '500px', md: '700px' },
-            alignItems: 'center', 
-            minHeight:{xs: '130px', sm:'0px'}
+            flexDirection: { xs: 'column-reverse', sm: 'row' },
+            width: { xs: '90vw', sm: '500px', md: '700px' },
+            alignItems: 'center',
+            minHeight: { xs: '120px', sm: '0px' },
           }}
         >
           <Button
             sx={{
               bgcolor: 'green.dark',
               borderRadius: '10px',
-              height: '55px',
-              width: '150px',
+              height: {xs: '45px', sm: '55px'},
+              width: {xs: '125px', sm: '150px'},
             }}
           >
             <Typography
@@ -81,7 +90,7 @@ const Hero = () => {
             <Button
               sx={{
                 bgcolor: 'green.darker',
-                height: {xs: '57px', sm: '57px', md: '56px' },
+                height: { xs: '50.5px', sm: '57px', md: '56px' },
                 borderRadius: '10px',
                 position: 'relative',
                 left: '10px',
@@ -102,9 +111,11 @@ const Hero = () => {
               id="outlined-controlled"
               label="Search By Product"
               sx={{
-                width: {sm:'300px', md: '350px'},
+                height: {xs: '50px', sm: 'auto'},
+                width: { sm: '300px', md: '350px' },
                 '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'transparent',
+                height: {xs: '50px', sm: 'auto'},
+                backgroundColor: 'transparent',
                   color: 'green.darker',
                   '& fieldset': {
                     borderTop: '2px solid #00584A',

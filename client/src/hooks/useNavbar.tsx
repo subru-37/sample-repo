@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 export default function useNavbar() {
   const [open, setOpen] = React.useState<boolean>(false);
-  const width900 = useMediaQuery('(min-width:900px)');
+const width900 = useMediaQuery('(min-width:900px)');
   const [scrollp, setScrollP] = useState<number>(window.scrollY);
   const [scroll, setScroll] = useState<boolean>(false);
   function toggleDrawer(open: boolean) {

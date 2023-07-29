@@ -8,14 +8,22 @@ interface props {
 }
 const FeatureCard = (props: props) => {
   return (
-    <Box sx={{marginRight:'40px'}}>
+    <Box
+      sx={{
+        // marginRight: '40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+      }}
+    >
       <Box
         sx={{
-          width: '100%',
+          width: '290px',
           height: '358px',
           flexShrink: '0',
           background: props.background,
-          backgroundSize:'100% 358px'
+          backgroundSize: '100% 358px',
         }}
       ></Box>
       <Box
@@ -56,9 +64,11 @@ const FeatureCard = (props: props) => {
               color: '#ACD2AE',
               fontSize: '12px',
               textDecoration: 'line-through',
-              marginLeft:'15px'
+              marginLeft: '15px',
             }}
-          >$ {props.price}</Typography>
+          >
+            $ {props.price}
+          </Typography>
         </Box>
       </Box>
     </Box>
