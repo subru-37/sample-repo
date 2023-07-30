@@ -355,7 +355,7 @@
 .leaf7-5-forward {
   background-image: url('/src/assets/group7.5.png');
   width: 319px;
-  height: 323px;
+  height: 300px;
   z-index: 14;
   animation: leaf7-5 1s ease-out forwards;
 }
@@ -363,19 +363,19 @@
   background-image: url('../assets/group7.5.png');
   z-index: 14;
   width: 319px;
-  height: 323px;
+  height: 300px;
   animation: leaf7-5-reverse 1s ease-out forwards;
 }
 @keyframes leaf7-5 {
   0% {
     opacity: 0;
     bottom: -200px;
-    left: -319px;
+    left: -300px;
     rotate: -10deg;
   }
   100% {
     opacity: 1;
-    bottom: -40px;
+    bottom: 0px;
     left: 0px;
     rotate: 0deg;
   }
@@ -383,14 +383,14 @@
 @keyframes leaf7-5-reverse {
   0% {
     opacity: 1;
-    bottom: -40px;
+    bottom: 0px;
     left: 0px;
     rotate: 0deg;
   }
   100% {
     opacity: 0;
     bottom: -200px;
-    left: -319px;
+    left: -300px;
     rotate: -10deg;
   }
 }
@@ -703,14 +703,14 @@
   .leaf1,
   .leaf2-5,
   .leaf3,
-  .leaf4-5,
+  /* .leaf4-5, */
   .leaf5,
   .leaf6,
   .leaf7-5,
   .leaf7,
   .leaf8-5,
   .leaf9,
-  .leaf10-5,
+  /* .leaf10-5, */
   .leaf10,
   .leaf11,
   .leaf12,

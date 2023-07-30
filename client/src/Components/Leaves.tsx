@@ -200,7 +200,7 @@ const Leaves = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: { md: '700px' },
+            width: {xs:'370px', sm: '600px', md: '700px' },
           }}
         >
           <Typography
@@ -208,7 +208,7 @@ const Leaves = () => {
               color: 'green.darker',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '25px',lg: '30px'},
+              fontSize: {xs:'20px',sm: '28px',md: '25px',lg: '30px'},
               fontStyle: 'italic',
               fontWeight: '500',
               lineHeight: '118.5%' /* 42.66px */,
@@ -223,7 +223,7 @@ const Leaves = () => {
               color: 'green.light',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '40px', lg: '56px'},
+              fontSize: {xs:'25px',sm: '35px',md: '40px', lg: '56px'},
               fontWeight: '400',
               lineHeight: '118.5%' /* 42.66px */,
               letterSpacing: '-1.68px',
@@ -237,7 +237,7 @@ const Leaves = () => {
               color: 'green.light',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '40px', lg: '56px'},
+              fontSize: {xs:'25px',sm: '35px',md: '40px', lg: '56px'},
               fontStyle: 'italic',
               fontWeight: '600',
               lineHeight: '118.5%' /* 42.66px */,
@@ -253,8 +253,9 @@ const Leaves = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: {md:'center', lg: 'flex-end'},
-            width: { md: '900px' },
+            justifyContent: {xs:'center', lg: 'flex-end'},
+            width: {xs:'370px',sm: '600px', md: '900px' },
+            flexWrap:{xs:'wrap',sm: 'no-wrap'}
           }}
         >
           <Typography
@@ -262,7 +263,7 @@ const Leaves = () => {
               color: 'green.darker',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '25px',lg: '30px'},
+              fontSize: {xs:'20px',sm: '28px',md: '25px',lg: '30px'},
               fontStyle: 'italic',
               fontWeight: '500',
               lineHeight: '118.5%' /* 42.66px */,
@@ -277,7 +278,7 @@ const Leaves = () => {
               color: '#F8B542',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '40px', lg: '56px'},
+              fontSize: {xs:'25px',sm: '35px',md: '40px', lg: '56px'},
               fontStyle: 'italic',
               fontWeight: '600',
               lineHeight: '118.5%' /* 42.66px */,
@@ -292,7 +293,7 @@ const Leaves = () => {
               color: 'green.darker',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '25px',lg: '30px'},
+              fontSize: {xs:'20px',sm: '28px',md: '25px',lg: '30px'},
               fontStyle: 'italic',
               fontWeight: '500',
               lineHeight: '118.5%' /* 42.66px */,
@@ -307,7 +308,7 @@ const Leaves = () => {
               color: '#F8B542',
               textAlign: 'center',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: {md: '40px', lg: '56px'},
+              fontSize: {xs:'25px',sm: '35px',md: '40px', lg: '56px'},
               fontWeight: '600',
               lineHeight: '118.5%' /* 42.66px */,
               letterSpacing: '-1.08px',

@@ -12,6 +12,7 @@ import slide2 from '../assets/fslide2.png';
 import slide3 from '../assets/fslide3.png';
 import slide4 from '../assets/fslide4.png';
 import SlideShow from './Slideshow';
+import RightArrow from '../utils/RightArrow';
 const Features = () => {
   const [options, setOptions] = React.useState({
     op0: false,
@@ -45,7 +46,7 @@ const Features = () => {
     // console.log(options);
   }
   function handleChange(event: any) {
-    const value = "op" + event.target.id.charAt(12)
+    const value = 'op' + event.target.id.charAt(12);
     setValue(menuItems[event.target.id.charAt(12)].name);
     // console.log(value);
     setOptions({
@@ -53,12 +54,12 @@ const Features = () => {
       op1: false,
       op2: false,
     });
-      setOptions((preValue) => {
-        return {
-          ...preValue,
-          [value]: true,
-        };
-      });
+    setOptions((preValue) => {
+      return {
+        ...preValue,
+        [value]: true,
+      };
+    });
   }
   const slideshow = [
     <FeatureCard
@@ -108,6 +109,7 @@ const Features = () => {
         minHeight: '100vh',
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
         display: 'flex',
       }}
     >
@@ -132,7 +134,11 @@ const Features = () => {
         >
           <Typography
             variant="h2"
-            sx={{ color: 'green.darker', fontSize: {xs: '40px', sm: '45px'}, textAlign:'center' }}
+            sx={{
+              color: 'green.darker',
+              fontSize: { xs: '40px', sm: '45px' },
+              textAlign: 'center',
+            }}
           >
             Featured Products
           </Typography>
@@ -142,8 +148,8 @@ const Features = () => {
               color: 'green.darker',
               fontSize: '20px',
               fontFamily: 'Roboto Slab',
-              maxWidth: {xs:'350px', sm: '100vw'}, 
-              textAlign:'center'
+              maxWidth: { xs: '350px', sm: '100vw' },
+              textAlign: 'center',
             }}
           >
             Lorem ipsum dolor sit amet, consectetuer Lorem ispum.
@@ -155,7 +161,7 @@ const Features = () => {
             alignItems: 'center',
             display: { xs: 'none', sm: 'flex' },
             justifyContent: 'space-between',
-            margin: '30px 0'
+            margin: '30px 0',
           }}
         >
           <Button id="op0" ref={op0} onClick={() => handleClick(op0)}>
@@ -196,50 +202,49 @@ const Features = () => {
               Best Sellers
             </Typography>
           </Button>
-         
         </Box>
         <Autocomplete
-            value={value}
-            ref={ref1}
-            onChange={handleChange}
-            options={menuItems.map((value)=>value.name)}
-            sx={{display: {xs:'flex', sm: 'none'}}}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Select your option"
-                InputLabelProps={{
-                    style: {
-                      color: 'green.darker',
-                      fontFamily: 'Plus Jakarta Sans',
-                    }
-                  }}
-                sx={{
-                    width: '80vw',
-                    margin: '20px 0',
-                    '& .MuiOutlinedInput-root': {
-                    // height: {xs: '50px', sm: 'auto'},
-                    backgroundColor: 'transparent',
-                      color: 'green.darker',
-                      '& fieldset': {
-                        border: '2px solid #00584A',
-                        color: 'green.darker',
-                      },
-                      '&.Mui-focused fieldset': {
-                        border: '2px solid #00584A',
-                        color: 'green.darker',
-                      },
-                    },
-                    '& .MuiOutlinedInput-root:hover': {
-                      '& fieldset': {
-                        border: 'green.darker',
-                        color: 'green.darker',
-                      },
-                    },
-                  }}
-              />
-            )}
-          />
+          value={value}
+          ref={ref1}
+          onChange={handleChange}
+          options={menuItems.map((value) => value.name)}
+          sx={{ display: { xs: 'flex', sm: 'none' } }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Select your option"
+              InputLabelProps={{
+                style: {
+                  color: 'green.darker',
+                  fontFamily: 'Plus Jakarta Sans',
+                },
+              }}
+              sx={{
+                width: '80vw',
+                margin: '20px 0',
+                '& .MuiOutlinedInput-root': {
+                  // height: {xs: '50px', sm: 'auto'},
+                  backgroundColor: 'transparent',
+                  color: 'green.darker',
+                  '& fieldset': {
+                    border: '2px solid #00584A',
+                    color: 'green.darker',
+                  },
+                  '&.Mui-focused fieldset': {
+                    border: '2px solid #00584A',
+                    color: 'green.darker',
+                  },
+                },
+                '& .MuiOutlinedInput-root:hover': {
+                  '& fieldset': {
+                    border: 'green.darker',
+                    color: 'green.darker',
+                  },
+                },
+              }}
+            />
+          )}
+        />
         <Box sx={{ display: options.op0 ? 'block' : 'none' }}>
           <SlideShow components={slideshow} arrows={false} />
         </Box>
@@ -249,6 +254,23 @@ const Features = () => {
         <Box sx={{ display: options.op2 ? 'block' : 'none' }}>
           <SlideShow components={slideshow} arrows={false} />
         </Box>
+      </Box>
+      <Box
+        sx={{
+          width: '90vw',
+          marginTop: '20px',
+          display: { sm: 'none', md: 'flex' },
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        }}
+      >
+        <Typography
+          component="h5"
+          sx={{ color: 'green.darker', marginRight: '20px', fontSize: '20px', fontWeight:'600',  }}
+        >
+          Explore <Typography component='span' sx={{fontStyle:'italic', color: 'green.darker', marginRight: '2px', fontSize: '20px', fontWeight:'600'}}>M</Typography>ore
+        </Typography>
+        <RightArrow />
       </Box>
     </Box>
   );

@@ -18,7 +18,7 @@ const Hero = () => {
         sx={{
           minHeight: { xs: '45vh', sm: '250px', md: '270px' },
           display: 'flex',
-          alignItems: { xs: 'center !important', sm: 'flex-start' },
+          alignItems: { xs: 'center', sm: 'flex-start' },
           justifyContent: 'space-between',
           flexDirection: 'column',
           margin: { xs: '0px 0px 40px 0px', sm: '0 35px', md: '0 100px' },
@@ -43,8 +43,8 @@ const Hero = () => {
         <Typography
           variant="h6"
           sx={{
-            color: 'green.darker',
-            fontSize: '16px',
+            color: 'green.light',
+            fontSize: {xs: '16px', sm: '20px'},
             textAlign: { xs: 'center', sm: 'left' },
             marginBottom: { xs: '50px', sm: '0px' },
           }}
@@ -90,7 +90,7 @@ const Hero = () => {
             <Button
               sx={{
                 bgcolor: 'green.darker',
-                height: { xs: '50.5px', sm: '57px', md: '56px' },
+                height: { xs: '50.5px', sm: '57px', md: '56.5px' },
                 borderRadius: '10px',
                 position: 'relative',
                 left: '10px',
