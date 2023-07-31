@@ -30,7 +30,7 @@
         bottom: -750px
     }
     100%{
-        bottom: -150px;
+        bottom: -200px;
     }
 }
 .grass3forward{
@@ -43,10 +43,10 @@
 }
 @keyframes grass3forward {
     0%{
-        bottom: -150px
+        bottom: -200px
     }
     100%{
-        bottom: 0px;
+        bottom: 2px;
     }
 }
 .grass1reverse{
@@ -78,7 +78,7 @@
 }
 @keyframes grass2reverse {
     0%{
-        bottom: -150px;
+        bottom: -200px;
     }
     100%{
         bottom: -750px
@@ -93,13 +93,13 @@
     background-image: url('../assets/grass.png');
     background-size: 100vw 869px;
     /* animation: grass3reverse 1s ease-out forwards; */
-    bottom: -150px;
+    bottom: -200px;
 }
 @keyframes grass3reverse {
     0%{
         bottom: 0px
     }
     100%{
-        bottom: -150px;
+        bottom: -200px;
     }
 }

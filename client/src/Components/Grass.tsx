@@ -6,12 +6,12 @@ const Grass = () => {
   const [scroll, open, toggleDrawer, width900, scrollp] = useNavbar();
   console.log(scrollp);
   const classnames = classNames({
-    grass1forward: scrollp > 2200 && scrollp < 2700 && scroll === true, //
+    grass1forward: scrollp > 1800 && scrollp < 2700 && scroll === true, //
     grass2forward: scrollp > 2700 && scrollp < 4000 && scroll === true, //
     grass3forward: scrollp > 4000,
     grass3reverse: scrollp > 2700 && scrollp < 4000 && scroll === false, //
-    grass2reverse: scrollp > 2200 && scrollp < 2700 && scroll === false, //
-    grass1reverse: scrollp < 2200 && scroll === false,
+    grass2reverse: scrollp > 1800 && scrollp < 2700 && scroll === false, //
+    grass1reverse: scrollp < 1800 && scroll === false,
   });
   console.log(classnames);
   return (
