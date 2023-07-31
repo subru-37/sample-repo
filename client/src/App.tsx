@@ -2,6 +2,10 @@ import React from 'react';
 import Landing from './Pages/Landing';
 import Navbar from './Components/Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
     green: Palette['primary'];
