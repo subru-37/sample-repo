@@ -8,6 +8,11 @@ type props = {
   color?: string;
   indicators?: boolean;
   arrows?: boolean;
+  show1100: number;
+  show900: number;
+  show600: number;
+  show400: number;
+  width?: string;
 };
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -24,12 +29,20 @@ export default function SlideShow(props: props) {
     height: '400px',
   };
   return (
-    <div className="slide-container">
+    <div className="slide-container" style={{ width: props.width }}>
       <Slide
         duration={2500}
         transitionDuration={700}
         slidesToScroll={1}
-        slidesToShow={!width1100 ? (!width900 ? (!width600 ? 1 : 2) : 3) : 4}
+        slidesToShow={
+          !width1100
+            ? !width900
+              ? !width600
+                ? props.show400
+                : props.show600
+              : props.show900
+            : props.show1100
+        }
         prevArrow={
           <NavigationIcon
             sx={{
@@ -53,7 +66,16 @@ export default function SlideShow(props: props) {
         autoplay={false}
       >
         {props.components.map((value: any, index: any) => (
-          <div key={index}>{value}</div>
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {value}
+          </div>
         ))}
       </Slide>
     </div>

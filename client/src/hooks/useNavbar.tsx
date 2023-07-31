@@ -20,7 +20,7 @@ const width900 = useMediaQuery('(min-width:900px)');
       } else if (window.scrollY <= scrollp) {
         setScroll(false);
       }
-      //   console.log(scrollp, scroll)
+        // console.log(scrollp, scroll)
     }
     return () => {
       window.removeEventListener('scroll', navScrolled);

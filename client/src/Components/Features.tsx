@@ -13,6 +13,7 @@ import slide3 from '../assets/fslide3.png';
 import slide4 from '../assets/fslide4.png';
 import SlideShow from './Slideshow';
 import RightArrow from '../utils/RightArrow';
+import ExploreMore from '../utils/ExploreMore';
 const Features = () => {
   const [options, setOptions] = React.useState({
     op0: false,
@@ -246,32 +247,37 @@ const Features = () => {
           )}
         />
         <Box sx={{ display: options.op0 ? 'block' : 'none' }}>
-          <SlideShow components={slideshow} arrows={false} />
+          <SlideShow
+            show1100={4}
+            show900={3}
+            show600={2}
+            show400={1}
+            components={slideshow}
+            arrows={false}
+          />
         </Box>
         <Box sx={{ display: options.op1 ? 'block' : 'none' }}>
-          <SlideShow components={slideshow} arrows={false} />
+          <SlideShow
+            show1100={4}
+            show900={3}
+            show600={2}
+            show400={1}
+            components={slideshow}
+            arrows={false}
+          />
         </Box>
         <Box sx={{ display: options.op2 ? 'block' : 'none' }}>
-          <SlideShow components={slideshow} arrows={false} />
+          <SlideShow
+            show1100={4}
+            show900={3}
+            show600={2}
+            show400={1}
+            components={slideshow}
+            arrows={false}
+          />
         </Box>
       </Box>
-      <Box
-        sx={{
-          width: '90vw',
-          marginTop: '20px',
-          display: { sm: 'none', md: 'flex' },
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-        }}
-      >
-        <Typography
-          component="h5"
-          sx={{ color: 'green.darker', marginRight: '20px', fontSize: '20px', fontWeight:'600',  }}
-        >
-          Explore <Typography component='span' sx={{fontStyle:'italic', color: 'green.darker', marginRight: '2px', fontSize: '20px', fontWeight:'600'}}>M</Typography>ore
-        </Typography>
-        <RightArrow />
-      </Box>
+      <ExploreMore/>
     </Box>
   );
 };

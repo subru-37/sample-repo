@@ -4,6 +4,8 @@ import Hero from '../Components/Hero';
 import '../styles/Landing.css';
 import Features from '../Components/Features';
 import Leaves from '../Components/Leaves';
+import Collections from '../Components/Collections';
+import Grass from '../Components/Grass';
 const Landing = () => {
   return (
     <Box
@@ -12,11 +14,15 @@ const Landing = () => {
         backgroundImage: 'url("../src/assets/finalbg.png")',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100vw 100vh',
+        minHeight:'800vh', 
+        position:'relative'
       }}
     >
       <Hero />
       <Features/>
       <Leaves/>
+      <Collections/>
+      <Grass/>
     </Box>
   );
 };
