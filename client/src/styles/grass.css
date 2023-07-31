@@ -1,4 +1,4 @@
-.grass {
+/* .grass {
   position: fixed;
   position: fixed;
   width: 100vw;
@@ -14,7 +14,6 @@
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
   animation: grass1reverse 1s ease-out forwards;
-  /* bottom: -869px */
 }
 @keyframes grass1reverse {
   0% {
@@ -51,7 +50,6 @@
     background-image: url('../assets/grass.png');
     background-size: 100vw 869px;
     animation: grass2reverse 1s ease-out forwards;
-    /* bottom: -750px */
   }
   @keyframes grass2reverse {
     0% {
@@ -69,7 +67,6 @@
     background-image: url('../assets/grass.png');
     background-size: 100vw 869px;
     animation: grass3reverse 1s ease-out forwards;
-    /* bottom: -200px; */
   }
   @keyframes grass3reverse {
     0% {
@@ -156,4 +153,44 @@
         animation: none !important;
         display: none;
     }
+} */
+.stage0{
+  position: fixed;
+  width: 100vw;
+  height: 869px;
+  background-image: url('../assets/grass.png');
+  background-size: 100vw 869px;
+  bottom: -869px;
+}
+.stage1{
+  position: absolute;
+  width: 100vw;
+  height: 869px;
+  background-image: url('../assets/grass.png');
+  background-size: 100vw 869px;
+  top: 2900px;
+}
+.stage2{
+  position: fixed;
+  width: 100vw;
+  height: 869px;
+  background-image: url('../assets/grass.png');
+  background-size: 100vw 869px;
+  bottom: -150px;
+}
+.stage3{
+  position: absolute;
+  width: 100vw;
+  height: 869px;
+  background-image: url('../assets/grass.png');
+  background-size: 100vw 869px;
+  top: 4045px;
+}
+.stage4{
+  position: fixed;
+  width: 100vw;
+  height: 869px;
+  background-image: url('../assets/grass.png');
+  background-size: 100vw 869px;
+  bottom: 0px;
 }
