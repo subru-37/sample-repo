@@ -1,6 +1,6 @@
 .stage0{
   position: fixed;
-  width: 100vw;
+  width: 99vw;
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
@@ -8,7 +8,7 @@
 }
 .stage1{
   position: absolute;
-  width: 100vw;
+  width: 99vw;
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
@@ -16,7 +16,7 @@
 }
 .stage2{
   position: fixed;
-  width: 100vw;
+  width: 99vw;
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
@@ -24,7 +24,7 @@
 }
 .stage3{
   position: absolute;
-  width: 100vw;
+  width: 99vw;
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
@@ -32,7 +32,7 @@
 }
 .stage4{
   position: fixed;
-  width: 100vw;
+  width: 99vw;
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;

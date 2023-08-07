@@ -3,6 +3,7 @@ import CollectionCard from './CollectionCard';
 import { Box, Typography } from '@mui/material';
 import SlideShow from './Slideshow';
 import ExploreMore from '../utils/ExploreMore';
+import SampleCard from './SampleCard';
 const Collections = () => {
   const contentItems = [
     { name: 'Loreum Ipsum, Loreum Ipsum' },
@@ -12,7 +13,7 @@ const Collections = () => {
   const collectionItems = contentItems.map((value) => {
     return <CollectionCard content={value.name} />;
   });
-//   console.log(collectionItems);
+  //   console.log(collectionItems);
   return (
     <Box
       sx={{
@@ -45,8 +46,61 @@ const Collections = () => {
         >
           Collections
         </Typography>
-        <SlideShow show1100={3} show900={3} show600={2} show400={1} arrows={false} width='100%' components={collectionItems} />
-        <ExploreMore/>
+        <SlideShow
+          show1100={3}
+          show900={3}
+          show600={2}
+          show400={1}
+          arrows={false}
+          width="100%"
+          components={collectionItems}
+        />
+        <ExploreMore />
+        {/* sample boxes */}
+
+        <Box
+          sx={{
+            marginTop: '300px',
+            width: { xs: '350px', sm: '600px', md: '80vw' },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'space-between', sm: 'center' },
+              alignItems: 'center',
+              flexDirection: { sm: 'column', md: 'row' },
+              width: { xs: '95vw', sm: '80vw' },
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: {
+                  xs: 'center',
+                  sm: 'flex-start',
+                },
+                flexWrap: 'wrap',
+              }}
+            >
+              <SampleCard type1={true} />
+              <SampleCard type1={false} />
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: {
+                  xs: 'center',
+                  sm: 'flex-end',
+                },
+                flexWrap: 'wrap',
+              }}
+            >
+              <SampleCard type1={true} />
+              <SampleCard type1={false} />
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
