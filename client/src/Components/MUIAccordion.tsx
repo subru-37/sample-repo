@@ -10,19 +10,23 @@ import Plus from '../utils/Plus';
 type props = {
   question: string;
   answer: string;
+  handleChange: Function;
+  expanded: string | boolean;
+  setExpanded: Function;
+  panel: string;
 };
 const MUIAccordion = (props: props) => {
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+//   const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+//   const handleChange =
+//     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+//       setExpanded(isExpanded ? panel : false);
+//     };
   return (
     <Box sx={{ background: '#00584A', margin: '5px 0' }}>
       <Accordion
-        expanded={expanded === 'panel1'}
-        onChange={handleChange('panel1')}
+        expanded={props.expanded === props.panel}
+        onChange={props.handleChange(props.panel)}
         sx={{
           background: '#00584A',
           borderRadius: '20px !important',

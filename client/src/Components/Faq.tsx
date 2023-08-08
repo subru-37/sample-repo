@@ -2,6 +2,11 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import MUIAccordion from './MUIAccordion';
 const Faq = () => {
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+  const handleChange =
+    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
   return (
     <Box
       sx={{
@@ -30,7 +35,7 @@ const Faq = () => {
             justifyContent: 'center',
             padding: { xs: '10px', sm: '20px' },
             flexDirection: 'column',
-            marginTop: {xs:'0px', sm: '20px', md: '80px'}
+            marginTop: { xs: '0px', sm: '20px', md: '80px' },
           }}
         >
           <Typography
@@ -65,25 +70,41 @@ const Faq = () => {
             alignItems: 'center',
             justifyContent: 'center',
             padding: { xs: '10px', sm: '20px', md: '80px' },
-            flexDirection:'column'
+            flexDirection: 'column',
           }}
         >
           <MUIAccordion
+          panel='panel1'
+            handleChange={handleChange}
+            expanded={expanded}
+            setExpanded={setExpanded}
             question="Lorem ipsum dolor sit amet, consectetuer Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
             answer="Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
             Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
+          panel='panel2'
+            handleChange={handleChange}
+            expanded={expanded}
+            setExpanded={setExpanded}
             question="Lorem ipsum dolor sit amet, consectetuer Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
             answer="Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
           Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
+          panel='panel3'
+            handleChange={handleChange}
+            expanded={expanded}
+            setExpanded={setExpanded}
             question="Lorem ipsum dolor sit amet, consectetuer Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
             answer="Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
         Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
+          panel='panel4'
+            handleChange={handleChange}
+            expanded={expanded}
+            setExpanded={setExpanded}
             question="Lorem ipsum dolor sit amet, consectetuer Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
             answer="Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
       Aliquam eget maximus est, id dignissim quam."
