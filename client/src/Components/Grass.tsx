@@ -4,7 +4,7 @@ import '../styles/grass.css';
 import classNames from 'classnames';
 const Grass = () => {
   const [scroll, open, toggleDrawer, width900, scrollp] = useNavbar();
-  console.log(scrollp)
+  // console.log(scrollp)
   const classnames = classNames({
     stage0: scrollp < 2000,
     stage1: scrollp >= 2000 && scrollp < 2850,

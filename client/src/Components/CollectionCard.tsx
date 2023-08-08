@@ -17,7 +17,7 @@ const CollectionCard = (props: props) => {
       }}
     >
       <Typography
-        component="body"
+        component="p"
         sx={{
           color: 'green.darker',
           textAlign: 'center',

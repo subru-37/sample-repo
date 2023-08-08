@@ -8,6 +8,7 @@ import Collections from '../Components/Collections';
 import Grass from '../Components/Grass';
 import AboutUs from '../Components/AboutUs';
 import Feedback from '../Components/Feedback';
+import Faq from '../Components/Faq';
 const Landing = () => {
   return (
     <Box
@@ -16,7 +17,7 @@ const Landing = () => {
         backgroundImage: 'url("../src/assets/finalbg.png")',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100vw 100vh',
-        minHeight:'800vh', 
+        // minHeight:'800vh', 
         position:'relative'
       }}
     >
@@ -27,6 +28,7 @@ const Landing = () => {
       <Grass/>
       <AboutUs/>
       <Feedback/>
+      <Faq/>
     </Box>
   );
 };
