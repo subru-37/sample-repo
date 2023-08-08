@@ -7,6 +7,7 @@ import Leaves from '../Components/Leaves';
 import Collections from '../Components/Collections';
 import Grass from '../Components/Grass';
 import AboutUs from '../Components/AboutUs';
+import Feedback from '../Components/Feedback';
 const Landing = () => {
   return (
     <Box
@@ -25,6 +26,7 @@ const Landing = () => {
       <Collections/>
       <Grass/>
       <AboutUs/>
+      <Feedback/>
     </Box>
   );
 };
