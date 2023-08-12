@@ -18,11 +18,12 @@ const AboutUs = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: {xs: 'space-around', sm: 'space-between'},
-          height: {xs: '70vh',sm: '80vh'},
+          justifyContent: { xs: 'space-around', sm: 'space-between' },
+          height: { xs: '100vh', sm: '80vh' },
           width: { xs: '95vw', sm: '90vw' },
           flexDirection: 'column',
-          marginTop: {xs: '0px',sm: '150px'}
+          marginTop: { xs: '0px', sm: '150px' },
+          boxSizing: 'border-box',
         }}
       >
         {/* title */}
@@ -34,7 +35,7 @@ const AboutUs = () => {
             justifyContent: 'center',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            minHeight: {xs: '150px',sm: '200px'},
+            minHeight: { xs: '150px', sm: '200px' },
           }}
         >
           <Typography
@@ -117,9 +118,8 @@ const AboutUs = () => {
               alignItems: 'flex-start',
               justifyContent: 'space-around',
               width: { xs: '95vw', sm: '30%' },
-              flexDirection: {xs: 'row', sm:'column'},
-              height: '50%', 
-
+              flexDirection: { xs: 'row', sm: 'column' },
+              height: '50%',
             }}
           >
             <Typography
@@ -164,6 +164,7 @@ const AboutUs = () => {
                 fontStyle: 'normal',
                 fontWeight: '400',
                 lineHeight: '121.5%',
+                padding:'20px'
               }}
             >
               Our experts are above all passionate about organizational
