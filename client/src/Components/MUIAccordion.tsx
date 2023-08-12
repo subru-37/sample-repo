@@ -37,7 +37,7 @@ const MUIAccordion = (props: props) => {
           expandIcon={<Plus />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
-          sx={{ padding: '25px 50px' }}
+          sx={{ padding: {xs: '25px 15px',sm: '25px 50px'} }}
         >
           <Typography
             sx={{

@@ -12,8 +12,8 @@ const FeedbackCard = (props: styleprops) => {
   return (
     <Box
       sx={{
-        width: { xs: '100vw', sm: '400px' },
-        height: '550px',
+        width: { xs: '90vw', md: '400px' },
+        height: {xs: '500px',md:'550px'},
         borderRadius: '40px',
         backgroundColor: props.bgcolor,
         transform: `rotate(${props.rotate})`,

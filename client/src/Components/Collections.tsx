@@ -16,7 +16,7 @@ const Collections = (props: any) => {
     return <CollectionCard content={value.name} />;
   });
   const ref1 = props.ref1;
-  // const onscreen = useOnScreen(ref1);
+  const onscreen = useOnScreen(ref1);
   return (
     <Box
       sx={{
@@ -29,6 +29,7 @@ const Collections = (props: any) => {
         width: '100vw'
       }}
     >
+      <Grass checkposn={onscreen}/>
       <Box
         sx={{
           display: 'flex',
@@ -63,21 +64,25 @@ const Collections = (props: any) => {
         />
         <ExploreMore ref1={ref1}/>
         {/* sample boxes */}
-
-        <Box
+      </Box>
+      <Box
           sx={{
-            marginTop: '300px',
+            marginTop: {xs: '100px',lg: '200px'},
             width: { xs: '350px', sm: '600px', md: '80vw' },
+            display: 'flex', 
+            alignItems: 'center',
+            justifyContent:'center',
+            flexWrap: 'wrap'
           }}
         >
 
           <Box
             sx={{
               display: 'flex',
-              justifyContent: { xs: 'space-between', sm: 'center' },
+              justifyContent:'center',
               alignItems: 'center',
-              flexDirection: { sm: 'column', md: 'row' },
-              width: { xs: '95vw', sm: '80vw' },
+              flexDirection: { xs: 'column', md: 'row' },
+              minWidth: {xs: '100%', md: '0%'}
             }}
           >
             <Box
@@ -85,10 +90,13 @@ const Collections = (props: any) => {
                 display: 'flex',
                 alignItems: {
                   xs: 'center',
-                  sm: 'flex-start',
+                  md: 'flex-start',
                 },
                 flexWrap: 'wrap',
-              }}
+              justifyContent:'center',
+              flexDirection: { xs: 'column', md: 'row' },
+              minWidth: {xs: '100%', md: '0%'}
+            }}
             >
               <SampleCard type1={true} />
               <SampleCard type1={false} />
@@ -98,17 +106,19 @@ const Collections = (props: any) => {
                 display: 'flex',
                 alignItems: {
                   xs: 'center',
-                  sm: 'flex-end',
+                  md: 'flex-end',
                 },
-                flexWrap: 'wrap',
-              }}
+              justifyContent:'center',
+              flexDirection: { xs: 'column', md: 'row' },
+              flexWrap: 'wrap',
+              minWidth: {xs: '100%', md: '0%'}
+            }}
             >
               <SampleCard type1={true} />
               <SampleCard type1={false} />
             </Box>
           </Box>
         </Box>
-      </Box>
     </Box>
   );
 };

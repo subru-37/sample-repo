@@ -18,11 +18,11 @@ const AboutUs = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          height: '80vh',
+          justifyContent: {xs: 'space-around', sm: 'space-between'},
+          height: {xs: '70vh',sm: '80vh'},
           width: { xs: '95vw', sm: '90vw' },
           flexDirection: 'column',
-          marginTop: '150px'
+          marginTop: {xs: '0px',sm: '150px'}
         }}
       >
         {/* title */}
@@ -34,14 +34,14 @@ const AboutUs = () => {
             justifyContent: 'center',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            height: '200px',
+            minHeight: {xs: '150px',sm: '200px'},
           }}
         >
           <Typography
             sx={{
               color: 'green.dark',
               textAlign: 'center',
-              fontSize: { xs: '20px', sm: '40px', md: '55px' },
+              fontSize: { xs: '45px', sm: '50px', md: '55px' },
               fontWeight: '500',
               lineHeight: '97.27px',
               letterSpacing: '-3.6px',
@@ -57,7 +57,7 @@ const AboutUs = () => {
             sx={{
               color: '#FEFAE0',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: { xs: '20px', sm: '40px', md: '55px' },
+              fontSize: { xs: '45px', sm: '50px', md: '55px' },
               fontStyle: 'normal',
               fontWeight: '400',
               lineHeight: '121.5%',
@@ -73,7 +73,7 @@ const AboutUs = () => {
             sx={{
               color: '#FEFAE0',
               fontFamily: 'Plus Jakarta Sans',
-              fontSize: { xs: '20px', sm: '40px', md: '55px' },
+              fontSize: { xs: '45px', sm: '50px', md: '55px' },
               fontStyle: 'normal',
               fontWeight: '400',
               lineHeight: '121.5%',
@@ -88,7 +88,7 @@ const AboutUs = () => {
             sx={{
               color: 'green.dark',
               textAlign: 'center',
-              fontSize: { xs: '20px', sm: '40px', md: '55px' },
+              fontSize: { xs: '45px', sm: '50px', md: '55px' },
               fontWeight: '500',
               lineHeight: '97.27px',
               letterSpacing: '-3.6px',
@@ -107,7 +107,7 @@ const AboutUs = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            flexDirection: { xs: 'column', sm: 'row' },
+            flexDirection: { xs: 'column-reverse', sm: 'row' },
             width: { xs: '100vw', sm: '600px', md: '80vw' },
           }}
         >
@@ -117,7 +117,7 @@ const AboutUs = () => {
               alignItems: 'flex-start',
               justifyContent: 'space-around',
               width: { xs: '95vw', sm: '30%' },
-              flexDirection: 'column',
+              flexDirection: {xs: 'row', sm:'column'},
               height: '50%', 
 
             }}
@@ -159,7 +159,8 @@ const AboutUs = () => {
               sx={{
                 color: '#FEFAE0',
                 fontFamily: 'Plus Jakarta Sans',
-                fontSize: { xs: '18px', sm: '25px', md: '30px' },
+                fontSize: { xs: '25px', sm: '25px', md: '30px' },
+                margin: '50px 0px',
                 fontStyle: 'normal',
                 fontWeight: '400',
                 lineHeight: '121.5%',

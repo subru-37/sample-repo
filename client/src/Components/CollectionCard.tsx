@@ -9,7 +9,7 @@ const CollectionCard = (props: props) => {
       sx={{
         borderRadius: '20px',
         display: 'flex',
-        width: '367px',
+        width: {xs: '350px',sm: '300px',md: '367px'},
         height: '451px',
         backgroundColor: 'green.lighter',
         alignItems:'flex-end',

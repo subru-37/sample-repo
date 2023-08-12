@@ -7,7 +7,7 @@ type props = {
 }
 const Grass = (props: props) => {
   const [scroll, open, toggleDrawer, width900, scrollp] = useNavbar();
-  console.log(props.checkposn)
+  console.log(props.checkposn, scrollp)
   // console.log(scroll === false ? (props.checkposn ? 'stage0' : 'stage1') :'')
   const classnames = classNames({
     // stage0: scrollp < 2000,
@@ -15,7 +15,7 @@ const Grass = (props: props) => {
     // stage1: scrollp >= 2000 && scrollp < 3047,
     stage1: props.checkposn === true,
     // stage2: scrollp >= 3047 && scrollp < 4900,
-    stage2: scrollp >= 3000 && props.checkposn === false,
+    stage2: scrollp >= 2600 && props.checkposn === false,
     // stage3: scrollp >= 4900 && scrollp < 5046,
     // stage4: scrollp >= 5046,
   });

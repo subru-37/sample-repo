@@ -12,8 +12,8 @@ import Faq from '../Components/Faq';
 import useOnScreen from '../hooks/useOnScreen';
 const Landing = () => {
   const ref1 = createRef<HTMLDivElement>();
-  const onscreen = useOnScreen(ref1);
-  console.log(onscreen)
+  // const onscreen = useOnScreen(ref1);
+  // console.log(onscreen)
   return (
     <Box
       sx={{
@@ -28,7 +28,7 @@ const Landing = () => {
       <Hero />
       <Features/>
       <Leaves/>
-      <Grass checkposn={onscreen}/>
+      {/* <Grass checkposn={onscreen}/> */}
       <Collections ref1={ref1}/>
       <AboutUs/>
       <Feedback/>

@@ -13,7 +13,9 @@ type props = {
   show600: number;
   show400: number;
   width: string;
-  ref1?:RefObject<HTMLDivElement>
+  height?: string;
+  padding?: string;
+  ref1?: RefObject<HTMLDivElement>;
 };
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -33,7 +35,14 @@ export default function SlideShow(props: props) {
     <div
       className="slide-container"
       ref={props.ref1}
-      style={{ width: props.width, zIndex: '1000', position: 'relative' }}
+      style={{
+        width: props.width,
+        zIndex: '1000',
+        position: 'relative',
+        height: props.height,
+        padding: props.padding,
+        boxSizing: 'border-box',
+      }}
     >
       <Slide
         duration={2500}

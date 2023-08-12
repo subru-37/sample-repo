@@ -13,6 +13,7 @@ const SampleCard = (props: sampleprops) => {
         borderRadius:'10px', 
         zIndex: '1000', 
         position: 'relative',
+        margin: {xs: '20px', lg: '0px'}
       }}
     ></Box>
   );

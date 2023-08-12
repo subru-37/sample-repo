@@ -8,7 +8,7 @@ export default function useOnScreen(ref: RefObject<HTMLDivElement>) {
       setIntersecting(entry.isIntersecting);
       console.log(entry);
     },
-    { rootMargin: '30px 0px -155px 0px' }
+    { rootMargin: '-60px 0px -155px 0px' }
   );
 //   console.log(observer1);
   useEffect(() => {

@@ -10,7 +10,7 @@ const ExploreMore = (props: props ) => {
         sx={{
           width: '90vw',
           marginTop: '20px',
-          display: { sm: 'none', md: 'flex' },
+          display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
         }}
