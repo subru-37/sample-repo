@@ -33,7 +33,7 @@ const Feedback = () => {
     },
   ];
   return (
-    <Box >
+    <Box>
       <Box
         sx={{
           display: { xs: 'none', sm: 'flex' },
@@ -59,28 +59,30 @@ const Feedback = () => {
           );
         })}
       </Box>
-      <SlideShow
-        components={cards.map((value, index) => {
-          return (
-            <FeedbackCard
-              bgcolor={value.bgcolor}
-              titlecolor={value.titlecolor}
-              rotate={value.rotate}
-              name={value.name}
-              profession={value.profession}
-              feedback={value.feedback}
-            />
-          );
-        })}
-        indicators={false}
-        arrows={false}
-        show1100={1}
-        show900={1}
-        show600={1}
-        show400={1}
-        width="95vw"
-        height="600px"
-      />
+      <Box sx={{display: {xs: 'flex', sm: 'none'}}}>
+        <SlideShow
+          components={cards.map((value, index) => {
+            return (
+              <FeedbackCard
+                bgcolor={value.bgcolor}
+                titlecolor={value.titlecolor}
+                rotate={value.rotate}
+                name={value.name}
+                profession={value.profession}
+                feedback={value.feedback}
+              />
+            );
+          })}
+          indicators={false}
+          arrows={false}
+          show1100={1}
+          show900={1}
+          show600={1}
+          show400={1}
+          width="95vw"
+          height="600px"
+        />
+      </Box>
     </Box>
   );
 };
