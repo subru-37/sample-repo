@@ -254,6 +254,7 @@ const Features = () => {
             show400={1}
             components={slideshow}
             arrows={false}
+            width="95vw"
           />
         </Box>
         <Box sx={{ display: options.op1 ? 'block' : 'none' }}>
@@ -263,6 +264,7 @@ const Features = () => {
             show600={2}
             show400={1}
             components={slideshow}
+            width="95vw"
             arrows={false}
           />
         </Box>
@@ -273,6 +275,7 @@ const Features = () => {
             show600={2}
             show400={1}
             components={slideshow}
+            width="95vw"
             arrows={false}
           />
         </Box>

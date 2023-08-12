@@ -8,176 +8,176 @@ const Leaves = () => {
     <div className="parent">
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf1-reverse leaf1'
               : 'leaf1-forward leaf1'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf1'
             : 'leaf1-reverse leaf1'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf1-75-reverse leaf1-75'
               : 'leaf1-75-forward leaf1-75'
-            : scrollp < 1320 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf1-75'
             : 'leaf1-75-reverse leaf1-75'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf1-5-reverse leaf1-5'
               : 'leaf1-5-forward leaf1-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf1-5'
             : 'leaf1-5-reverse leaf1-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf2-5-reverse leaf2-5'
               : 'leaf2-5-forward leaf2-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf2-5'
             : 'leaf2-5-reverse leaf2-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf3-reverse leaf3'
               : 'leaf3-forward leaf3'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf3'
             : 'leaf3-reverse leaf3'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf4-5-reverse leaf4-5'
               : 'leaf4-5-forward leaf4-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf4-5'
             : 'leaf4-5-reverse leaf4-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf5-reverse leaf5'
               : 'leaf5-forward leaf5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf5'
             : 'leaf5-reverse leaf5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf6-reverse leaf6'
               : 'leaf6-forward leaf6'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf6'
             : 'leaf6-reverse leaf6'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf7-5-reverse leaf7-5'
               : 'leaf7-5-forward leaf7-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf7-5'
             : 'leaf7-5-reverse leaf7-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf7-reverse leaf7'
               : 'leaf7-forward leaf7'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf7'
             : 'leaf7-reverse leaf7'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf8-5-reverse leaf8-5'
               : 'leaf8-5-forward leaf8-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf8-5'
             : 'leaf8-5-reverse leaf8-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf9-reverse leaf9'
               : 'leaf9-forward leaf9'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf9'
             : 'leaf9-reverse leaf9'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf10-5-reverse leaf10-5'
               : 'leaf10-5-forward leaf10-5'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf10-5'
             : 'leaf10-5-reverse leaf10-5'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf10-reverse leaf10'
               : 'leaf10-forward leaf10'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf10'
             : 'leaf10-reverse leaf10'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf11-reverse leaf11'
               : 'leaf11-forward leaf11'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf11'
             : 'leaf11-reverse leaf11'
         }
       ></div>
       <div
         className={
-          scrollp > 1100
-            ? scrollp > 1700
+          scrollp >= 1300
+            ? scrollp > 2000
               ? 'leaf12-reverse leaf12'
               : 'leaf12-forward leaf12'
-            : scrollp < 1100 && scroll === true
+            : scrollp < 1300 && scroll === true
             ? 'leaf12'
             : 'leaf12-reverse leaf12'
         }
@@ -190,7 +190,7 @@ const Leaves = () => {
           justifyContent: 'space-between',
           flexDirection: 'column',
           minHeight:'100px', 
-          marginRight: {md: '-20px',lg: '150px'},
+          marginRight: {md: '-20px',lg: '0px'},
           maxWidth: {md: '600px', lg: '100vw'}
         }}
       >
@@ -201,6 +201,7 @@ const Leaves = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: {xs:'370px', sm: '600px', md: '700px' },
+            marginRight: {md: '0px', lg: '200px'}
           }}
         >
           <Typography
@@ -253,7 +254,7 @@ const Leaves = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: {xs:'center', lg: 'flex-end'},
+            justifyContent: 'center',
             width: {xs:'370px',sm: '600px', md: '900px' },
             flexWrap:{xs:'wrap',sm: 'no-wrap'}
           }}

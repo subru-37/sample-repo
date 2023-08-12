@@ -13,6 +13,8 @@ const CollectionCard = (props: props) => {
         height: '451px',
         backgroundColor: 'green.lighter',
         alignItems:'flex-end',
+        zIndex: '1200',
+        position: 'relative', 
         justifyContent:'center'
       }}
     >

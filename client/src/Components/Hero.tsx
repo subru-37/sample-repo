@@ -9,7 +9,7 @@ const Hero = () => {
       sx={{
         minHeight: '90vh',
         display: 'flex',
-        alignItems: {xs:'center', sm:'flex-start'},
+        alignItems: { xs: 'center', sm: 'flex-start' },
         justifyContent: 'center',
         flexDirection: 'column',
       }}
@@ -44,7 +44,7 @@ const Hero = () => {
           variant="h6"
           sx={{
             color: 'green.light',
-            fontSize: {xs: '16px', sm: '20px'},
+            fontSize: { xs: '16px', sm: '20px' },
             textAlign: { xs: 'center', sm: 'left' },
             marginBottom: { xs: '50px', sm: '0px' },
           }}
@@ -65,8 +65,13 @@ const Hero = () => {
             sx={{
               bgcolor: 'green.dark',
               borderRadius: '10px',
-              height: {xs: '45px', sm: '55px'},
-              width: {xs: '125px', sm: '150px'},
+              transition: '0.25s',
+              height: { xs: '45px', sm: '55px' },
+              width: { xs: '125px', sm: '150px' },
+              '&:hover': {
+                bgcolor: '#DDA15E !important',
+                transition: '0.25s',
+              },
             }}
           >
             <Typography
@@ -91,9 +96,15 @@ const Hero = () => {
               sx={{
                 bgcolor: 'green.darker',
                 height: { xs: '50.5px', sm: '57px', md: '56.5px' },
+                transition: '0.25s',
                 borderRadius: '10px',
                 position: 'relative',
+                zIndex: '100',
                 left: '10px',
+                '&:hover': {
+                  bgcolor: '#DDA15E !important',
+                  transition: '0.25s',
+                },
               }}
             >
               <Typography
@@ -102,6 +113,10 @@ const Hero = () => {
                   color: '#ACD2AE',
                   textTransform: 'none',
                   fontSize: '16px',
+                  '&:hover': {
+                    color: '#00584A; !important',
+                    transition: '0.25s',
+                  },
                 }}
               >
                 Search by Category
@@ -111,11 +126,11 @@ const Hero = () => {
               id="outlined-controlled"
               label="Search By Product"
               sx={{
-                height: {xs: '50px', sm: 'auto'},
+                height: { xs: '50px', sm: 'auto' },
                 width: { sm: '300px', md: '350px' },
                 '& .MuiOutlinedInput-root': {
-                height: {xs: '50px', sm: 'auto'},
-                backgroundColor: 'transparent',
+                  height: { xs: '50px', sm: 'auto' },
+                  backgroundColor: 'transparent',
                   color: 'green.darker',
                   '& fieldset': {
                     borderTop: '2px solid #00584A',

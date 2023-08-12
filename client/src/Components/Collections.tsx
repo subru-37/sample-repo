@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{LegacyRef, createRef, useRef} from 'react';
 import CollectionCard from './CollectionCard';
 import { Box, Typography } from '@mui/material';
 import SlideShow from './Slideshow';
 import ExploreMore from '../utils/ExploreMore';
 import SampleCard from './SampleCard';
-const Collections = () => {
+import useOnScreen from '../hooks/useOnScreen';
+import Grass from './Grass';
+const Collections = (props: any) => {
   const contentItems = [
     { name: 'Loreum Ipsum, Loreum Ipsum' },
     { name: 'Loreum Ipsum, Loreum Ipsum' },
@@ -13,7 +15,8 @@ const Collections = () => {
   const collectionItems = contentItems.map((value) => {
     return <CollectionCard content={value.name} />;
   });
-  //   console.log(collectionItems);
+  const ref1 = props.ref1;
+  // const onscreen = useOnScreen(ref1);
   return (
     <Box
       sx={{
@@ -22,6 +25,8 @@ const Collections = () => {
         justifyContent: 'center',
         flexDirection: 'column',
         minHeight: '100dvh',
+        position: 'relative',
+        width: '100vw'
       }}
     >
       <Box
@@ -52,10 +57,11 @@ const Collections = () => {
           show600={2}
           show400={1}
           arrows={false}
-          width="100%"
+          width="95vw"
           components={collectionItems}
+          // ref1={ref1}
         />
-        <ExploreMore />
+        <ExploreMore ref1={ref1}/>
         {/* sample boxes */}
 
         <Box
@@ -64,6 +70,7 @@ const Collections = () => {
             width: { xs: '350px', sm: '600px', md: '80vw' },
           }}
         >
+
           <Box
             sx={{
               display: 'flex',

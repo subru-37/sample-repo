@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material'
-import React from 'react'
+import React, { RefObject } from 'react'
 import RightArrow from './RightArrow'
-
-const ExploreMore = () => {
+type props = {
+  ref1?: RefObject<HTMLDivElement>
+}
+const ExploreMore = (props: props ) => {
   return (
     <Box
         sx={{
@@ -12,6 +14,7 @@ const ExploreMore = () => {
           alignItems: 'center',
           justifyContent: 'flex-end',
         }}
+        ref={props.ref1}
       >
         <Typography
           component="h5"

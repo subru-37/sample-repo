@@ -21,14 +21,7 @@ export default function Navbar() {
   const [value, open, setValue, width900] = useNavbar();
 
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        transition: value ? ' visibility 0.2s, opacity 0.2s linear;' : '0.2s',
-        visibility: value === true ? 'hidden' : null,
-        opacity: value ? '0' : null,
-      }}
-    >
+    <Box>
       <AppBar
         position="fixed"
         sx={{
@@ -44,7 +37,12 @@ export default function Navbar() {
           justifyContent: 'center',
           width: '100vw',
           left: '0px',
+          flexGrow: 1,
+          transition: value ? 'visibility 0.2s, opacity 0.2s linear' : '0.2s',
+          visibility: value === true ? 'hidden' : 'visible',
+          opacity: value ? '0' : '1',
         }}
+        
       >
         <Toolbar
           sx={{

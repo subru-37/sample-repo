@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Box } from '@mui/material';
 import Hero from '../Components/Hero';
 import '../styles/Landing.css';
@@ -9,7 +9,11 @@ import Grass from '../Components/Grass';
 import AboutUs from '../Components/AboutUs';
 import Feedback from '../Components/Feedback';
 import Faq from '../Components/Faq';
+import useOnScreen from '../hooks/useOnScreen';
 const Landing = () => {
+  const ref1 = createRef<HTMLDivElement>();
+  const onscreen = useOnScreen(ref1);
+  console.log(onscreen)
   return (
     <Box
       sx={{
@@ -24,8 +28,8 @@ const Landing = () => {
       <Hero />
       <Features/>
       <Leaves/>
-      <Collections/>
-      <Grass/>
+      <Grass checkposn={onscreen}/>
+      <Collections ref1={ref1}/>
       <AboutUs/>
       <Feedback/>
       <Faq/>

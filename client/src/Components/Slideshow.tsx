@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { LegacyRef, RefObject } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import '../styles/SlideShow.css';
@@ -12,7 +12,8 @@ type props = {
   show900: number;
   show600: number;
   show400: number;
-  width?: string;
+  width: string;
+  ref1?:RefObject<HTMLDivElement>
 };
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -29,7 +30,11 @@ export default function SlideShow(props: props) {
     height: '400px',
   };
   return (
-    <div className="slide-container" style={{ width: props.width }}>
+    <div
+      className="slide-container"
+      ref={props.ref1}
+      style={{ width: props.width, zIndex: '1000', position: 'relative' }}
+    >
       <Slide
         duration={2500}
         transitionDuration={700}
