@@ -67,7 +67,7 @@ const FeatureCard = (props: props) => {
               marginLeft: '15px',
             }}
           >
-            $ {props.price}
+            ₹ {props.price}
           </Typography>
         </Box>
       </Box>

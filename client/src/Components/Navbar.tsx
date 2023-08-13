@@ -43,7 +43,6 @@ export default function Navbar() {
           visibility: value === true ? 'hidden' : 'visible',
           opacity: value ? '0' : '1',
         }}
-        
       >
         <Toolbar
           sx={{
@@ -80,19 +79,21 @@ export default function Navbar() {
           >
             {navlinks.map((value, index) => {
               return (
-                <Typography
-                key={index}
-                  sx={{
-                    color: '#00584A',
-                    fontfamily: 'Plus Jakarta Sans',
-                    fontSize: '16px',
-                    fontStyle: 'normal',
-                    fontWeight: '500',
-                    lineHeight: 'normal',
-                  }}
-                >
-                  <Link to={value.link}>{value.name}</Link>
-                </Typography>
+                <Link to={value.link} style={{textDecoration:'none'}}>
+                  <Typography
+                    key={index}
+                    sx={{
+                      color: '#00584A',
+                      fontfamily: 'Plus Jakarta Sans',
+                      fontSize: '16px',
+                      fontStyle: 'normal',
+                      fontWeight: '500',
+                      lineHeight: 'normal',
+                    }}
+                  >
+                    {value.name}
+                  </Typography>
+                </Link>
               );
             })}
             <Cart />
@@ -102,20 +103,16 @@ export default function Navbar() {
           </Button>
         </Toolbar>
       </AppBar>
-      <Drawer
-        anchor="left"
-        open={open}
-        onClose={() => setValue(false)}
-      >
+      <Drawer anchor="left" open={open} onClose={() => setValue(false)}>
         <Box
           sx={{
             minWidth: '50vw',
-            minHeight:'100dvh',
+            minHeight: '100dvh',
             background: '#F5FCE7',
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent:'center', 
-            flexDirection: 'column'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
           }}
         >
           {navlinks.map((value, index) => {
@@ -128,10 +125,10 @@ export default function Navbar() {
                   fontStyle: 'normal',
                   fontWeight: '500',
                   lineHeight: 'normal',
-                  margin: '20px 0'
+                  margin: '20px 0',
                 }}
               >
-                {value.name}
+                <Link to={value.link} style={{textDecoration:'none'}}>{value.name}</Link>
               </Typography>
             );
           })}

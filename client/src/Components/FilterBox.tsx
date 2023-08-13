@@ -1,6 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import {
   Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Checkbox,
   FormControlLabel,
@@ -8,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import FilterAccordion from './FilterAccordion';
+import DownArrow from '../utils/DownArrow';
 type filtertypes = {
   [key: string]: any;
 };
@@ -37,7 +40,7 @@ const FilterBox = ({
       setExpanded(isExpanded ? panel : false);
     };
   console.log(slideValue);
-  function handleSlider(event: any, newValue:number[] | number) {
+  function handleSlider(event: any, newValue: number[] | number) {
     setSlideValue(newValue as number[]);
   }
   return (
@@ -46,12 +49,16 @@ const FilterBox = ({
         borderRadius: '20px',
         border: '1px solid #00584A',
         boxSizing: 'border-box',
-        padding: { md: '20px' },
-        position: 'relative',
-        width: { xs: '250px', md: '300px' },
+        padding: { xs: '15px', md: '20px' },
+        position: { xs: 'fixed', md: 'relative' },
+        // position: 'relative',
+        width: { xs: '80vw', sm: '30%', md: '30%', lg: '23%' },
+        top: { xs: '180px', md: '0px' },
+        left: { xs: '40px', md: '0px' },
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#F5FCE7',
       }}
     >
       <Box
@@ -68,11 +75,12 @@ const FilterBox = ({
             fontWeight: '600',
             fontSize: '20px',
             borderBottom: '1px solid #00584A',
-            width: '260px',
+            width: '100%',
           }}
         >
           Filter
         </Typography>
+
         <FilterAccordion
           question="Categories"
           panel="panel1"
@@ -137,7 +145,7 @@ const FilterBox = ({
           step={100}
           min={1000}
           max={20000}
-          defaultValue={[1000,2000]}
+          defaultValue={[1000, 2000]}
         />
         <Box
           sx={{
