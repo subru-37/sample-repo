@@ -4,7 +4,8 @@ import Navbar from './Components/Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+import { Routes, Route } from 'react-router-dom';
+import Products from './Pages/Products';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -34,10 +35,15 @@ const App = () => {
     },
     }
   })
+  const [name, setName] = React.useState('');
+
   return (
     <ThemeProvider theme={theme}>
       <Navbar />
-      <Landing />
+      <Routes>
+        <Route path="/" element={<Landing name={name} setName={setName}/>}/>
+        <Route path="/products" element={<Products name={name} setName={setName}/>}/>
+      </Routes>
     </ThemeProvider>
   );
 };

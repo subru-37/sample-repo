@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { Dispatch, SetStateAction, createRef } from 'react';
 import { Box } from '@mui/material';
 import Hero from '../Components/Hero';
 import '../styles/Landing.css';
@@ -10,7 +10,11 @@ import AboutUs from '../Components/AboutUs';
 import Feedback from '../Components/Feedback';
 import Faq from '../Components/Faq';
 import useOnScreen from '../hooks/useOnScreen';
-const Landing = () => {
+type props = {
+  name: string;
+  setName: Dispatch<SetStateAction<string>>;
+}
+const Landing = (props: props) => {
   const ref1 = createRef<HTMLDivElement>();
   // const onscreen = useOnScreen(ref1);
   // console.log(onscreen)
@@ -25,7 +29,7 @@ const Landing = () => {
         position:'relative'
       }}
     >
-      <Hero />
+      <Hero name={props.name} setName={props.setName}/>
       <Features/>
       <Leaves/>
       {/* <Grass checkposn={onscreen}/> */}

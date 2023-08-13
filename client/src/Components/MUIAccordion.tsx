@@ -16,12 +16,12 @@ type props = {
   panel: string;
 };
 const MUIAccordion = (props: props) => {
-//   const [expanded, setExpanded] = React.useState<string | false>(false);
+  //   const [expanded, setExpanded] = React.useState<string | false>(false);
 
-//   const handleChange =
-//     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-//       setExpanded(isExpanded ? panel : false);
-//     };
+  //   const handleChange =
+  //     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  //       setExpanded(isExpanded ? panel : false);
+  //     };
   return (
     <Box sx={{ background: '#00584A', margin: '5px 0' }}>
       <Accordion
@@ -37,7 +37,7 @@ const MUIAccordion = (props: props) => {
           expandIcon={<Plus />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
-          sx={{ padding: {xs: '25px 15px',sm: '25px 50px'} }}
+          sx={{ padding: { xs: '25px 15px', sm: '25px 50px' } }}
         >
           <Typography
             sx={{

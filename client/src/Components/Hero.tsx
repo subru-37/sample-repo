@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import Box from '@mui/material/Box';
 import { Typography, Button, TextField, InputAdornment } from '@mui/material';
 import Search from '../utils/Search';
-const Hero = () => {
-  const [name, setName] = React.useState('');
+type props = {
+  name: string;
+  setName: Dispatch<SetStateAction<string>>;
+}
+const Hero = (props: props) => {
   return (
     <Box
       sx={{
@@ -176,9 +179,9 @@ const Hero = () => {
                   fontSize: '16px',
                 },
               }}
-              value={name}
+              value={props.name}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setName(event.target.value);
+                props.setName(event.target.value);
               }}
             ></TextField>
           </Box>

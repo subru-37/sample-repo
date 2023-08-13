@@ -10,11 +10,12 @@ import { Drawer, Link as NavLink } from '@mui/material';
 import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
+import { Link } from 'react-router-dom';
 export default function Navbar() {
   const navlinks = [
     { name: 'Home', link: '/' },
     { name: 'About Us', link: '/' },
-    { name: 'Shop', link: '/' },
+    { name: 'Shop', link: '/products' },
     { name: 'Blog', link: '/' },
     { name: 'Contact Us', link: '/' },
   ];
@@ -80,6 +81,7 @@ export default function Navbar() {
             {navlinks.map((value, index) => {
               return (
                 <Typography
+                key={index}
                   sx={{
                     color: '#00584A',
                     fontfamily: 'Plus Jakarta Sans',
@@ -89,7 +91,7 @@ export default function Navbar() {
                     lineHeight: 'normal',
                   }}
                 >
-                  {value.name}
+                  <Link to={value.link}>{value.name}</Link>
                 </Typography>
               );
             })}
