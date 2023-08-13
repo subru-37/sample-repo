@@ -39,7 +39,6 @@ const FilterBox = ({
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
-  console.log(slideValue);
   function handleSlider(event: any, newValue: number[] | number) {
     setSlideValue(newValue as number[]);
   }
