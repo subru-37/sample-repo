@@ -11,7 +11,11 @@ import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
 import { Link } from 'react-router-dom';
-export default function Navbar() {
+type props = {
+  cartopen: boolean;
+  setCartOpen: (open: boolean) => void;
+};
+export default function Navbar({ cartopen, setCartOpen }: props) {
   const navlinks = [
     { name: 'Home', link: '/' },
     { name: 'About Us', link: '/' },
@@ -79,7 +83,7 @@ export default function Navbar() {
           >
             {navlinks.map((value, index) => {
               return (
-                <Link to={value.link} style={{textDecoration:'none'}}>
+                <Link to={value.link} style={{ textDecoration: 'none' }}>
                   <Typography
                     key={index}
                     sx={{
@@ -96,11 +100,16 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Cart />
+            
           </Box>
-          <Button color="inherit">
-            <SignIcon />
-          </Button>
+          <Box>
+            <Button color="inherit">
+              <SignIcon />
+            </Button>
+            <Button onClick={() => setCartOpen(true)}>
+              <Cart />
+            </Button>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={() => setValue(false)}>
@@ -128,7 +137,9 @@ export default function Navbar() {
                   margin: '20px 0',
                 }}
               >
-                <Link to={value.link} style={{textDecoration:'none'}}>{value.name}</Link>
+                <Link to={value.link} style={{ textDecoration: 'none' }}>
+                  {value.name}
+                </Link>
               </Typography>
             );
           })}

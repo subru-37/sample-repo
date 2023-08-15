@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Routes, Route } from 'react-router-dom';
 import Products from './Pages/Products';
+import CartModal from './Components/CartModal';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -24,6 +25,7 @@ declare module '@mui/material/styles' {
   }
 }
 const App = () => {
+  const [cartopen, setCartOpen] = React.useState(false);
   const theme = createTheme({
     palette:{
       green: {
@@ -39,7 +41,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
+      <Navbar cartopen={cartopen} setCartOpen={setCartOpen}/>
+      <CartModal cartopen={cartopen} setCartOpen={setCartOpen}/>
       <Routes>
         <Route path="/" element={<Landing name={name} setName={setName}/>}/>
         <Route path="/products" element={<Products name={name} setName={setName}/>}/>
