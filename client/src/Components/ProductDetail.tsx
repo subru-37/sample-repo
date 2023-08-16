@@ -13,7 +13,9 @@ type props = {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Plus from '../utils/Plus';
+import { useMediaQuery } from '@mui/material';
 const ProductDetail = ({ height, width, bgsize }: props) => {
+    const width600 = useMediaQuery('max-width: 600px');
   const [wishlist, setWishList] = React.useState<boolean>(false);
   const { id } = useParams();
   //temporary slides
@@ -27,14 +29,14 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
       <Box
         sx={{
           height: {
-            xs: `100vw calc(100%*${aspectratio})`,
+            xs: `50vh`,
             sm: 'calc(100vh - 70px)',
           },
           width: { xs: '100vw', sm: `calc(100% - 70px)` },
           backgroundImage: `url(${highqualitysample})`,
           //   backgroundColor: 'green.darker',
           backgroundSize: {
-            xs: `100% calc(50%/${aspectratio})`,
+            xs: `100vw calc(100%/${aspectratio})`,
             sm: `100% calc(100%/${aspectratio})`,
           },
           borderRadius: '20px',
@@ -65,17 +67,19 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
         show400={1}
         show600={1}
         show900={1}
-        width="50%"
+        width={width600 ? '50%' : '100vw'}
       />
+      {/* product content  */}
       <Box
         sx={{
           height: { xs: '50vh', sm: '100%' },
           width: { xs: '100vw', sm: '50%' },
           backgroundColor: '#F5FCE7',
-          padding: { xs: '0 20px', sm: '0px 150px' },
+          padding: { xs: '0 20px', sm: '0px 50px' },
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          boxSizing: 'border-box',
         }}
       >
         <Box
@@ -195,11 +199,16 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
               }}
             >
               <Typography
-                sx={{ color: '#F5FCE7', fontSize: '1rem', fontWeight: '500', marginRight:'25px' }}
+                sx={{
+                  color: '#F5FCE7',
+                  fontSize: '1rem',
+                  fontWeight: '500',
+                  marginRight: '25px',
+                }}
               >
                 {'Cart'}
               </Typography>
-              <Plus/>
+              <Plus />
             </Button>
           </Box>
         </Box>
