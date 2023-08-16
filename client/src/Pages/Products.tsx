@@ -12,6 +12,7 @@ import FilterBox from '../Components/FilterBox';
 import { products } from '../sampledata/products';
 import useNavbar from '../hooks/useNavbar';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 type props = {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
@@ -178,7 +179,7 @@ const Products = (props: props) => {
                 padding: '25px !important',
               }}
             >
-              {value}
+              <Link to={`/products/${index}`}>{value}</Link>
             </Grid>
           ))}
         </Grid>

@@ -9,7 +9,7 @@ type props = {
 };
 const CartModal = ({ cartopen, setCartOpen }: props) => {
   const subTotal = cartitems
-    .map((value, index) => Number(value.discprice.substring(2)))
+    .map((value, index) => Number(value.discprice.substring(2)) * value.quanity)
     .reduce((total, value) => total + value);
   const delivery = 40;
   return (

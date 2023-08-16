@@ -7,6 +7,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Routes, Route } from 'react-router-dom';
 import Products from './Pages/Products';
 import CartModal from './Components/CartModal';
+import ProductDetail from './Components/ProductDetail';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -46,6 +47,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing name={name} setName={setName}/>}/>
         <Route path="/products" element={<Products name={name} setName={setName}/>}/>
+        <Route path="/products/:id" element={<ProductDetail width='100vw' height="100vh" bgsize="50vw 100vh"/>}/>
       </Routes>
     </ThemeProvider>
   );
