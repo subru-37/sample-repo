@@ -12,3 +12,11 @@
 .slide{
   padding: 20px 0px;
 }
+.css-v2eqnl .slide-container div .react-slideshow-container{
+  height: 90vh;
+}
+@media only screen and (max-width: 600px){
+  .css-v2eqnl .slide-container div .react-slideshow-container{
+    height: 50vh;
+  }
+}

@@ -15,7 +15,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Plus from '../utils/Plus';
 import { useMediaQuery } from '@mui/material';
 const ProductDetail = ({ height, width, bgsize }: props) => {
-    const width600 = useMediaQuery('max-width: 600px');
+    const width600 = useMediaQuery('(max-width: 600px)');
   const [wishlist, setWishList] = React.useState<boolean>(false);
   const { id } = useParams();
   //temporary slides
@@ -25,19 +25,25 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
       'https://s3-alpha-sig.figma.com/img/8626/c029/16041bebadaa211a5e4a01c642f2f2fc?Expires=1693180800&Signature=dyWUnVcEWhUVTC87u~pI38Ek~XIku0m7rgAC66IrdPc5Yp2WHQ0e14bXrUgkCtqFVGZMFQ9JZbzdb-aHcaj4~Hx4dbSbvmRneK61BhgitkpSnUpfCECAdYhWUfu~~xHAzikJxpGkaUCBtqsaqMmGhN4qHvte8XjAYeibZs5elIhi7OtgwJW6P~omCc75hUE178VLygMi8FQxi8ZBJA9cZOnMKoM597Hhp15-Jp5QIe~rOp4A~HiRRVs1onLqQF8z5LlBau63uNO51htJ5SW58~9cq26W8xgo1M7wC0XowAE~YYuUp6MBPisDLsrbDnZ9FDWkfAuAIClyyFBYIcJMfQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
     );
     const aspectratio = dimensions?.width / dimensions?.height;
+    console.log(aspectratio)
+    // width / height = 0.8
     return (
       <Box
         sx={{
           height: {
-            xs: `50vh`,
-            sm: 'calc(100vh - 70px)',
+            xs:'50vh',
+            sm:`calc(300px/${aspectratio})`,
+            md:`calc(450px/${aspectratio})`,
+            lg: `calc(550px/${aspectratio})`
           },
-          width: { xs: '100vw', sm: `calc(100% - 70px)` },
+          width: { xs: `calc(50vh*${aspectratio})`, sm: `300px`,md: '450px' ,lg:'550px' },
           backgroundImage: `url(${highqualitysample})`,
           //   backgroundColor: 'green.darker',
           backgroundSize: {
-            xs: `100vw calc(100%/${aspectratio})`,
-            sm: `100% calc(100%/${aspectratio})`,
+            xs:`50vh calc(50vh/${aspectratio})`,
+            sm:`300px calc(300px/${aspectratio})`,
+            md:`450px calc(450px/${aspectratio})`,
+            lg:`550px calc(550px/${aspectratio})`
           },
           borderRadius: '20px',
           backgroundRepeat: 'no-repeat',
@@ -45,7 +51,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
       ></Box>
     );
   });
-  console.log(slides);
+  // console.log(slides);
   return (
     <Box
       sx={{
@@ -67,7 +73,8 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
         show400={1}
         show600={1}
         show900={1}
-        width={width600 ? '50%' : '100vw'}
+        width={!width600 ? '50%' : '100vw'}
+        // height='80vh'
       />
       {/* product content  */}
       <Box

@@ -37,9 +37,9 @@ export default function SlideShow(props: props) {
       ref={props.ref1}
       style={{
         width: props.width,
+        height: props.height,
         zIndex: '1000',
         position: 'relative',
-        height: props.height,
         padding: props.padding,
         boxSizing: 'border-box',
       }}
@@ -86,6 +86,7 @@ export default function SlideShow(props: props) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              height: props.height,
             }}
           >
             {value}
