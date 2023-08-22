@@ -1,17 +1,41 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import WasteCan from '../utils/WasteCan';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  removeFromCart,
+  addToCart,
+  removeAll,
+  reduceProduct,
+  incrementProduct,
+} from '../Redux/features/CartSlice';
+import { products } from '../sampledata/products';
 type props = {
   price: string;
   discprice: string;
   name: string;
-  quanity: number;
+  quantity: number;
   image: string;
+  id: number;
 };
-const CartItem = ({ price, discprice, name, quanity, image }: props) => {
-  console.log(image);
+const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
+  const dispatch = useDispatch();
+  const products = useSelector((state: any) => state.cart);
+  const index = products.cart.findIndex((item: any) => id === item.id);
+  const removeProductHandler = (product: any) => {
+    dispatch(reduceProduct(product));
+  };
+  const addProductHandler = (product: any) => {
+    dispatch(incrementProduct(product));
+  };
+  // console.log(totalPrice)
+  // console.log(products);
+  const removeAllProduct = (product: any) => {
+    dispatch(removeAll(product));
+  };
+  // console.log(image);
   return (
     <Box
       sx={{
@@ -19,8 +43,8 @@ const CartItem = ({ price, discprice, name, quanity, image }: props) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        flexWrap:'wrap',
-        margin:'30px 0',
+        flexWrap: 'wrap',
+        margin: '30px 0',
         width: '100%',
       }}
     >
@@ -84,8 +108,15 @@ const CartItem = ({ price, discprice, name, quanity, image }: props) => {
               {price}
             </Typography>
           </Box>
-          {/* quanity */}
-          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection:'row'}}>
+          {/* quantity */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+            }}
+          >
             <Box
               sx={{
                 backgroundColor: 'green.darker',
@@ -96,18 +127,20 @@ const CartItem = ({ price, discprice, name, quanity, image }: props) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                flexDirection: 'row'
+                flexDirection: 'row',
               }}
             >
               <RemoveIcon
                 sx={{
                   color: '#F5FCE7',
                   borderRight: '0.5px solid #F5FCE7',
-                  fontSize:'5px',
+                  fontSize: '5px',
                   height: '75%',
                   width: '33%',
                 }}
+                onClick={() => removeProductHandler(products.cart[index])}
               />
+
               <Typography
                 sx={{
                   color: '#F5FCE7',
@@ -120,19 +153,22 @@ const CartItem = ({ price, discprice, name, quanity, image }: props) => {
                   justifyContent: 'center',
                 }}
               >
-                {quanity}
+                {quantity}
               </Typography>
               <AddIcon
                 sx={{
                   color: '#F5FCE7',
                   borderLeft: '0.5px solid #F5FCE7',
-                  fontSize:'5px',
+                  fontSize: '5px',
                   height: '75%',
                   width: '33%',
                 }}
+                onClick={() => addProductHandler(products.cart[index])}
               />
             </Box>
-            <WasteCan/>
+            <Box onClick={() => removeAllProduct(products.cart[index])}>
+              <WasteCan />
+            </Box>
           </Box>
         </Box>
       </Box>

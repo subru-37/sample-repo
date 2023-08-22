@@ -3,15 +3,31 @@ import { Box, Typography, Drawer, Button } from '@mui/material';
 import CartItem from './CartItem';
 import Close from '../utils/Close';
 import { cartitems } from '../sampledata/cartitem';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToCart,
+  removeAll,
+  removeFromCart,
+} from '../Redux/features/CartSlice';
 type props = {
   cartopen: boolean;
   setCartOpen: (open: boolean) => void;
 };
 const CartModal = ({ cartopen, setCartOpen }: props) => {
-  const subTotal = cartitems
-    .map((value, index) => Number(value.discprice.substring(2)) * value.quanity)
-    .reduce((total, value) => total + value);
   const delivery = 40;
+  const products = useSelector((state: any) => state.cart);
+  const totalPrice =
+    products.cart.length > 0
+      ? products.cart
+          .map(
+            (value: any) =>
+              Number(value.discprice.substring(2)) * value.quantity
+          )
+          .reduce((total: any, value: any) => total + value)
+      : 0;
+  // if (products.length === 0) {
+  //   return <EmptyCart />;
+  // }
   return (
     <Drawer
       anchor="right"
@@ -28,13 +44,11 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
         sx={{
           width: { xs: '100vw', sm: '500px' },
           //   minHeight: '100vh',
-          padding: '35px 35px 0 35px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
           flexDirection: 'column',
           position: 'relative',
-          boxSizing: 'border-box',
         }}
       >
         <Box
@@ -42,7 +56,10 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            minHeight: '100vh',
             flexDirection: 'column',
+            padding: '35px 35px 0 35px',
+            boxSizing: 'border-box',
             width: '100%',
           }}
         >
@@ -80,24 +97,26 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
 
           {/* Items */}
           <Box sx={{ width: '100%', marginTop: '30px' }}>
-            {cartitems.map((value, index) => (
-              <CartItem
-                image={
-                  'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                    0,
-                    4
-                  ) +
-                  value.image +
-                  'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                    4
-                  )
-                }
-                price={value.price}
-                discprice={value.discprice}
-                name={value.name}
-                quanity={value.quanity}
-              />
-            ))}
+            {products.cart.length > 0 &&
+              products.cart.map((value: any, index: any) => (
+                <CartItem
+                  id={value.id}
+                  image={
+                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                      0,
+                      4
+                    ) +
+                    value.image +
+                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                      4
+                    )
+                  }
+                  price={value.price}
+                  discprice={value.discprice}
+                  name={value.name}
+                  quantity={value.quantity}
+                />
+              ))}
           </Box>
           {/* checkout details */}
           <Box
@@ -156,7 +175,7 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                       fontWeight: '500',
                     }}
                   >
-                    ₹ {subTotal}
+                    ₹ {totalPrice}
                   </Typography>
                 </Box>
                 <Box
@@ -222,7 +241,7 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                       color: 'green.main',
                     }}
                   >
-                    ₹ {subTotal + delivery}
+                    ₹ {totalPrice + delivery}
                   </Typography>
                 </Box>
                 <Button
@@ -234,11 +253,11 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                     '&:hover': {
                       backgroundColor: 'green.darker',
                     },
-                    height:'50px',
-                    width:'150px',
-                    display:'flex',
-                    alignItems:'center',
-                    justifyContent:'center'
+                    height: '50px',
+                    width: '150px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
                   <Typography

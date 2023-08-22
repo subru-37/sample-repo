@@ -14,10 +14,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Plus from '../utils/Plus';
 import { useMediaQuery } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart, addToCart } from '../Redux/features/CartSlice';
+import { cartitems as sampleData} from '../sampledata/cartitem';
+import { sample } from 'lodash';
 const ProductDetail = ({ height, width, bgsize }: props) => {
-    const width600 = useMediaQuery('(max-width: 600px)');
+  const width600 = useMediaQuery('(max-width: 600px)');
   const [wishlist, setWishList] = React.useState<boolean>(false);
   const { id } = useParams();
+  const index = Number(id);
   //temporary slides
   const details = cartitems[Number(id)];
   const slides = cartitems.map((value, index) => {
@@ -25,25 +30,30 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
       'https://s3-alpha-sig.figma.com/img/8626/c029/16041bebadaa211a5e4a01c642f2f2fc?Expires=1693180800&Signature=dyWUnVcEWhUVTC87u~pI38Ek~XIku0m7rgAC66IrdPc5Yp2WHQ0e14bXrUgkCtqFVGZMFQ9JZbzdb-aHcaj4~Hx4dbSbvmRneK61BhgitkpSnUpfCECAdYhWUfu~~xHAzikJxpGkaUCBtqsaqMmGhN4qHvte8XjAYeibZs5elIhi7OtgwJW6P~omCc75hUE178VLygMi8FQxi8ZBJA9cZOnMKoM597Hhp15-Jp5QIe~rOp4A~HiRRVs1onLqQF8z5LlBau63uNO51htJ5SW58~9cq26W8xgo1M7wC0XowAE~YYuUp6MBPisDLsrbDnZ9FDWkfAuAIClyyFBYIcJMfQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
     );
     const aspectratio = dimensions?.width / dimensions?.height;
-    console.log(aspectratio)
+    // console.log(aspectratio);
     // width / height = 0.8
     return (
       <Box
         sx={{
           height: {
-            xs:'50vh',
-            sm:`calc(300px/${aspectratio})`,
-            md:`calc(450px/${aspectratio})`,
-            lg: `calc(550px/${aspectratio})`
+            xs: '50vh',
+            sm: `calc(300px/${aspectratio})`,
+            md: `calc(450px/${aspectratio})`,
+            lg: `calc(550px/${aspectratio})`,
           },
-          width: { xs: `calc(50vh*${aspectratio})`, sm: `300px`,md: '450px' ,lg:'550px' },
+          width: {
+            xs: `calc(50vh*${aspectratio})`,
+            sm: `300px`,
+            md: '450px',
+            lg: '550px',
+          },
           backgroundImage: `url(${highqualitysample})`,
           //   backgroundColor: 'green.darker',
           backgroundSize: {
-            xs:`50vh calc(50vh/${aspectratio})`,
-            sm:`300px calc(300px/${aspectratio})`,
-            md:`450px calc(450px/${aspectratio})`,
-            lg:`550px calc(550px/${aspectratio})`
+            xs: `50vh calc(50vh/${aspectratio})`,
+            sm: `300px calc(300px/${aspectratio})`,
+            md: `450px calc(450px/${aspectratio})`,
+            lg: `550px calc(550px/${aspectratio})`,
           },
           borderRadius: '20px',
           backgroundRepeat: 'no-repeat',
@@ -52,6 +62,17 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
     );
   });
   // console.log(slides);
+  const dispatch = useDispatch();
+  const products = useSelector((state: any) => state.cart);
+  // const totalPrice = products
+  //   .map((value: any) => Number(value.discprice.substring(2)) * value.quanity)
+  //   .reduce((total: any, value: any) => total + value);
+  const removeProductHandler = (product: any) => {
+    dispatch(removeFromCart(product));
+  };
+  const addProductHandler = (product: any) => {
+    dispatch(addToCart(product));
+  };
   return (
     <Box
       sx={{
@@ -204,6 +225,9 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
                 minWidth: '150px',
                 marginLeft: '25px',
               }}
+             onClick={()=> {
+              addProductHandler(sampleData[index]);
+             }}
             >
               <Typography
                 sx={{
