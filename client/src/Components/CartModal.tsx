@@ -244,35 +244,68 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                     ₹ {totalPrice + delivery}
                   </Typography>
                 </Box>
-                <Button
-                  sx={{
-                    backgroundColor: 'green.darker',
-                    borderRadius: '5px',
-                    border: '1px solid #00584A',
-                    backdropFilter: 'blur(3px)',
-                    '&:hover': {
-                      backgroundColor: 'green.darker',
-                    },
-                    height: '50px',
-                    width: '150px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Typography
+                {totalPrice !== 0 ? (
+                  <Button
                     sx={{
-                      textTransform: 'capitalize',
-                      color: '#F5FCE7',
-                      fontSize: '16px',
-                      fontWeight: '400',
-                      letterSpacing: '-0.72px',
-                      lineHeight: '19px',
+                      backgroundColor: 'green.darker',
+                      borderRadius: '5px',
+                      border: '1px solid #00584A',
+                      backdropFilter: 'blur(3px)',
+                      '&:hover': {
+                        backgroundColor: 'green.darker',
+                      },
+                      height: '50px',
+                      width: '150px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                     }}
                   >
-                    Checkout
-                  </Typography>
-                </Button>
+                    <Typography
+                      sx={{
+                        textTransform: 'capitalize',
+                        color: '#F5FCE7',
+                        fontSize: '16px',
+                        fontWeight: '400',
+                        letterSpacing: '-0.72px',
+                        lineHeight: '19px',
+                      }}
+                    >
+                      Checkout
+                    </Typography>
+                  </Button>
+                ) : (
+                  <Button
+                    sx={{
+                      backgroundColor: 'green.darker',
+                      borderRadius: '5px',
+                      border: '1px solid #00584A',
+                      backdropFilter: 'blur(3px)',
+                      '&:hover': {
+                        backgroundColor: 'green.darker',
+                      },
+                      height: '50px',
+                      width: '150px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                    onClick={()=> setCartOpen(false)}
+                  >
+                    <Typography
+                      sx={{
+                        textTransform: 'capitalize',
+                        color: '#F5FCE7',
+                        fontSize: '16px',
+                        fontWeight: '400',
+                        letterSpacing: '-0.72px',
+                        lineHeight: '19px',
+                      }}
+                    >
+                      Add Some items
+                    </Typography>
+                  </Button>
+                )}
               </Box>
             </Box>
           </Box>
