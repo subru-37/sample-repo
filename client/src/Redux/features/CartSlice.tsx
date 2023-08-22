@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
+type inistate = {
+  cart: Array<cartitem>
+}
+const initialState : inistate = {
   cart: [
     // {
     //   image: '',
@@ -30,9 +32,9 @@ export const CartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       //if that action product has already in cart then if block will work
-      console.log(action.payload)
+      //console.log(action.payload)
       const itemIndex = state.cart.findIndex(
-        (item) => item.id === action.payload.id
+        (item: any) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
         state.cart[itemIndex].quantity += 1;
@@ -57,7 +59,7 @@ export const CartSlice = createSlice({
       const itemIndex = state.cart.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(state.cart[itemIndex])
+      //console.log(state.cart[itemIndex])
       if (state.cart[itemIndex].quantity > 1) {
         state.cart[itemIndex].quantity -= 1;
       } else if (state.cart[itemIndex].quantity === 1) {
