@@ -8,6 +8,8 @@ import { Routes, Route } from 'react-router-dom';
 import Products from './Pages/Products';
 import CartModal from './Components/CartModal';
 import ProductDetail from './Components/ProductDetail';
+import Checkout from './Pages/Checkout';
+import Shipping from './Pages/Shipping';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -25,7 +27,25 @@ declare module '@mui/material/styles' {
     darker: string
   }
 }
+type formData = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  landmark: string;
+  phoneNumber: string | number | undefined;
+};
 const App = () => {
+  const options = ['option1', 'option2', 'option3'];
+  const [value, setValue] = React.useState<string | null>(options[0]);
+  const [formData, setFormData] = React.useState<formData>({
+    email: '',
+    firstName: '',
+    lastName: '',
+    address: '',
+    landmark: '',
+    phoneNumber: undefined,
+  });
   const [cartopen, setCartOpen] = React.useState(false);
   const theme = createTheme({
     palette:{
@@ -48,6 +68,8 @@ const App = () => {
         <Route path="/" element={<Landing name={name} setName={setName}/>}/>
         <Route path="/products" element={<Products name={name} setName={setName}/>}/>
         <Route path="/products/:id" element={<ProductDetail width='100vw' height="100vh" bgsize="50vw 100vh"/>}/>
+        <Route path="/checkout" element={<Checkout formData={formData} setFormData={setFormData}/>}/>
+        <Route path="/shipping" element={<Shipping formData={formData} setFormData={setFormData} options={options} value={value} setValue={setValue}/>}/>
       </Routes>
     </ThemeProvider>
   );

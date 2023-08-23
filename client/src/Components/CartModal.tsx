@@ -4,6 +4,7 @@ import CartItem from './CartItem';
 import Close from '../utils/Close';
 import { cartitems } from '../sampledata/cartitem';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   addToCart,
   removeAll,
@@ -14,6 +15,7 @@ type props = {
   setCartOpen: (open: boolean) => void;
 };
 const CartModal = ({ cartopen, setCartOpen }: props) => {
+  const navigation = useNavigate();
   const delivery = 40;
   const products = useSelector((state: any) => state.cart);
   const totalPrice =
@@ -260,6 +262,10 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}
+                    onClick={()=> {
+                      navigation('/checkout')
+                      setCartOpen(false)
+                    }}
                   >
                     <Typography
                       sx={{
@@ -290,7 +296,7 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}
-                    onClick={()=> setCartOpen(false)}
+                    onClick={() => setCartOpen(false)}
                   >
                     <Typography
                       sx={{
