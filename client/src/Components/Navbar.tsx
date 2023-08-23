@@ -100,7 +100,6 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 </Link>
               );
             })}
-            
           </Box>
           <Box>
             <Button color="inherit">
@@ -126,21 +125,21 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
         >
           {navlinks.map((value, index) => {
             return (
-              <Typography
-                sx={{
-                  color: '#00584A',
-                  fontfamily: 'Plus Jakarta Sans',
-                  fontSize: '16px',
-                  fontStyle: 'normal',
-                  fontWeight: '500',
-                  lineHeight: 'normal',
-                  margin: '20px 0',
-                }}
-              >
-                <Link to={value.link} style={{ textDecoration: 'none' }}>
+              <Link to={value.link} style={{ textDecoration: 'none' }} onClick={()=> setValue(false)}>
+                <Typography
+                  sx={{
+                    color: 'green.darker',
+                    fontfamily: 'Plus Jakarta Sans',
+                    fontSize: '16px',
+                    fontStyle: 'normal',
+                    fontWeight: '500',
+                    lineHeight: 'normal',
+                    margin: '20px 0',
+                  }}
+                >
                   {value.name}
-                </Link>
-              </Typography>
+                </Typography>
+              </Link>
             );
           })}
         </Box>
