@@ -11,7 +11,6 @@ import {
   reduceProduct,
   incrementProduct,
 } from '../Redux/features/CartSlice';
-import { products } from '../sampledata/products';
 import CartButton from './CartButton';
 type props = {
   price: string;
@@ -26,14 +25,6 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
   const products = useSelector((state: any) => state.cart);
   const index = products.cart.findIndex((item: any) => id === item.id);
   const cartindex: string | undefined = String(id);
-  const removeProductHandler = (product: any) => {
-    dispatch(reduceProduct(product));
-  };
-  const addProductHandler = (product: any) => {
-    dispatch(incrementProduct(product));
-  };
-  // console.log(totalPrice)
-  // console.log(products);
   const removeAllProduct = (product: any) => {
     dispatch(removeFromCart(product));
   };

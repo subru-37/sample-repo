@@ -11,7 +11,9 @@ import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
 import { Link } from 'react-router-dom';
-import logo from '../assets/SNDark Green@4x.png'
+import logo from '../assets/SNDark Green@4x.png';
+import { useDispatch, useSelector } from 'react-redux';
+
 type props = {
   cartopen: boolean;
   setCartOpen: (open: boolean) => void;
@@ -25,7 +27,8 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
     // { name: 'Contact Us', link: '/' },
   ];
   const [value, open, setValue, width900] = useNavbar();
-
+  const products = useSelector((state: any) => state.cart);
+  const NumberOfItems = products.cart.length;
   return (
     <Box>
       <AppBar
@@ -55,7 +58,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding:'0px !important'
+            padding: '0px !important',
           }}
         >
           <IconButton
@@ -70,8 +73,12 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
           </IconButton>
           {/* 3263 1102 */}
           {/*      60 */}
-          <Typography component="img" src={logo} alt={''} sx={{height:'60px', width:'177px'}}>
-          </Typography>
+          <Typography
+            component="img"
+            src={logo}
+            alt={''}
+            sx={{ height: '60px', width: '177px' }}
+          ></Typography>
           <Box
             sx={{
               display: {
@@ -80,7 +87,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 flexDirection: 'row',
                 width: '20vw',
                 justifyContent: 'space-between',
-                marginRight:'100px'
+                marginRight: '100px',
               },
             }}
           >
@@ -108,7 +115,23 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             {/* <Button color="inherit">
               <SignIcon />
             </Button> */}
-            <Button onClick={() => setCartOpen(true)}>
+            <Button
+              onClick={() => setCartOpen(true)}
+              sx={{ position: 'relative' }}
+            >
+              <Box sx={{
+                position:'absolute',
+                backgroundColor:'green.darker',
+                color:'#F5FCE7',
+                borderRadius:'100%',
+                width:'22px',
+                height:'22px',
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                right:'-5px',
+                top:'-5px'
+              }}>{NumberOfItems}</Box>
               <Cart />
             </Button>
           </Box>
@@ -128,7 +151,11 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
         >
           {navlinks.map((value, index) => {
             return (
-              <Link to={value.link} style={{ textDecoration: 'none' }} onClick={()=> setValue(false)}>
+              <Link
+                to={value.link}
+                style={{ textDecoration: 'none' }}
+                onClick={() => setValue(false)}
+              >
                 <Typography
                   sx={{
                     color: 'green.darker',
