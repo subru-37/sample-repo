@@ -45,7 +45,7 @@ const cartitems = [
     quantity: 0,
   },  {
     image: slide2,
-    id:0,
+    id:4,
     price: '₹ 300',
     discprice: '₹ 200',
     name: 'Loreum Ipsum, Loreum Ipsum,',

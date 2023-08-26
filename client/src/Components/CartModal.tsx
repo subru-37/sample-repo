@@ -93,7 +93,16 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
           </Typography>
 
           {/* Items */}
-          <Box sx={{ width: '100%', marginTop: '30px' }}>
+          <Box
+            sx={{
+              width: '100%',
+              marginTop: '30px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              flexDirection: 'column',
+            }}
+          >
             {products.cart.length > 0 &&
               products.cart.map((value: any, index: any) => (
                 <CartItem
@@ -257,9 +266,9 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}
-                    onClick={()=> {
-                      navigation('/checkout')
-                      setCartOpen(false)
+                    onClick={() => {
+                      navigation('/checkout');
+                      setCartOpen(false);
                     }}
                   >
                     <Typography
