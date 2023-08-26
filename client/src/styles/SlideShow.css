@@ -3,12 +3,12 @@
   width: 98vw;
   margin-top: 50px;
 }
-.react-slideshow-container .MuiSvgIcon-root {
+/* .react-slideshow-container .MuiSvgIcon-root {
   margin-left: -25px;
 }
 .react-slideshow-container .MuiSvgIcon-root {
   margin-right: -25px;
-}
+} */
 .slide{
   padding: 20px 0px;
 }

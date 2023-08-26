@@ -179,7 +179,7 @@ const Products = (props: props) => {
                 padding: '25px !important',
               }}
             >
-              <Link style={{textDecoration:'none'}} to={`/products/${index}`}>{value}</Link>
+              <Link style={{textDecoration:'none'}} to={`/products/${index}`}>{value.element}</Link>
             </Grid>
           ))}
         </Grid>

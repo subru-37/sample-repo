@@ -1,14 +1,18 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import CartButton from './CartButton';
 interface props {
   background: string;
   cardname: string;
   discprice: string;
   price: string;
+  id: number;
 }
 const FeatureCard = (props: props) => {
+  const index: string | undefined = String(props.id);
   return (
     <Box
+      onClick={() => console.log(index)}
       sx={{
         // marginRight: '40px',
         display: 'flex',
@@ -56,7 +60,7 @@ const FeatureCard = (props: props) => {
           <Typography
             sx={{ fontWeight: '700', color: 'green.darker', fontSize: '16px' }}
           >
-            $ {props.discprice}
+            {props.discprice}
           </Typography>
           <Typography
             sx={{
@@ -67,8 +71,11 @@ const FeatureCard = (props: props) => {
               marginLeft: '15px',
             }}
           >
-            ₹ {props.price}
+            {props.price}
           </Typography>
+        </Box>
+        <Box sx={{width:'100%', display:'flex', alignItems:'center', justifyContent:'center', margin:'10px 0px'}}>
+          <CartButton id={index} />
         </Box>
       </Box>
     </Box>

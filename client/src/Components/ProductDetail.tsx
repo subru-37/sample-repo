@@ -5,19 +5,13 @@ import { cartitems } from '../sampledata/cartitem';
 import { useParams } from 'react-router-dom';
 import highqualitysample from '../assets/highqualitysample.jpg';
 import { useImageSize } from 'react-image-size';
+import { useMediaQuery } from '@mui/material';
+import CartButton from './CartButton';
 type props = {
   height: string;
   width: string;
   bgsize: string;
 };
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Plus from '../utils/Plus';
-import { useMediaQuery } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart, addToCart } from '../Redux/features/CartSlice';
-import { cartitems as sampleData} from '../sampledata/cartitem';
-import { sample } from 'lodash';
 const ProductDetail = ({ height, width, bgsize }: props) => {
   const width600 = useMediaQuery('(max-width: 600px)');
   const [wishlist, setWishList] = React.useState<boolean>(false);
@@ -25,54 +19,41 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
   const index = Number(id);
   //temporary slides
   const details = cartitems[Number(id)];
-  const slides = cartitems.map((value, index) => {
-    const [dimensions, { loading, error }] = useImageSize(
-      'https://s3-alpha-sig.figma.com/img/8626/c029/16041bebadaa211a5e4a01c642f2f2fc?Expires=1693180800&Signature=dyWUnVcEWhUVTC87u~pI38Ek~XIku0m7rgAC66IrdPc5Yp2WHQ0e14bXrUgkCtqFVGZMFQ9JZbzdb-aHcaj4~Hx4dbSbvmRneK61BhgitkpSnUpfCECAdYhWUfu~~xHAzikJxpGkaUCBtqsaqMmGhN4qHvte8XjAYeibZs5elIhi7OtgwJW6P~omCc75hUE178VLygMi8FQxi8ZBJA9cZOnMKoM597Hhp15-Jp5QIe~rOp4A~HiRRVs1onLqQF8z5LlBau63uNO51htJ5SW58~9cq26W8xgo1M7wC0XowAE~YYuUp6MBPisDLsrbDnZ9FDWkfAuAIClyyFBYIcJMfQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-    );
+  const slides = cartitems.map((value, mapindex) => {
+    const [dimensions, { loading, error }] = useImageSize(value.image);
     const aspectratio = dimensions?.width / dimensions?.height;
-    // console.log(aspectratio);
-    // width / height = 0.8
-    return (
-      <Box
-        sx={{
-          height: {
-            xs: '50vh',
-            sm: `calc(300px/${aspectratio})`,
-            md: `calc(450px/${aspectratio})`,
-            lg: `calc(550px/${aspectratio})`,
-          },
-          width: {
-            xs: `calc(50vh*${aspectratio})`,
-            sm: `300px`,
-            md: '450px',
-            lg: '550px',
-          },
-          backgroundImage: `url(${highqualitysample})`,
-          //   backgroundColor: 'green.darker',
-          backgroundSize: {
-            xs: `50vh calc(50vh/${aspectratio})`,
-            sm: `300px calc(300px/${aspectratio})`,
-            md: `450px calc(450px/${aspectratio})`,
-            lg: `550px calc(550px/${aspectratio})`,
-          },
-          borderRadius: '20px',
-          backgroundRepeat: 'no-repeat',
-        }}
-      ></Box>
-    );
+    if (value.id === index) {
+      return (
+        <Box
+          key={mapindex}
+          sx={{
+            height: {
+              xs: '50vh',
+              sm: `calc(300px/${aspectratio})`,
+              md: `calc(450px/${aspectratio})`,
+              lg: `calc(550px/${aspectratio})`,
+            },
+            width: {
+              xs: `calc(50vh*${aspectratio})`,
+              sm: `300px`,
+              md: '450px',
+              lg: '550px',
+            },
+            backgroundImage: `url(${value.image})`,
+            //   backgroundColor: 'green.darker',
+            backgroundSize: {
+              xs: `50vh calc(50vh/${aspectratio})`,
+              sm: `300px calc(300px/${aspectratio})`,
+              md: `450px calc(450px/${aspectratio})`,
+              lg: `550px calc(550px/${aspectratio})`,
+            },
+            borderRadius: '20px',
+            backgroundRepeat: 'no-repeat',
+          }}
+        ></Box>
+      );
+    }
   });
-  // console.log(slides);
-  const dispatch = useDispatch();
-  const products = useSelector((state: any) => state.cart);
-  // const totalPrice = products
-  //   .map((value: any) => Number(value.discprice.substring(2)) * value.quanity)
-  //   .reduce((total: any, value: any) => total + value);
-  const removeProductHandler = (product: any) => {
-    dispatch(removeFromCart(product));
-  };
-  const addProductHandler = (product: any) => {
-    dispatch(addToCart(product));
-  };
   return (
     <Box
       sx={{
@@ -87,7 +68,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
       }}
     >
       <SlideShow
-        components={slides}
+        components={slides.filter((value)=>value !== undefined)}
         indicators={false}
         arrows={false}
         show1100={1}
@@ -204,7 +185,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
               width: '100%',
             }}
           >
-            {wishlist ? (
+            {/* {wishlist ? (
               <FavoriteIcon
                 onClick={() => setWishList(!wishlist)}
                 sx={{ color: 'green.darker' }}
@@ -214,8 +195,8 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
                 onClick={() => setWishList(!wishlist)}
                 sx={{ color: 'green.darker' }}
               />
-            )}
-            <Button
+            )} */}
+            {/* <Button
               sx={{
                 '&:hover': {
                   backgroundColor: 'green.darker',
@@ -240,7 +221,8 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
                 {'Cart'}
               </Typography>
               <Plus />
-            </Button>
+            </Button> */}
+            <CartButton id={id} />
           </Box>
         </Box>
       </Box>

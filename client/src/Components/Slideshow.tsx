@@ -46,6 +46,7 @@ export default function SlideShow(props: props) {
     >
       <Slide
         duration={2500}
+        infinite={false}
         transitionDuration={700}
         slidesToScroll={1}
         slidesToShow={

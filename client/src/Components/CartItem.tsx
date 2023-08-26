@@ -12,6 +12,7 @@ import {
   incrementProduct,
 } from '../Redux/features/CartSlice';
 import { products } from '../sampledata/products';
+import CartButton from './CartButton';
 type props = {
   price: string;
   discprice: string;
@@ -24,6 +25,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
   const dispatch = useDispatch();
   const products = useSelector((state: any) => state.cart);
   const index = products.cart.findIndex((item: any) => id === item.id);
+  const cartindex: string | undefined = String(id);
   const removeProductHandler = (product: any) => {
     dispatch(reduceProduct(product));
   };
@@ -33,7 +35,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
   // console.log(totalPrice)
   // console.log(products);
   const removeAllProduct = (product: any) => {
-    dispatch(removeAll(product));
+    dispatch(removeFromCart(product));
   };
   // console.log(image);
   return (
@@ -117,7 +119,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
               flexDirection: 'row',
             }}
           >
-            <Box
+            {/* <Box
               sx={{
                 backgroundColor: 'green.darker',
                 height: '50px',
@@ -165,7 +167,8 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
                 }}
                 onClick={() => addProductHandler(products.cart[index])}
               />
-            </Box>
+            </Box> */}
+            <CartButton id={cartindex}/>
             <Box onClick={() => removeAllProduct(products.cart[index])}>
               <WasteCan />
             </Box>

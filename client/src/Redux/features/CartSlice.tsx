@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { cartitems } from '../../sampledata/cartitem';
 type inistate = {
   cart: Array<cartitem>
 }
@@ -23,7 +24,7 @@ type cartitem = {
   name: string;
   summary: string;
   desc: string;
-  quantity: number;
+  quantity: number | undefined;
   id: number;
 };
 export const CartSlice = createSlice({
@@ -32,7 +33,7 @@ export const CartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       //if that action product has already in cart then if block will work
-      //console.log(action.payload)
+      console.log(action.payload)
       const itemIndex = state.cart.findIndex(
         (item: any) => item.id === action.payload.id
       );
@@ -72,6 +73,7 @@ export const CartSlice = createSlice({
       const itemIndex = state.cart.findIndex(
         (item) => item.id === action.payload.id
       );
+      console.log(action.payload)
       if (state.cart[itemIndex].quantity >= 1) {
         state.cart[itemIndex].quantity += 1;
       }

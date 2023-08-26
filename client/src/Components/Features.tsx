@@ -14,6 +14,7 @@ import slide4 from '../assets/fslide4.png';
 import SlideShow from './Slideshow';
 import RightArrow from '../utils/RightArrow';
 import ExploreMore from '../utils/ExploreMore';
+import { products } from '../sampledata/products';
 const Features = () => {
   const [options, setOptions] = React.useState({
     op0: false,
@@ -62,48 +63,8 @@ const Features = () => {
       };
     });
   }
-  const slideshow = [
-    <FeatureCard
-      background={
-        'url(), transparent 100% / cover no-repeat'.substring(0, 4) +
-        slide1 +
-        'url(), transparent 100% / cover no-repeat'.substring(4)
-      }
-      cardname="Loreum Ipsum, Loreum Ipsum,"
-      discprice="200"
-      price="300"
-    />,
-    <FeatureCard
-      background={
-        'url(), transparent 100% / cover no-repeat'.substring(0, 4) +
-        slide2 +
-        'url(), transparent 100% / cover no-repeat'.substring(4)
-      }
-      cardname="Loreum Ipsum, Loreum Ipsum,"
-      discprice="200"
-      price="300"
-    />,
-    <FeatureCard
-      background={
-        'url(), transparent 100% / cover no-repeat'.substring(0, 4) +
-        slide3 +
-        'url(), transparent 100% / cover no-repeat'.substring(4)
-      }
-      cardname="Loreum Ipsum, Loreum Ipsum,"
-      discprice="200"
-      price="300"
-    />,
-    <FeatureCard
-      background={
-        'url(), transparent 100% / cover no-repeat'.substring(0, 4) +
-        slide4 +
-        'url(), transparent 100% / cover no-repeat'.substring(4)
-      }
-      cardname="Loreum Ipsum, Loreum Ipsum,"
-      discprice="200"
-      price="300"
-    />,
-  ];
+  const slideshow = products.filter((value, index) => value.id>2)
+  // console.log(slideshow);
   return (
     <Box
       sx={{
@@ -157,7 +118,7 @@ const Features = () => {
             Lorem ipsum dolor sit amet, consectetuer Lorem ispum.
           </Typography>
         </Box>
-        <Box
+        {/* <Box
           sx={{
             width: '80vw',
             alignItems: 'center',
@@ -204,7 +165,7 @@ const Features = () => {
               Best Sellers
             </Typography>
           </Button>
-        </Box>
+        </Box> */}
         <Autocomplete
           value={value}
           ref={ref1}
@@ -247,41 +208,41 @@ const Features = () => {
             />
           )}
         />
-        <Box sx={{ display: options.op0 ? 'block' : 'none' }}>
+        {/* <Box sx={{ display: options.op0 ? 'block' : 'none' }}>
           <SlideShow
             show1100={4}
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow}
+            components={slideshow.map((value,index)=> value.element)}
             arrows={false}
             width="95vw"
           />
-        </Box>
+        </Box> */}
         <Box sx={{ display: options.op1 ? 'block' : 'none' }}>
           <SlideShow
             show1100={4}
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow}
+            components={slideshow.map((value,index)=> value.element)}
             width="95vw"
             arrows={false}
           />
         </Box>
-        <Box sx={{ display: options.op2 ? 'block' : 'none' }}>
+        {/* <Box sx={{ display: options.op2 ? 'block' : 'none' }}>
           <SlideShow
             show1100={4}
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow}
+            components={slideshow.map((value,index)=> value.element)}
             width="95vw"
             arrows={false}
           />
-        </Box>
+        </Box> */}
       </Box>
-      <ExploreMore/>
+      <ExploreMore />
     </Box>
   );
 };

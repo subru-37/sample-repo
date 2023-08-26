@@ -2,14 +2,9 @@ import React from 'react';
 import { Box, Typography, Drawer, Button } from '@mui/material';
 import CartItem from './CartItem';
 import Close from '../utils/Close';
-import { cartitems } from '../sampledata/cartitem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  addToCart,
-  removeAll,
-  removeFromCart,
-} from '../Redux/features/CartSlice';
+
 type props = {
   cartopen: boolean;
   setCartOpen: (open: boolean) => void;
