@@ -13,6 +13,7 @@ import { products } from '../sampledata/products';
 import useNavbar from '../hooks/useNavbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import Search from '../utils/Search';
 type props = {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
@@ -46,7 +47,7 @@ const Products = (props: props) => {
   return (
     <Box
       sx={{
-        marginTop: '75px',
+        // marginTop: '75px',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
@@ -62,6 +63,10 @@ const Products = (props: props) => {
           borderBottomRightRadius: '35px',
           //   opacity: '0.5',
           backgroundColor: '#F5FCE7',
+          minHeight:'175px',
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'flex-end',
           boxShadow: '0px 4px 48px -13px rgba(46, 84, 37, 0.54)',
           //   filter: 'blur(0.25px)',
           //   backdropFilter: 'blur(7.5px)',
@@ -72,6 +77,7 @@ const Products = (props: props) => {
             '& fieldset': {
               border: 'none',
               color: 'green.darker',
+              minWidth:'300px'
             },
             '&.Mui-focused fieldset': {
               border: 'none',
@@ -96,6 +102,7 @@ const Products = (props: props) => {
           },
           startAdornment: (
             <InputAdornment position="start">
+              <Search/>
               <Button
                 onClick={() => setDrawer(true)}
                 sx={{
