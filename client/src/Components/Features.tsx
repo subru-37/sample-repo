@@ -16,7 +16,9 @@ import RightArrow from '../utils/RightArrow';
 import ExploreMore from '../utils/ExploreMore';
 import { products } from '../sampledata/products';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Features = () => {
+  const navigation = useNavigate();
   const [options, setOptions] = React.useState({
     op0: false,
     op1: true,
@@ -248,7 +250,9 @@ const Features = () => {
           />
         </Box> */}
       </Box>
-      <ExploreMore />
+      <Box onClick={()=> navigation('/products')} sx={{cursor:'pointer'}}>
+        <ExploreMore />
+      </Box>
     </Box>
   );
 };
