@@ -15,6 +15,7 @@ import SlideShow from './Slideshow';
 import RightArrow from '../utils/RightArrow';
 import ExploreMore from '../utils/ExploreMore';
 import { products } from '../sampledata/products';
+import { Link } from 'react-router-dom';
 const Features = () => {
   const [options, setOptions] = React.useState({
     op0: false,
@@ -63,7 +64,12 @@ const Features = () => {
       };
     });
   }
-  const slideshow = products.filter((value, index) => value.id>2)
+  const filtered = products.filter((value, index) => value.id > 2);
+  const slideshow = filtered.map((value, index) => (
+    <Link style={{ textDecoration: 'none' }} to={`/products/${value.id}`}>
+      {value.element}
+    </Link>
+  ));
   // console.log(slideshow);
   return (
     <Box
@@ -214,7 +220,7 @@ const Features = () => {
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow.map((value,index)=> value.element)}
+            components={slideshow}
             arrows={false}
             width="95vw"
           />
@@ -225,7 +231,7 @@ const Features = () => {
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow.map((value,index)=> value.element)}
+            components={slideshow}
             width="95vw"
             arrows={false}
           />
@@ -236,7 +242,7 @@ const Features = () => {
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow.map((value,index)=> value.element)}
+            components={slideshow}
             width="95vw"
             arrows={false}
           />
