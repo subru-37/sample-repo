@@ -60,69 +60,78 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
             width: '100%',
           }}
         >
-          <Typography
-            sx={{
-              fontSize: '35px',
-              fontWeight: '500',
-              color: 'green.darker',
-              width: '100%',
-              borderBottom: '2px solid #00584A',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            Cart
-            <Button
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            flexDirection:'column',
+            width:'100%'
+          }}>
+            <Typography
               sx={{
-                fill: 'rgba(245, 252, 231, 0.55)',
-                filter:
-                  'drop-shadow(0px 4px 39px rgba(46, 84, 37, 0.75)) blur(0.25px)',
-                backdropFilter: 'blur(2px)',
-                zIndex: '1300',
-                borderRadius: '100%',
-                height: '50px',
-                width: '50px',
-                padding: '0px',
-                minWidth: '0px',
+                fontSize: '35px',
+                fontWeight: '500',
+                color: 'green.darker',
+                width: '100%',
+                borderBottom: '2px solid #00584A',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
               }}
-              onClick={() => setCartOpen(false)}
             >
-              <Close />
-            </Button>
-          </Typography>
+              Cart
+              <Button
+                sx={{
+                  fill: 'rgba(245, 252, 231, 0.55)',
+                  filter:
+                    'drop-shadow(0px 4px 39px rgba(46, 84, 37, 0.75)) blur(0.25px)',
+                  backdropFilter: 'blur(2px)',
+                  zIndex: '1300',
+                  borderRadius: '100%',
+                  height: '50px',
+                  width: '50px',
+                  padding: '0px',
+                  minWidth: '0px',
+                }}
+                onClick={() => setCartOpen(false)}
+              >
+                <Close />
+              </Button>
+            </Typography>
 
-          {/* Items */}
-          <Box
-            sx={{
-              width: '100%',
-              marginTop: '30px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              flexDirection: 'column',
-            }}
-          >
-            {products.cart.length > 0 &&
-              products.cart.map((value: any, index: any) => (
-                <CartItem
-                  id={value.id}
-                  image={
-                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                      0,
-                      4
-                    ) +
-                    value.image +
-                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                      4
-                    )
-                  }
-                  price={value.price}
-                  discprice={value.discprice}
-                  name={value.name}
-                  quantity={value.quantity}
-                />
-              ))}
+            {/* Items */}
+            <Box
+              sx={{
+                width: '100%',
+                margin: '30px 0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                flexDirection: 'column',
+                // minHeight:'50vh'
+              }}
+            >
+              {products.cart.length > 0 &&
+                products.cart.map((value: any, index: any) => (
+                  <CartItem
+                    id={value.id}
+                    image={
+                      'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                        0,
+                        4
+                      ) +
+                      value.image +
+                      'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                        4
+                      )
+                    }
+                    price={value.price}
+                    discprice={value.discprice}
+                    name={value.name}
+                    quantity={value.quantity}
+                  />
+                ))}
+            </Box>
           </Box>
           {/* checkout details */}
           <Box
@@ -138,7 +147,7 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              //   position:'fixed',
+              // position:'fixed',
               width: { xs: '100vw', sm: '500px' },
               bottom: '0',
             }}

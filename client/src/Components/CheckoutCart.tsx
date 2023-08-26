@@ -22,7 +22,7 @@ const CheckoutCart = () => {
   return (
     <Box
       sx={{
-        width:{xs:'100%',md:'90%'},
+        width: { xs: '100%', md: '90%' },
         //   minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
@@ -36,52 +36,72 @@ const CheckoutCart = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          minHeight: {xs:'70vh',md:'100vh'},
+          minHeight: { xs: '70vh', md: '80vh' },
           flexDirection: 'column',
           padding: '35px 35px 0 35px',
           boxSizing: 'border-box',
           width: '100%',
-          position:'relative'
+          position: 'relative',
         }}
       >
-        <Typography
+        <Box
           sx={{
-            fontSize: '35px',
-            fontWeight: '500',
-            color: 'green.darker',
-            width: '100%',
-            borderBottom: '2px solid #00584A',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
+            flexDirection: 'column',
+            width: '100%',
           }}
         >
-          Cart
-        </Typography>
+          <Typography
+            sx={{
+              fontSize: '35px',
+              fontWeight: '500',
+              color: 'green.darker',
+              width: '100%',
+              borderBottom: '2px solid #00584A',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            Cart
+          </Typography>
 
-        {/* Items */}
-        <Box sx={{ width: '100%', marginTop: '30px',  maxHeight: '500px', overflowY:'scroll', overflowX:'hidden', position:'relative'}}>
-          {products.cart.length > 0 &&
-            products.cart.map((value: any, index: any) => (
-              <CartItem
-                id={value.id}
-                image={
-                  'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                    0,
-                    4
-                  ) +
-                  value.image +
-                  'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
-                    4
-                  )
-                }
-                price={value.price}
-                discprice={value.discprice}
-                name={value.name}
-                quantity={value.quantity}
-              />
-            ))}
+          {/* Items */}
+          <Box
+            sx={{
+              width: '100%',
+              marginTop: '30px',
+              maxHeight: '500px',
+              overflowY: 'scroll',
+              overflowX: 'hidden',
+              position: 'relative',
+            }}
+          >
+            {products.cart.length > 0 &&
+              products.cart.map((value: any, index: any) => (
+                <CartItem
+                  id={value.id}
+                  image={
+                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                      0,
+                      4
+                    ) +
+                    value.image +
+                    'url(), lightgray -32.2px -6px / 112.96% 114.239% no-repeat'.substring(
+                      4
+                    )
+                  }
+                  price={value.price}
+                  discprice={value.discprice}
+                  name={value.name}
+                  quantity={value.quantity}
+                />
+              ))}
+          </Box>
         </Box>
+
         {/* checkout details */}
         <Box
           sx={{

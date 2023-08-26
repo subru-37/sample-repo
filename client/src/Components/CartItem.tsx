@@ -37,7 +37,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
         justifyContent: 'space-between',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        margin: '30px 0',
+        margin: index === 0 ? '0' : '30px 0 0 0',
         width: '100%',
       }}
     >
@@ -159,7 +159,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
                 onClick={() => addProductHandler(products.cart[index])}
               />
             </Box> */}
-            <CartButton id={cartindex}/>
+            <CartButton id={cartindex} />
             <Box onClick={() => removeAllProduct(products.cart[index])}>
               <WasteCan />
             </Box>
