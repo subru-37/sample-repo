@@ -141,11 +141,25 @@ const FilterBox = ({
           //   aria-label='Small'
           getAriaValueText={(value) => `${value}/-`}
           getAriaLabel={() => 'Price Range'}
-          step={100}
-          min={1000}
-          max={20000}
+          step={50}
+          min={50}
+          max={3000}
           defaultValue={[1000, 2000]}
         />
+        <Box
+          sx={{
+            width: '100%',
+            paddingLeft: '10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+          }}
+        >
+          <Typography sx={{ color: 'green.darker', fontSize: '16px' }}>
+          ₹ {slideValue[0]} - ₹ {slideValue[1]} 
+          </Typography>
+        </Box>
         <Box
           sx={{
             width: '100%',
@@ -154,7 +168,7 @@ const FilterBox = ({
             marginTop: '15px',
           }}
         />
-        <FilterAccordion
+        {/* <FilterAccordion
           question="Payment"
           panel="panel2"
           handleChange={handleChange}
@@ -193,7 +207,7 @@ const FilterBox = ({
             backgroundColor: 'green.darker',
             margin: '15px 0',
           }}
-        />
+        /> */}
       </Box>
     </Box>
   );
