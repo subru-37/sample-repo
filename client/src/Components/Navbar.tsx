@@ -11,6 +11,7 @@ import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
 import { Link } from 'react-router-dom';
+import logo from '../assets/SNDark Green@4x.png'
 type props = {
   cartopen: boolean;
   setCartOpen: (open: boolean) => void;
@@ -20,8 +21,8 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
     { name: 'Home', link: '/' },
     { name: 'About Us', link: '/' },
     { name: 'Shop', link: '/products' },
-    { name: 'Blog', link: '/' },
-    { name: 'Contact Us', link: '/' },
+    // { name: 'Blog', link: '/' },
+    // { name: 'Contact Us', link: '/' },
   ];
   const [value, open, setValue, width900] = useNavbar();
 
@@ -50,11 +51,11 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
       >
         <Toolbar
           sx={{
-            width: { xs: '90vw', md: '80vw' },
+            width: { xs: '90vw', md: '75vw' },
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            padding: { xs: '0px', md: '0px 0px 0px 100px !important' },
+            padding:'0px !important'
           }}
         >
           <IconButton
@@ -67,8 +68,9 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
           >
             <MenuIcon sx={{ color: 'green.darker' }} />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ color: 'black' }}>
-            Icon
+          {/* 3263 1102 */}
+          {/*      60 */}
+          <Typography component="img" src={logo} alt={''} sx={{height:'60px', width:'177px'}}>
           </Typography>
           <Box
             sx={{
@@ -76,8 +78,9 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 xs: 'none',
                 md: 'flex',
                 flexDirection: 'row',
-                width: '40vw',
+                width: '20vw',
                 justifyContent: 'space-between',
+                marginRight:'100px'
               },
             }}
           >
@@ -102,9 +105,9 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             })}
           </Box>
           <Box>
-            <Button color="inherit">
+            {/* <Button color="inherit">
               <SignIcon />
-            </Button>
+            </Button> */}
             <Button onClick={() => setCartOpen(true)}>
               <Cart />
             </Button>
