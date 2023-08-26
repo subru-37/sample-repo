@@ -172,7 +172,7 @@ const Features = () => {
             </Typography>
           </Button>
         </Box> */}
-        <Autocomplete
+        {/* <Autocomplete
           value={value}
           ref={ref1}
           onChange={handleChange}
@@ -213,7 +213,7 @@ const Features = () => {
               }}
             />
           )}
-        />
+        /> */}
         {/* <Box sx={{ display: options.op0 ? 'block' : 'none' }}>
           <SlideShow
             show1100={4}
