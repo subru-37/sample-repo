@@ -2,15 +2,16 @@ import React, { Dispatch, SetStateAction } from 'react';
 import Box from '@mui/material/Box';
 import { Typography, Button, TextField, InputAdornment } from '@mui/material';
 import Search from '../utils/Search';
+import { Link } from 'react-scroll';
 type props = {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
-}
+};
 const Hero = (props: props) => {
   return (
     <Box
       sx={{
-        minHeight: '90vh',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: { xs: 'center', sm: 'flex-start' },
         justifyContent: 'center',
@@ -85,7 +86,16 @@ const Hero = (props: props) => {
                 textTransform: 'none',
               }}
             >
-              Shop Now
+              <Link
+                activeClass="active"
+                to="features"
+                spy={true}
+                smooth={true}
+                // offset={50}
+                duration={500}
+              >
+                Shop Now
+              </Link>
             </Typography>
           </Button>
           <Box

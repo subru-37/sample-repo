@@ -113,6 +113,7 @@ const Features = () => {
         flexDirection: 'column',
         display: 'flex',
       }}
+      id="features"
     >
       <Box
         sx={{
