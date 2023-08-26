@@ -95,7 +95,7 @@ const Hero = (props: props) => {
               justifyContent: 'center',
             }}
           >
-            <Button
+            {/* <Button
               sx={{
                 bgcolor: 'green.darker',
                 height: { xs: '50.5px', sm: '57px', md: '56.5px' },
@@ -183,7 +183,7 @@ const Hero = (props: props) => {
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 props.setName(event.target.value);
               }}
-            ></TextField>
+            ></TextField> */}
           </Box>
         </Box>
       </Box>
