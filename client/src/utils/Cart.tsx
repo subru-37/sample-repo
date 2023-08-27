@@ -1,6 +1,8 @@
 import React from 'react';
-
-const Cart = () => {
+type Cartprops = {
+  size?: string;
+}
+const Cart = ({size}: Cartprops) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +10,10 @@ const Cart = () => {
       height="22"
       viewBox="0 0 26 22"
       fill="none"
+      style={{
+        height: size,
+        width: size
+      }}
     >
       <path
         d="M9.95117 21C10.5035 21 10.9512 20.5523 10.9512 20C10.9512 19.4477 10.5035 19 9.95117 19C9.39889 19 8.95117 19.4477 8.95117 20C8.95117 20.5523 9.39889 21 9.95117 21Z"
