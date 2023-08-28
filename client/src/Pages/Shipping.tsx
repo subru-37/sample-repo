@@ -44,8 +44,21 @@ const Shipping = ({
   }
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
-  const whatsappUrl = `https://wa.me/917356029354?text=${JSON.stringify(
-    products.cart
+  const items = products.cart.map((value: any,index: number)=>{
+    const keys = Object.keys(value)
+    const values = Object.values(value)
+    console.log(keys,values)
+    return{
+      [keys[1]]: values[1],
+      [keys[2]]: values[2],
+      [keys[3]]: values[3],
+      [keys[4]]: values[4],
+      [keys[7]]: values[7],
+    }
+  })
+  console.log(items)
+  const whatsappUrl = `https://wa.me/917356029354?text=cartitems%20${JSON.stringify(
+    items
   )}%20${value}%20${JSON.stringify(formData)}`;
   useEffect(() => {
     if (products.cart.length === 0) {
@@ -302,7 +315,7 @@ const Shipping = ({
 
           <Box
             sx={{
-              width: { xs: '100%', md: '42%' },
+              width: { xs: '100%', md: '43%' },
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'flex-end',

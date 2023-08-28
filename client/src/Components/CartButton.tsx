@@ -21,9 +21,7 @@ const CartButton = ({ id }: BoxProps) => {
   const cartindex = products.cart.findIndex(
     (item: any) => item.id === sampleData[index].id
   );
-  console.log(cartindex)
-  console.log(products.cart[cartindex])
-  console.log(products.cart);
+
   // const index = Number(id);
   // console.log(index);
   const removeProductHandler = (product: any) => {
