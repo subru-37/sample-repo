@@ -160,7 +160,10 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
               />
             </Box> */}
             <CartButton id={cartindex} />
-            <Box onClick={() => removeAllProduct(products.cart[index])}>
+            <Box
+              onClick={() => removeAllProduct(products.cart[index])}
+              sx={{ cursor: 'pointer' }}
+            >
               <WasteCan />
             </Box>
           </Box>

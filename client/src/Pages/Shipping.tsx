@@ -14,6 +14,8 @@ import CheckoutCart from '../Components/CheckoutCart';
 import LeftArrow from '../utils/LeftArrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { removeAll } from '../Redux/features/CartSlice';
+import Message from '../Components/Message';
 type formData = {
   email: string;
   firstName: string;
@@ -37,29 +39,24 @@ const Shipping = ({
   setFormData,
   options,
 }: shippingProps) => {
+  const dispatch = useDispatch();
   const redirect = (event: Event | undefined) => {
     // navigation(whatsappUrl)
-    event.preventDefault()
-    window.location.href = whatsappUrl
-  }
+    event.preventDefault();
+    dispatch(removeAll(products))
+    setFormData({
+      email: '',
+      firstName: '',
+      lastName: '',
+      address: '',
+      landmark: '',
+      phoneNumber: undefined,
+    })
+    window.location.href = whatsappUrl;
+  };
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
-  const items = products.cart.map((value: any,index: number)=>{
-    const keys = Object.keys(value)
-    const values = Object.values(value)
-    console.log(keys,values)
-    return{
-      [keys[1]]: values[1],
-      [keys[2]]: values[2],
-      [keys[3]]: values[3],
-      [keys[4]]: values[4],
-      [keys[7]]: values[7],
-    }
-  })
-  console.log(items)
-  const whatsappUrl = `https://wa.me/917356029354?text=cartitems%20${JSON.stringify(
-    items
-  )}%20${value}%20${JSON.stringify(formData)}`;
+  const whatsappUrl = Message(value,formData)
   useEffect(() => {
     if (products.cart.length === 0) {
       navigation('/products');
@@ -119,7 +116,7 @@ const Shipping = ({
               height: '100%',
             }}
             component={'form'}
-            onSubmit={()=> redirect(event)}
+            onSubmit={() => redirect(event)}
           >
             {/* email address box */}
             <Box sx={{ width: { xs: '80%', md: '100%' }, margin: '50px 0' }}>
@@ -294,20 +291,20 @@ const Shipping = ({
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-                type='submit'
+                type="submit"
                 // href={whatsappUrl}
                 // target='_blank'
               >
-                  <Typography
-                    sx={{
-                      color: '#F5FCE7',
-                      textTransform: 'none',
-                      fontSize: '12px',
-                      lineHeight: '14px',
-                    }}
-                  >
-                    Confirm Order
-                  </Typography>
+                <Typography
+                  sx={{
+                    color: '#F5FCE7',
+                    textTransform: 'none',
+                    fontSize: '12px',
+                    lineHeight: '14px',
+                  }}
+                >
+                  Confirm Order
+                </Typography>
               </Button>
             </Box>
           </Box>

@@ -30,7 +30,7 @@ const CartButton = ({ id }: BoxProps) => {
   const addProductHandler = (product: any) => {
     dispatch(addToCart(product));
   };
-  const Notdefined = products.cart[cartindex] === undefined
+  const Notdefined = products.cart[cartindex] === undefined;
   if (Notdefined) {
     return (
       <Button
@@ -42,7 +42,8 @@ const CartButton = ({ id }: BoxProps) => {
           minHeight: '50px',
           minWidth: '120px',
           // marginLeft: '25px',
-          padding:'0px'
+          padding: '0px',
+          cursor: 'pointer',
         }}
         onClick={() => {
           addProductHandler(sampleData[index]);
@@ -83,6 +84,7 @@ const CartButton = ({ id }: BoxProps) => {
             fontSize: '5px',
             height: '75%',
             width: '33%',
+            cursor: 'pointer',
           }}
           onClick={() => removeProductHandler(products.cart[cartindex])}
         />
@@ -108,6 +110,7 @@ const CartButton = ({ id }: BoxProps) => {
             fontSize: '5px',
             height: '75%',
             width: '33%',
+            cursor: 'pointer',
           }}
           onClick={() => addProductHandler(products.cart[cartindex])}
         />
