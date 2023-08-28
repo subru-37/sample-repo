@@ -38,7 +38,7 @@ const CheckoutCart = () => {
           justifyContent: 'space-between',
           minHeight: { xs: '70vh', md: '80vh' },
           flexDirection: 'column',
-          padding: '35px 35px 0 35px',
+          padding: '10px 10px 0 10px',
           boxSizing: 'border-box',
           width: '100%',
           position: 'relative',

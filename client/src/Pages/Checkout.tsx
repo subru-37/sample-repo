@@ -350,7 +350,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
 
           <Box
             sx={{
-              width: { xs: '100%', md: '45%' },
+              width: { xs: '100%', md: '42%' },
 
               display: 'flex',
               alignItems: 'flex-start',
