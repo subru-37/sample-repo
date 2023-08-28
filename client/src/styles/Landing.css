@@ -24,4 +24,14 @@
   } */
 
   /* FEATURES */
-  
+::-webkit-scrollbar{
+    width: 4px;
+  }
+::-webkit-scrollbar-track{
+    background:  #ACD2AE;
+    border-radius: 50px;
+  }
+::-webkit-scrollbar-thumb{
+    background: #00584A;
+    border-radius: 50px;
+  }

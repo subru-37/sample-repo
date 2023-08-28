@@ -37,6 +37,11 @@ const Shipping = ({
   setFormData,
   options,
 }: shippingProps) => {
+  const redirect = (event: Event | undefined) => {
+    // navigation(whatsappUrl)
+    event.preventDefault()
+    window.location.href = whatsappUrl
+  }
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
   const whatsappUrl = `https://wa.me/917356029354?text=${JSON.stringify(
@@ -100,6 +105,8 @@ const Shipping = ({
               flexDirection: 'column',
               height: '100%',
             }}
+            component={'form'}
+            onSubmit={()=> redirect(event)}
           >
             {/* email address box */}
             <Box sx={{ width: { xs: '80%', md: '100%' }, margin: '50px 0' }}>
@@ -170,7 +177,7 @@ const Shipping = ({
               <Typography
                 sx={{ width: '80%', color: 'green.darker', fontSize: '24px' }}
               >
-                Shipping Method
+                Payment Method
               </Typography>
               <Typography
                 sx={{
@@ -179,7 +186,7 @@ const Shipping = ({
                   fontStyle: 'italic',
                 }}
               >
-                Loreum Ipsum 3-4 bussines days
+                Shipped in 3-4 bussines days
               </Typography>
               <Autocomplete
                 value={value}
@@ -192,7 +199,7 @@ const Shipping = ({
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Controllable"
+                    label="Your payment method"
                     //   InputProps={{
                     //     style: {
                     //       color: '#00584A',
@@ -274,12 +281,10 @@ const Shipping = ({
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
+                type='submit'
+                // href={whatsappUrl}
+                // target='_blank'
               >
-                <Link
-                  href={whatsappUrl}
-                  target="_blank"
-                  underline="none"
-                >
                   <Typography
                     sx={{
                       color: '#F5FCE7',
@@ -290,7 +295,6 @@ const Shipping = ({
                   >
                     Confirm Order
                   </Typography>
-                </Link>
               </Button>
             </Box>
           </Box>

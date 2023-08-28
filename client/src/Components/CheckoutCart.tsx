@@ -77,7 +77,9 @@ const CheckoutCart = () => {
               overflowY: 'scroll',
               overflowX: 'hidden',
               position: 'relative',
-            }}
+        padding:{xs:'0px 20px 0px 0px',sm:'0px 30px 0px 0px',md:'0px 50px 0px 0px'},
+        boxSizing:'border-box'
+      }}
           >
             {products.cart.length > 0 &&
               products.cart.map((value: any, index: any) => (
@@ -111,7 +113,7 @@ const CheckoutCart = () => {
             // boxShadow: ' 0px 4px 48px -13px rgba(0, 88, 74, 0.80)',
             // filter: 'blur(0.25px)',
             // backdropFilter: 'blur(50px)',
-            padding: '0px 40px 35px 40px',
+            padding: '0px 0px 35px 0px',
             boxSizing: 'border-box',
             display: 'flex',
             alignItems: 'center',

@@ -6,6 +6,7 @@ import CheckoutCart from '../Components/CheckoutCart';
 import LeftArrow from '../utils/LeftArrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import '../styles/Landing.css';
 type formData = {
   email: string;
   firstName: string;
@@ -75,11 +76,13 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
             sx={{
               display: 'flex',
               alignItems: { xs: 'center', md: 'flex-start' },
-              width: { xs: '100%', md: '55%' },
+              width: { xs: '100%', md: '50%' },
               justifyContent: 'space-between',
               flexDirection: 'column',
               height: '100%',
             }}
+            component={'form'}
+            onSubmit={() => navigation('/shipping')}
           >
             {/* email address box */}
             <Box sx={{ width: { xs: '80%', md: '100%' }, margin: '50px 0' }}>
@@ -258,6 +261,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
               <FormSample
                 id="Phone Number"
                 label="Phone Number"
+                type="number"
                 height="50px"
                 width="100%"
                 generalbgcolor="#F5FCE7"
@@ -269,6 +273,9 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     color: '#00584A',
                     fontFamily: 'Plus Jakarta Sans',
                   },
+                  inputProps:{
+                    max:10000000000 
+                  }
                 }}
                 InputLabelProps={{
                   style: {
@@ -323,7 +330,8 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-                onClick={() => navigation('/shipping')}
+                // onClick={() => navigation('/shipping')}
+                type="submit"
               >
                 <Typography
                   sx={{

@@ -16,7 +16,9 @@ type formProps = {
   onChange: Dispatch<SetStateAction<formData>>;
   generalcolor: string;
   name: string;
+  type?:string;
   margin: string;
+  max?:number;
 };
 const FormSample = ({
   id,
@@ -24,7 +26,9 @@ const FormSample = ({
   height,
   width,
   generalbgcolor,
+  type,
   generalcolor,
+  max,
   fieldsetbgcolor,
   fieldsetborder,
   fieldsetborderradius,
@@ -50,6 +54,7 @@ const FormSample = ({
         id={id}
         label={label}
         required
+        type={type}
         sx={{
           height: { height },
           width: '100%',

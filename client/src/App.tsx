@@ -36,7 +36,7 @@ type formData = {
   phoneNumber: string | number | undefined;
 };
 const App = () => {
-  const options = ['option1', 'option2', 'option3'];
+  const options = ['Cash On Delivery'];
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [formData, setFormData] = React.useState<formData>({
     email: '',
