@@ -91,10 +91,20 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
               >
                 Contact
               </Typography>
+              <Typography
+                sx={{
+                  fontSize: '12px',
+                  color: '#5AB65F',
+                  fontStyle: 'italic',
+                }}
+              >
+                Let us know how to contact you
+              </Typography>
               <FormSample
-                id="email"
-                label="Let us know how to contact you"
+                id="phoneNumber"
+                label="Phone Number"
                 height="50px"
+                type="number"
                 width={{ xs: '100%', md: '80%' }}
                 generalbgcolor="#F5FCE7"
                 fieldsetbgcolor="#F5FCE7"
@@ -113,11 +123,11 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.email}
+                value={formData.phoneNumber}
                 onChange={setFormData}
-                name={'email'}
+                name={'phoneNumber'}
                 generalcolor="#00584A"
-                margin="20px 0"
+                margin="10px 0"
               />
             </Box>
             {/* shipping details */}
@@ -259,9 +269,9 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                 margin="0 0 10px 0"
               />
               <FormSample
-                id="Phone Number"
-                label="Phone Number"
-                type="number"
+                id="Email"
+                label="Email"
+                type="email"
                 height="50px"
                 width="100%"
                 generalbgcolor="#F5FCE7"
@@ -273,9 +283,9 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     color: '#00584A',
                     fontFamily: 'Plus Jakarta Sans',
                   },
-                  inputProps:{
-                    max:10000000000 
-                  }
+                  inputProps: {
+                    max: 10000000000,
+                  },
                 }}
                 InputLabelProps={{
                   style: {
@@ -284,9 +294,9 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.phoneNumber}
+                value={formData.email}
                 onChange={setFormData}
-                name={'phoneNumber'}
+                name={'email'}
                 generalcolor="#00584A"
                 margin="0 0 10px 0"
               />
