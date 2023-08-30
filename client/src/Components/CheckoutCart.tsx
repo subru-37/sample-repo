@@ -36,7 +36,7 @@ const CheckoutCart = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          minHeight: { xs: '70vh', md: '80vh' },
+          minHeight: { xs: '70vh', md: '75vh' },
           flexDirection: 'column',
           padding: '10px 10px 0 10px',
           boxSizing: 'border-box',
@@ -77,9 +77,13 @@ const CheckoutCart = () => {
               overflowY: 'scroll',
               overflowX: 'hidden',
               position: 'relative',
-        padding:{xs:'0px 20px 0px 0px',sm:'0px 30px 0px 0px',md:'0px 50px 0px 0px'},
-        boxSizing:'border-box'
-      }}
+              padding: {
+                xs: '0px 20px 0px 0px',
+                sm: '0px 30px 0px 0px',
+                md: '0px 40px 0px 0px',
+              },
+              boxSizing: 'border-box',
+            }}
           >
             {products.cart.length > 0 &&
               products.cart.map((value: any, index: any) => (

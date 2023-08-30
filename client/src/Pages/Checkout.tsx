@@ -77,7 +77,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
             sx={{
               display: 'flex',
               alignItems: { xs: 'center', md: 'flex-start' },
-              width: { xs: '100%', md: '50%' },
+              width: { xs: '100%',md:'50%', lg: '60%' },
               justifyContent: 'space-between',
               flexDirection: 'column',
               height: '100%',
@@ -361,8 +361,8 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
 
           <Box
             sx={{
-              width: { xs: '100%', md: '42%' },
-              display: {xs:'none', sm:'flex'},
+              width: { xs: '100%',md:'50%', lg: '550px' },
+              display: {xs:'none', md:'flex'},
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
               borderLeft: { md: '1px solid #ACD2AE' },
