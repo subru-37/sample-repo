@@ -51,7 +51,7 @@
     height: 869px;
     background-image: url('../assets/grass.png');
     background-size: 100vw 869px;
-    bottom: 47px;
+    bottom: -300px;
   }
   .stage2{
     position: fixed;
@@ -60,7 +60,7 @@
     height: 869px;
     background-image: url('../assets/grass.png');
     background-size: 100vw 869px;
-    bottom: -194px;
+    bottom: 0px;
   }
 }
 @media only screen and (max-width: 900px){
@@ -70,7 +70,7 @@
     width: 100vw;
     height: 869px;
     background-image: url('../assets/grass.png');
-    background-size: 100vw 869px;
+    background-size: 1300px 869px;
     bottom: -869px;
   }
   .stage1{
@@ -79,8 +79,8 @@
     width: 100vw;
     height: 869px;
     background-image: url('../assets/grass.png');
-    background-size: 100vw 869px;
-    bottom: 1118px;
+    background-size: 1300px 869px;
+    bottom: -230px;
   }
   .stage2{
     position: fixed;
@@ -88,7 +88,10 @@
     width: 100vw;
     height: 869px;
     background-image: url('../assets/grass.png');
-    background-size: 100vw 869px;
+    background-size: 1300px 869px;
     bottom: -40px;
   }
+}
+@media only screen and (max-width:600px){
+
 }

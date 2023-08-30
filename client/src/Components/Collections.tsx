@@ -1,6 +1,6 @@
 import React, { LegacyRef, createRef, useRef } from 'react';
 import CollectionCard from './CollectionCard';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import SlideShow from './Slideshow';
 import ExploreMore from '../utils/ExploreMore';
 import SampleCard from './SampleCard';
@@ -11,15 +11,15 @@ import collection2 from '../assets/fslide2.png';
 import collection3 from '../assets/fslide3.png';
 import collection4 from '../assets/fslide4.png';
 const Collections = (props: any) => {
-  console.log(`url(${collection1}) no-repeat 285px auto/auto`);
   const contentItems = [
-    { name: 'Ready To Eat',background: collection1 },
-    { name: 'Rice',background: collection2 },
-    { name: 'Millets',background: collection3 },
+    { name: 'Ready To Eat', background: collection1 },
+    { name: 'Rice', background: collection2 },
+    { name: 'Millets', background: collection3 },
   ];
   const collectionItems = contentItems.map((value) => {
-    console.log(value)
-    return <CollectionCard content={value.name} background={value.background}/>;
+    return (
+      <CollectionCard content={value.name} background={value.background} />
+    );
   });
   const slides = [
     <SampleCard background={collection1} />,
@@ -28,7 +28,21 @@ const Collections = (props: any) => {
     <SampleCard background={collection4} />,
   ];
   const ref1 = props.ref1;
-  const onscreen = useOnScreen(ref1);
+  const width1100 = useMediaQuery('(min-width:1100px)');
+  const width900 = useMediaQuery('(min-width:900px)');
+  const width600 = useMediaQuery('(min-width:600px)');
+  const width400 = useMediaQuery('(min-width:400px)');
+  const rootmargin = !width1100
+    ? !width900
+      ? !width600
+        ? !width400
+          ? '220px 0px -155px 0px'
+          : '220px 0px -155px 0px'
+        : '75px 0px -90px 0px'
+      : '220px 0px -145px 0px'
+    : '220px 0px -155px 0px';
+  console.log(rootmargin);
+  const onscreen = useOnScreen(ref1, rootmargin);
   return (
     <Box
       sx={{

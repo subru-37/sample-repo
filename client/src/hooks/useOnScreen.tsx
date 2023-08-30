@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useMemo, useState } from 'react';
 
-export default function useOnScreen(ref: RefObject<HTMLDivElement>) {
+export default function useOnScreen(ref: RefObject<HTMLDivElement>, rootmargin: string) {
   const [isIntersecting, setIntersecting] = useState(false);
 
   const observer1 = new IntersectionObserver(
@@ -8,7 +8,7 @@ export default function useOnScreen(ref: RefObject<HTMLDivElement>) {
       setIntersecting(entry.isIntersecting);
       console.log(entry);
     },
-    { rootMargin: '220px 0px -155px 0px' }
+    { rootMargin: rootmargin }
   );
 //   console.log(observer1);
   useEffect(() => {
