@@ -68,9 +68,7 @@ const Features = () => {
   }
   const filtered = products.filter((value, index) => value.id > 2);
   const slideshow = filtered.map((value, index) => (
-    <Link style={{ textDecoration: 'none' }} to={`/products/${value.id}`}>
-      {value.element}
-    </Link>
+      value.element
   ));
   // console.log(slideshow);
   return (

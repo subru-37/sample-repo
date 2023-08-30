@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import CartButton from './CartButton';
+import { useNavigate } from 'react-router-dom';
 interface props {
   background: string;
   cardname: string;
@@ -9,16 +10,17 @@ interface props {
   id: number;
 }
 const FeatureCard = (props: props) => {
+  const navigation = useNavigate();
   const index: string | undefined = String(props.id);
   return (
     <Box
-      onClick={() => console.log(index)}
       sx={{
         // marginRight: '40px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'column',
+        cursor: 'pointer',
       }}
     >
       <Box
@@ -29,6 +31,7 @@ const FeatureCard = (props: props) => {
           background: props.background,
           backgroundSize: '100% 358px',
         }}
+        onClick={() => navigation(`products/${props.id}`)}
       ></Box>
       <Box
         sx={{
@@ -37,8 +40,10 @@ const FeatureCard = (props: props) => {
           alignItems: 'flex-start',
           flexDirection: 'column',
           justifyContent: 'space-between',
+          width: '100%',
           borderBottom: '1px solid #00584A',
         }}
+        onClick={() => navigation(`products/${props.id}`)}
       >
         <Typography
           sx={{
@@ -74,9 +79,17 @@ const FeatureCard = (props: props) => {
             {props.price}
           </Typography>
         </Box>
-        <Box sx={{width:'100%', display:'flex', alignItems:'center', justifyContent:'center', margin:'10px 0px'}}>
-          <CartButton id={index} />
-        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          margin: '10px 0px',
+        }}
+      >
+        <CartButton id={index} />
       </Box>
     </Box>
   );
