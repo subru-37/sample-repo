@@ -7,7 +7,7 @@ type styleprops = {
   name: string;
   profession: string;
   feedback: string;
-  margin: string;
+  margin?: string;
 };
 const FeedbackCard = (props: styleprops) => {
   return (
