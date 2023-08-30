@@ -83,6 +83,7 @@ const CheckoutCart = () => {
                 md: '0px 40px 0px 0px',
               },
               boxSizing: 'border-box',
+              margin:'20px 0px'
             }}
           >
             {products.cart.length > 0 &&
