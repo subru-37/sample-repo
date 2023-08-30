@@ -10,7 +10,7 @@ import { Drawer, Link as NavLink } from '@mui/material';
 import Cart from '../utils/Cart';
 import useNavbar from '../hooks/useNavbar';
 import SignIcon from '../utils/SignIcon';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/SNDark Green@4x.png';
 import { useDispatch, useSelector } from 'react-redux';
 import Close from '../utils/Close';
@@ -20,6 +20,7 @@ type props = {
   setCartOpen: (open: boolean) => void;
 };
 export default function Navbar({ cartopen, setCartOpen }: props) {
+  const navigation = useNavigate();
   const navlinks = [
     { name: 'Home', link: '/' },
     { name: 'Shop', link: '/products' },
@@ -79,7 +80,8 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             src={logo}
             alt={''}
             sx={{ height: '60px', width: '177px' }}
-          ></Typography>
+            onClick={()=> navigation('/')}
+          />
           <Box
             sx={{
               display: {

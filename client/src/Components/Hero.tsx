@@ -4,16 +4,12 @@ import { Typography, Button, TextField, InputAdornment } from '@mui/material';
 import Search from '../utils/Search';
 import { Link } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
-type props = {
-  name: string;
-  setName: Dispatch<SetStateAction<string>>;
-};
-const Hero = (props: props) => {
+const Hero = () => {
   const navigation = useNavigate();
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: '90vh',
         display: 'flex',
         alignItems: { xs: 'center', sm: 'flex-start' },
         justifyContent: 'center',
