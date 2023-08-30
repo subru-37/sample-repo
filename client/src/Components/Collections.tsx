@@ -41,7 +41,7 @@ const Collections = (props: any) => {
         : '55px 0px -90px 0px'
       : '220px 0px -145px 0px'
     : '140px 0px -155px 0px';
-  console.log(rootmargin);
+  // console.log(rootmargin);
   const onscreen = useOnScreen(ref1, rootmargin);
   return (
     <Box
@@ -86,6 +86,7 @@ const Collections = (props: any) => {
           arrows={false}
           width="95vw"
           components={collectionItems}
+          // margin='50px'
           // ref1={ref1}
         />
         <ExploreMore ref1={ref1} />

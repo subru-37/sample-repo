@@ -90,7 +90,7 @@ const Features = () => {
           //   minWidth: '100vw',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           flexDirection: 'column',
         }}
       >
@@ -101,6 +101,7 @@ const Features = () => {
             justifyContent: 'space-between',
             flexDirection: 'column',
             minHeight: '85px',
+            margin:'20px 0px'
           }}
         >
           <Typography
