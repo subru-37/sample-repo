@@ -33,7 +33,7 @@ const Products = (props: props) => {
     'Honey and jaggery',
     'Dal',
     'Masala',
-    'Missceleneous'
+    'Missceleneous',
   ];
   const [slideValue, setSlideValue] = React.useState<number[]>([1000, 2000]);
   const [categoryFilters, setCategoryFilters] = React.useState<filtertypes>({
@@ -43,9 +43,9 @@ const Products = (props: props) => {
     'Oil (ghana/ non processed)': false,
     'Milk produts': false,
     'Honey and jaggery': false,
-    'Dal':false,
-    'Masala': false,
-    'Missceleneous': false
+    Dal: false,
+    Masala: false,
+    Missceleneous: false,
   });
   const payments = ['Loreum Ipsum 1', 'Loreum Ipsum 2', 'Loreum Ipsum 3'];
 
@@ -57,6 +57,7 @@ const Products = (props: props) => {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
+        position: 'relative',
       }}
     >
       <TextField
@@ -69,10 +70,10 @@ const Products = (props: props) => {
           borderBottomRightRadius: '35px',
           //   opacity: '0.5',
           backgroundColor: '#F5FCE7',
-          minHeight:'175px',
-          display:'flex',
-          alignItems:'center',
-          justifyContent:'flex-end',
+          minHeight: '175px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
           boxShadow: '0px 4px 48px -13px rgba(46, 84, 37, 0.54)',
           //   filter: 'blur(0.25px)',
           //   backdropFilter: 'blur(7.5px)',
@@ -83,7 +84,7 @@ const Products = (props: props) => {
             '& fieldset': {
               border: 'none',
               color: 'green.darker',
-              minWidth:'300px'
+              minWidth: '300px',
             },
             '&.Mui-focused fieldset': {
               border: 'none',
@@ -108,16 +109,7 @@ const Products = (props: props) => {
           },
           startAdornment: (
             <InputAdornment position="start">
-              <Search/>
-              <Button
-                onClick={() => setDrawer(true)}
-                sx={{
-                  color: 'green.darker',
-                  display: { xs: 'flex', md: 'none' },
-                }}
-              >
-                <MenuIcon /> Filters
-              </Button>
+              <Search />
             </InputAdornment>
           ),
         }}
@@ -140,7 +132,7 @@ const Products = (props: props) => {
           alignItems: 'flex-start',
           justifyContent: 'space-between',
           flexDirection: { xs: 'column', md: 'row' },
-          marginTop: '75px',
+          marginTop: {xs:'20px', md:'75px'},
         }}
       >
         {width900 ? (
@@ -180,6 +172,20 @@ const Products = (props: props) => {
             margin: '0px !important',
           }}
         >
+          <Grid item sx={{padding:'0px !important'}}>
+            <Button
+              onClick={() => setDrawer(true)}
+              sx={{
+                color: 'green.darker',
+                display: { xs: 'flex', md: 'none' },
+                justifyContent:'center',
+                alignItems:'center',
+                padding:'0px 0px !important'
+              }}
+            >
+              <MenuIcon /> Filters
+            </Button>
+          </Grid>
           {products.map((value, index) => (
             <Grid
               item
@@ -192,7 +198,12 @@ const Products = (props: props) => {
                 padding: '25px !important',
               }}
             >
-              <Link style={{textDecoration:'none'}} to={`/products/${index}`}>{value.element}</Link>
+              <Link
+                style={{ textDecoration: 'none' }}
+                to={`/products/${index}`}
+              >
+                {value.element}
+              </Link>
             </Grid>
           ))}
         </Grid>

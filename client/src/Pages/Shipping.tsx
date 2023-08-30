@@ -314,7 +314,7 @@ const Shipping = ({
           <Box
             sx={{
               width: { xs: '100%', md: '43%' },
-              display: 'flex',
+              display: {xs:'none', sm:'flex'},
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
               borderLeft: { md: '1px solid #ACD2AE' },
