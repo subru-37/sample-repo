@@ -16,6 +16,7 @@ type props = {
   height?: string;
   padding?: string;
   ref1?: RefObject<HTMLDivElement>;
+  margin?: string;
 };
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -41,6 +42,7 @@ export default function SlideShow(props: props) {
         zIndex: '1000',
         position: 'relative',
         padding: props.padding,
+        margin: props.margin,
         boxSizing: 'border-box',
       }}
     >

@@ -59,17 +59,24 @@ const Feedback = () => {
           );
         })}
       </Box>
-      <Box sx={{display: {xs: 'flex', sm: 'none'}}}>
+      <Box
+        sx={{
+          display: { xs: 'flex', sm: 'none' },
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <SlideShow
           components={cards.map((value, index) => {
             return (
               <FeedbackCard
                 bgcolor={value.bgcolor}
                 titlecolor={value.titlecolor}
-                rotate={value.rotate}
+                rotate={'5deg'}
                 name={value.name}
                 profession={value.profession}
                 feedback={value.feedback}
+                margin="0px 30px"
               />
             );
           })}

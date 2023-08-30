@@ -7,13 +7,14 @@ type styleprops = {
   name: string;
   profession: string;
   feedback: string;
+  margin: string;
 };
 const FeedbackCard = (props: styleprops) => {
   return (
     <Box
       sx={{
         width: { xs: '90vw', md: '400px' },
-        height: {xs: '500px',md:'550px'},
+        height: { xs: '500px', md: '550px' },
         borderRadius: '40px',
         backgroundColor: props.bgcolor,
         transform: `rotate(${props.rotate})`,
@@ -22,7 +23,14 @@ const FeedbackCard = (props: styleprops) => {
         justifyContent: 'center',
         flexDirection: 'column',
         padding: '25px',
-        boxSizing:'border-box'
+        boxSizing: 'border-box',
+        margin: { xs: props.margin, sm: '0px' },
+        transition: '0.5s',
+        '&:hover': {
+          width: {xs:'90vw', md:'450px'},
+          height: {xs:'500px', md:'600px'},
+          transition: '0.5s',
+        },
       }}
     >
       <Box
