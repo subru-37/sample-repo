@@ -13,9 +13,9 @@ import collection4 from '../assets/fslide4.png';
 const Collections = (props: any) => {
   console.log(`url(${collection1}) no-repeat 285px auto/auto`);
   const contentItems = [
-    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection1 },
-    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection2 },
-    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection3 },
+    { name: 'Ready To Eat',background: collection1 },
+    { name: 'Rice',background: collection2 },
+    { name: 'Millets',background: collection3 },
   ];
   const collectionItems = contentItems.map((value) => {
     console.log(value)

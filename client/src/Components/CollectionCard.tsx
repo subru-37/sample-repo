@@ -1,10 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 type props = {
   content: string | undefined;
   background: string | undefined;
 };
 const CollectionCard = ({content,background}: props) => {
+  const navigation = useNavigate();
   return (
     <Box
       sx={{
@@ -19,8 +21,10 @@ const CollectionCard = ({content,background}: props) => {
         alignItems:'flex-end',
         zIndex: '1200',
         position: 'relative', 
-        justifyContent:'center'
+        justifyContent:'center',
+        cursor:'pointer'
       }}
+      onClick={()=> navigation('/products')}
     >
       <Typography
         component="p"

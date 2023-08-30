@@ -3,11 +3,13 @@ import Box from '@mui/material/Box';
 import { Typography, Button, TextField, InputAdornment } from '@mui/material';
 import Search from '../utils/Search';
 import { Link } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 type props = {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
 };
 const Hero = (props: props) => {
+  const navigation = useNavigate();
   return (
     <Box
       sx={{
@@ -84,18 +86,11 @@ const Hero = (props: props) => {
                 color: 'green.darker',
                 fontSize: '16px',
                 textTransform: 'none',
+                cursor:'pointer'
               }}
+              onClick={()=>navigation('/products')}
             >
-              <Link
-                activeClass="active"
-                to="features"
-                spy={true}
-                smooth={true}
-                // offset={50}
-                duration={500}
-              >
                 Shop Now
-              </Link>
             </Typography>
           </Button>
           <Box
