@@ -21,9 +21,14 @@ const FilterAccordion = (props: props) => {
       <Accordion
         expanded={props.expanded === props.panel}
         onChange={props.handleChange(props.panel)}
-        sx={{ background: 'transparent', boxShadow: 'none', padding: '0px', marginTop:'15px' }}
+        sx={{
+          background: 'transparent',
+          boxShadow: 'none',
+          padding: '0px',
+          marginTop: '15px',
+        }}
       >
-        <AccordionSummary expandIcon={<DownArrow />} sx={{padding: '0px'}}>
+        <AccordionSummary expandIcon={<DownArrow />} sx={{ padding: '0px' }}>
           <Typography
             sx={{
               color: 'green.darker',
@@ -36,7 +41,17 @@ const FilterAccordion = (props: props) => {
             {props.question}
           </Typography>
         </AccordionSummary>
-        <AccordionDetails sx={{padding: '0px'}}>{props.answer}</AccordionDetails>
+        <AccordionDetails
+          sx={{
+            padding: '0px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start',
+            flexDirection: 'column',
+          }}
+        >
+          {props.answer}
+        </AccordionDetails>
       </Accordion>
     </Box>
   );

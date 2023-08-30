@@ -25,24 +25,30 @@ const Products = (props: props) => {
   const [value, open, setValue, width900] = useNavbar();
 
   const categories = [
-    'Loreum Ipsum 1',
-    'Loreum Ipsum 2',
-    'Loreum Ipsum 3',
-    'Loreum Ipsum 4',
+    'Whole Grains (millets )',
+    'Whole grain (cereals)',
+    'Ready to eat',
+    'Oil (ghana/ non processed)',
+    'Milk produts',
+    'Honey and jaggery',
+    'Dal',
+    'Masala',
+    'Missceleneous'
   ];
   const [slideValue, setSlideValue] = React.useState<number[]>([1000, 2000]);
   const [categoryFilters, setCategoryFilters] = React.useState<filtertypes>({
-    'Loreum Ipsum 1': false,
-    'Loreum Ipsum 2': false,
-    'Loreum Ipsum 3': false,
-    'Loreum Ipsum 4': false,
+    'Whole Grains (millets )': false,
+    'Whole grain (cereals)': false,
+    'Ready to eat': false,
+    'Oil (ghana/ non processed)': false,
+    'Milk produts': false,
+    'Honey and jaggery': false,
+    'Dal':false,
+    'Masala': false,
+    'Missceleneous': false
   });
   const payments = ['Loreum Ipsum 1', 'Loreum Ipsum 2', 'Loreum Ipsum 3'];
-  const [paymentFilters, setPaymentFilters] = React.useState<filtertypes>({
-    'Loreum Ipsum 1': false,
-    'Loreum Ipsum 2': false,
-    'Loreum Ipsum 3': false,
-  });
+
   const [drawer, setDrawer] = React.useState<boolean>(false);
   return (
     <Box
@@ -142,8 +148,8 @@ const Products = (props: props) => {
             categories={categories}
             payments={payments}
             setCategoryFilters={setCategoryFilters}
-            setPaymentFilters={setPaymentFilters}
-            paymentFilters={paymentFilters}
+            // setPaymentFilters={setPaymentFilters}
+            // paymentFilters={paymentFilters}
             categoryFilters={categoryFilters}
             slideValue={slideValue}
             setSlideValue={setSlideValue}
@@ -154,8 +160,8 @@ const Products = (props: props) => {
               categories={categories}
               payments={payments}
               setCategoryFilters={setCategoryFilters}
-              setPaymentFilters={setPaymentFilters}
-              paymentFilters={paymentFilters}
+              // setPaymentFilters={setPaymentFilters}
+              // paymentFilters={paymentFilters}
               categoryFilters={categoryFilters}
               slideValue={slideValue}
               setSlideValue={setSlideValue}

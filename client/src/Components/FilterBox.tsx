@@ -17,10 +17,10 @@ type filtertypes = {
 type props = {
   categories: string[];
   payments: string[];
-  paymentFilters: filtertypes;
+  paymentFilters?: filtertypes;
   categoryFilters: filtertypes;
   slideValue: number[];
-  setPaymentFilters: Dispatch<SetStateAction<filtertypes>>;
+  setPaymentFilters?: Dispatch<SetStateAction<filtertypes>>;
   setCategoryFilters: Dispatch<SetStateAction<filtertypes>>;
   setSlideValue: React.Dispatch<React.SetStateAction<number[]>>; //Dispatch<SetStateAction<number>>;
 };
