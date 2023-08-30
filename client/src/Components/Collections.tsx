@@ -37,7 +37,7 @@ const Collections = (props: any) => {
       ? !width600
         ? !width400
           ? '220px 0px -155px 0px'
-          : '220px 0px -155px 0px'
+          : '10px 0px -90px 0px'
         : '75px 0px -90px 0px'
       : '220px 0px -145px 0px'
     : '220px 0px -155px 0px';
