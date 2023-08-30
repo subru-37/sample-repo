@@ -13,6 +13,7 @@ import SignIcon from '../utils/SignIcon';
 import { Link } from 'react-router-dom';
 import logo from '../assets/SNDark Green@4x.png';
 import { useDispatch, useSelector } from 'react-redux';
+import Close from '../utils/Close';
 
 type props = {
   cartopen: boolean;
@@ -138,9 +139,12 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={() => setValue(false)}>
+        <Box onClick={()=> setValue(false)} sx={{position:'absolute', top:'20px', right:'20px'}}>
+          <Close/>
+        </Box>
         <Box
           sx={{
-            minWidth: '50vw',
+            minWidth: '100vw',
             minHeight: '100dvh',
             background: '#F5FCE7',
             display: 'flex',
@@ -160,7 +164,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                   sx={{
                     color: 'green.darker',
                     fontfamily: 'Plus Jakarta Sans',
-                    fontSize: '16px',
+                    fontSize: '24px',
                     fontStyle: 'normal',
                     fontWeight: '500',
                     lineHeight: 'normal',
