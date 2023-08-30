@@ -11,11 +11,11 @@ const Grass = (props: props) => {
   // console.log(scroll === false ? (props.checkposn ? 'stage0' : 'stage1') :'')
   const classnames = classNames({
     // stage0: scrollp < 2000,
-    stage0: props.checkposn === false,
+    stage0:scrollp<2700 && props.checkposn === false,
     // stage1: scrollp >= 2000 && scrollp < 3047,
     stage1: props.checkposn === true,
     // stage2: scrollp >= 3047 && scrollp < 4900,
-    stage2: scrollp >= 2600 && props.checkposn === false,
+    stage2: scrollp >= 2700 && props.checkposn === false,
     // stage3: scrollp >= 4900 && scrollp < 5046,
     // stage4: scrollp >= 5046,
   });

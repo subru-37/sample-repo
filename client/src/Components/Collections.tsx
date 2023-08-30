@@ -36,11 +36,11 @@ const Collections = (props: any) => {
     ? !width900
       ? !width600
         ? !width400
-          ? '220px 0px -155px 0px'
+          ? '10px 0px -90px 0px'
           : '10px 0px -90px 0px'
-        : '75px 0px -90px 0px'
+        : '55px 0px -90px 0px'
       : '220px 0px -145px 0px'
-    : '220px 0px -155px 0px';
+    : '140px 0px -155px 0px';
   console.log(rootmargin);
   const onscreen = useOnScreen(ref1, rootmargin);
   return (
