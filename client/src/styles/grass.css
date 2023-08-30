@@ -23,7 +23,7 @@
   height: 869px;
   background-image: url('../assets/grass.png');
   background-size: 100vw 869px;
-  bottom: -194px;
+  bottom: 0px;
 }
 /* .stage4{
   position: fixed;

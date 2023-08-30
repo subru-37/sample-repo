@@ -48,7 +48,15 @@ export default function SlideShow(props: props) {
         duration={2500}
         infinite={false}
         transitionDuration={700}
-        slidesToScroll={1}
+        slidesToScroll={
+          !width1100
+            ? !width900
+              ? !width600
+                ? props.show400
+                : props.show600
+              : props.show900
+            : props.show1100
+        }
         slidesToShow={
           !width1100
             ? !width900

@@ -22,7 +22,7 @@ const AboutUs = () => {
           height: { xs: '100vh', sm: '80vh' },
           width: { xs: '95vw', sm: '90vw' },
           flexDirection: 'column',
-          marginTop: { xs: '0px', sm: '150px' },
+          marginTop: { xs: '0px', sm: '50px' },
           boxSizing: 'border-box',
         }}
       >

@@ -21,9 +21,9 @@ type props = {
 export default function Navbar({ cartopen, setCartOpen }: props) {
   const navlinks = [
     { name: 'Home', link: '/' },
-    { name: 'About Us', link: '/' },
     { name: 'Shop', link: '/products' },
-    // { name: 'Blog', link: '/' },
+    { name: 'About Us', link: '/' },
+    // { name: 'Blog', link: '/' }, 
     // { name: 'Contact Us', link: '/' },
   ];
   const [value, open, setValue, width900] = useNavbar();

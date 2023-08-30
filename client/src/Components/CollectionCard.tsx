@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 type props = {
-  content: string;
+  content: string | undefined;
+  background: string | undefined;
 };
-const CollectionCard = (props: props) => {
+const CollectionCard = ({content,background}: props) => {
   return (
     <Box
       sx={{
@@ -11,7 +12,10 @@ const CollectionCard = (props: props) => {
         display: 'flex',
         width: {xs: '350px',sm: '300px',md: '367px'},
         height: '451px',
-        backgroundColor: 'green.lighter',
+        backgroundImage: `url(${background})`,
+        backgroundRepeat:"no-repeat",
+        backgroundSize:"285px auto",
+        backgroundPosition:'top center',
         alignItems:'flex-end',
         zIndex: '1200',
         position: 'relative', 
@@ -28,7 +32,7 @@ const CollectionCard = (props: props) => {
           margin:'20px 0px'
         }}
       >
-        {props.content}
+        {content}
       </Typography>
     </Box>
   );

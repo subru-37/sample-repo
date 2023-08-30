@@ -1,4 +1,4 @@
-import React,{LegacyRef, createRef, useRef} from 'react';
+import React, { LegacyRef, createRef, useRef } from 'react';
 import CollectionCard from './CollectionCard';
 import { Box, Typography } from '@mui/material';
 import SlideShow from './Slideshow';
@@ -6,15 +6,27 @@ import ExploreMore from '../utils/ExploreMore';
 import SampleCard from './SampleCard';
 import useOnScreen from '../hooks/useOnScreen';
 import Grass from './Grass';
+import collection1 from '../assets/flside1.png';
+import collection2 from '../assets/fslide2.png';
+import collection3 from '../assets/fslide3.png';
+import collection4 from '../assets/fslide4.png';
 const Collections = (props: any) => {
+  console.log(`url(${collection1}) no-repeat 285px auto/auto`);
   const contentItems = [
-    { name: 'Loreum Ipsum, Loreum Ipsum' },
-    { name: 'Loreum Ipsum, Loreum Ipsum' },
-    { name: 'Loreum Ipsum, Loreum Ipsum' },
+    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection1 },
+    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection2 },
+    { name: 'Loreum Ipsum, Loreum Ipsum',background: collection3 },
   ];
   const collectionItems = contentItems.map((value) => {
-    return <CollectionCard content={value.name} />;
+    console.log(value)
+    return <CollectionCard content={value.name} background={value.background}/>;
   });
+  const slides = [
+    <SampleCard background={collection1} />,
+    <SampleCard background={collection2} />,
+    <SampleCard background={collection3} />,
+    <SampleCard background={collection4} />,
+  ];
   const ref1 = props.ref1;
   const onscreen = useOnScreen(ref1);
   return (
@@ -26,10 +38,10 @@ const Collections = (props: any) => {
         flexDirection: 'column',
         minHeight: '100dvh',
         position: 'relative',
-        width: '100vw'
+        width: '100vw',
       }}
     >
-      <Grass checkposn={onscreen}/>
+      <Grass checkposn={onscreen} />
       <Box
         sx={{
           display: 'flex',
@@ -62,63 +74,30 @@ const Collections = (props: any) => {
           components={collectionItems}
           // ref1={ref1}
         />
-        <ExploreMore ref1={ref1}/>
+        <ExploreMore ref1={ref1} />
         {/* sample boxes */}
       </Box>
       <Box
-          sx={{
-            marginTop: {xs: '100px',lg: '200px'},
-            width: { xs: '350px', sm: '600px', md: '80vw' },
-            display: 'flex', 
-            alignItems: 'center',
-            justifyContent:'center',
-            flexWrap: 'wrap'
-          }}
-        >
-
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent:'center',
-              alignItems: 'center',
-              flexDirection: { xs: 'column', md: 'row' },
-              minWidth: {xs: '100%', md: '0%'}
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: {
-                  xs: 'center',
-                  md: 'flex-start',
-                },
-                flexWrap: 'wrap',
-              justifyContent:'center',
-              flexDirection: { xs: 'column', md: 'row' },
-              minWidth: {xs: '100%', md: '0%'}
-            }}
-            >
-              <SampleCard type1={true} />
-              <SampleCard type1={false} />
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: {
-                  xs: 'center',
-                  md: 'flex-end',
-                },
-              justifyContent:'center',
-              flexDirection: { xs: 'column', md: 'row' },
-              flexWrap: 'wrap',
-              minWidth: {xs: '100%', md: '0%'}
-            }}
-            >
-              <SampleCard type1={true} />
-              <SampleCard type1={false} />
-            </Box>
-          </Box>
-        </Box>
+        sx={{
+          marginTop: { xs: '100px', lg: '200px' },
+          width: { xs: '350px', sm: '600px', md: '80vw' },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <SlideShow
+          components={slides}
+          indicators={false}
+          arrows={false}
+          show1100={4}
+          show900={3}
+          show600={2}
+          show400={1}
+          width="95vw"
+        />
+      </Box>
     </Box>
   );
 };
