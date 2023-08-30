@@ -57,6 +57,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
             padding: '5px 0px',
             fontSize: '40px',
             fontWeight: '500',
+            textAlign:'center'
           }}
         >
           Checkout
