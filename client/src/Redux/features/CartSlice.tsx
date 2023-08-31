@@ -73,7 +73,7 @@ export const CartSlice = createSlice({
       const itemIndex = state.cart.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(action.payload)
+      // console.log(action.payload)
       if (state.cart[itemIndex].quantity >= 1) {
         state.cart[itemIndex].quantity += 1;
       }

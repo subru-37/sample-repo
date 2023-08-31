@@ -7,7 +7,7 @@ type props = {
 }
 const Grass = (props: props) => {
   const [scroll, open, toggleDrawer, width900, scrollp] = useNavbar();
-  console.log(props.checkposn, scrollp)
+  // console.log(props.checkposn, scrollp)
   // console.log(scroll === false ? (props.checkposn ? 'stage0' : 'stage1') :'')
   const classnames = classNames({
     // stage0: scrollp < 2000,
