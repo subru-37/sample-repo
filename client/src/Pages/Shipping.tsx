@@ -111,7 +111,7 @@ const Shipping = ({
             sx={{
               display: 'flex',
               alignItems: { xs: 'center', md: 'flex-start' },
-              width: { xs: '100%', md: '55%' },
+              width: { xs: '100%',md:'50%', lg: '60%' },
               justifyContent: 'space-between',
               flexDirection: 'column',
               height: '100%',
@@ -313,7 +313,7 @@ const Shipping = ({
 
           <Box
             sx={{
-              width: { xs: '100%', md: '43%' },
+              width: { xs: '100%',md:'50%', lg: '550px' },
               display: {xs:'none', sm:'flex'},
               alignItems: 'flex-start',
               justifyContent: 'flex-end',

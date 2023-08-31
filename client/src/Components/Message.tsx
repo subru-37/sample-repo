@@ -23,18 +23,20 @@ const Message = (value: string | null, formData: formData) => {
       `Product id: ${value.id} Product Price: ${value.price} Discounted Price: ${value.discprice} Product Name: ${value.name} Quantity of Product: ${value.quantity}\n`
   );
   console.log(
-    itemMessage.reduce((total: any, initial: any) => total + '' + initial, 'cartitems \n')
+    itemMessage.reduce((total, initial) => total + '' + initial, 'cartitems \n')
   );
-  const whatsappUrl = `https://wa.me/917356029354?text=${itemMessage.reduce(
-    (total: any, initial: any) => total + '' + initial,
-    'cartitems %20 %20 %20 %20 %20 %20 %20 %20 %20 %20 %20 %20'
-  )} ${value}%20email:  %20${formData.email}%20FirstName:   %20${
+  const text = `${itemMessage.reduce(
+    (total, initial) => total + '' + initial,
+    'cartitems  \n'
+  )} ${value} email:  ${formData.email} FirstName:  ${
     formData.firstName
-  }%20LastName:  %20${formData.lastName}%20\naddress:  %20${
+  }LastName:  ${formData.lastName} address:  ${
     formData.address
-  }%20landmark:  %20${formData.landmark}%20phoneNumber:  %20${
+  }landmark:  ${formData.landmark} phoneNumber:  ${
     formData.phoneNumber
   }`;
+  console.log(encodeURIComponent(text))
+  const whatsappUrl = `https://wa.me/917356029354?text=${text}`
   return whatsappUrl;
 };
 
