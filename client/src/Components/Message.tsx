@@ -30,9 +30,9 @@ const Message = (value: string | null, formData: formData) => {
     'cartitems  \n'
   )} ${value} email:  ${formData.email} FirstName:  ${
     formData.firstName
-  }LastName:  ${formData.lastName} address:  ${
+  } LastName:  ${formData.lastName} address:  ${
     formData.address
-  }landmark:  ${formData.landmark} phoneNumber:  ${
+  } landmark:  ${formData.landmark} phoneNumber:  ${
     formData.phoneNumber
   }`;
   console.log(encodeURIComponent(text))
