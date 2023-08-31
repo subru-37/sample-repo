@@ -23,10 +23,10 @@ const Message = (value: string | null, formData: formData) => {
       `Product id: ${value.id} Product Price: ${value.price} Discounted Price: ${value.discprice} Product Name: ${value.name} Quantity of Product: ${value.quantity}\n`
   );
   console.log(
-    itemMessage.reduce((total, initial) => total + '' + initial, 'cartitems \n')
+    itemMessage.reduce((total: any, initial: any) => total + '' + initial, 'cartitems \n')
   );
   const text = `${itemMessage.reduce(
-    (total, initial) => total + '' + initial,
+    (total: any, initial: any) => total + '' + initial,
     'cartitems  \n'
   )} ${value} email:  ${formData.email} FirstName:  ${
     formData.firstName
