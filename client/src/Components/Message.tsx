@@ -8,7 +8,7 @@ const Message = (value: string | null, formData: formData) => {
   const items = products.cart.map((value: any, index: number) => {
     const keys = Object.keys(value);
     const values = Object.values(value);
-    console.log(keys, values);
+    // console.log(keys, values);
     return {
       [keys[1]]: values[1],
       [keys[2]]: values[2],

@@ -23,7 +23,6 @@ type filtertypes = {
 };
 const Products = (props: props) => {
   const [value, open, setValue, width900] = useNavbar();
-
   const categories = [
     'Whole Grains (millets )',
     'Whole grain (cereals)',
@@ -48,7 +47,8 @@ const Products = (props: props) => {
     Missceleneous: false,
   });
   const payments = ['Loreum Ipsum 1', 'Loreum Ipsum 2', 'Loreum Ipsum 3'];
-
+  const productItems = products('/products');
+  console.log(productItems)
   const [drawer, setDrawer] = React.useState<boolean>(false);
   return (
     <Box
@@ -186,7 +186,7 @@ const Products = (props: props) => {
               <MenuIcon /> Filters
             </Button>
           </Grid>
-          {products.map((value, index) => (
+          {productItems.map((value, index) => (
             <Grid
               item
               key={index}
@@ -198,12 +198,7 @@ const Products = (props: props) => {
                 padding: '25px !important',
               }}
             >
-              <Link
-                style={{ textDecoration: 'none' }}
-                to={`/products/${index}`}
-              >
                 {value.element}
-              </Link>
             </Grid>
           ))}
         </Grid>

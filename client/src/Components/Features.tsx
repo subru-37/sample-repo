@@ -66,10 +66,13 @@ const Features = () => {
       };
     });
   }
-  const filtered = products.filter((value, index) => value.id > 2);
-  const slideshow = filtered.map((value, index) => (
-      value.element
-  ));
+  const productItems = products('/products')
+    .filter((value, index) => value.id > 2)
+    .map((value, index) => value.element);
+  // const filtered = productItems.filter((value, index) => value.id > 2);
+  // const slideshow = filtered.map((value, index) => (
+  //     value.element
+  // ));
   // console.log(slideshow);
   return (
     <Box
@@ -99,7 +102,7 @@ const Features = () => {
             justifyContent: 'space-between',
             flexDirection: 'column',
             minHeight: '85px',
-            margin:'20px 0px'
+            margin: '20px 0px',
           }}
         >
           <Typography
@@ -232,7 +235,7 @@ const Features = () => {
             show900={3}
             show600={2}
             show400={1}
-            components={slideshow}
+            components={productItems}
             width="95vw"
             arrows={false}
           />
@@ -249,7 +252,7 @@ const Features = () => {
           />
         </Box> */}
       </Box>
-      <Box onClick={()=> navigation('/products')} sx={{cursor:'pointer'}}>
+      <Box onClick={() => navigation('/products')} sx={{ cursor: 'pointer' }}>
         <ExploreMore />
       </Box>
     </Box>

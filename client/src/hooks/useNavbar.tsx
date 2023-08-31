@@ -8,7 +8,7 @@ const width900 = useMediaQuery('(min-width:900px)');
   const [scroll, setScroll] = useState<boolean>(false);
   function toggleDrawer(open: boolean) {
     setOpen(open);
-    console.log(open);
+    // console.log(open);
   }
   useEffect(() => {
     window.addEventListener('scroll', navScrolled);

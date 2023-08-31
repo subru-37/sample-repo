@@ -8,6 +8,7 @@ interface props {
   discprice: string;
   price: string;
   id: number;
+  route: string;
 }
 const FeatureCard = (props: props) => {
   const navigation = useNavigate();
@@ -31,7 +32,7 @@ const FeatureCard = (props: props) => {
           background: props.background,
           backgroundSize: '100% 358px',
         }}
-        onClick={() => navigation(`products/${props.id}`)}
+        onClick={() => navigation(`${props.route}/${props.id}`)}
       ></Box>
       <Box
         sx={{
@@ -43,7 +44,7 @@ const FeatureCard = (props: props) => {
           width: '100%',
           borderBottom: '1px solid #00584A',
         }}
-        onClick={() => navigation(`products/${props.id}`)}
+        onClick={() => navigation(`${props.route}/${props.id}`)}
       >
         <Typography
           sx={{

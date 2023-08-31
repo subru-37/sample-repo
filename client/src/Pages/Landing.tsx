@@ -29,7 +29,7 @@ const Landing = (props: props) => {
         position:'relative'
       }}
     >
-      <Hero name={props.name} setName={props.setName}/>
+      <Hero/>
       <Features/>
       <Leaves/>
       {/* <Grass checkposn={onscreen}/> */}
