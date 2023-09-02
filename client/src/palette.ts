@@ -1,8 +1,10 @@
 import { PaletteOptions, SimplePaletteColorOptions, TypeText } from "@mui/material"
 
 interface ExtendedPaletteColorOptions extends SimplePaletteColorOptions {
-    darker?: string,
-    lighter?: string
+    darker: string,
+    lighter: string, 
+    light: string,
+    dark: string,
   }
   
   interface ExtendedPaletteOptions extends PaletteOptions {

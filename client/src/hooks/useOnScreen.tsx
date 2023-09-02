@@ -1,23 +1,23 @@
-import { RefObject, useEffect, useMemo, useState } from 'react';
+// import { RefObject, useEffect, useMemo, useState } from 'react';
 
-export default function useOnScreen(ref: RefObject<HTMLDivElement>, rootmargin: string) {
-  const [isIntersecting, setIntersecting] = useState(false);
+// export default function useOnScreen(ref: RefObject<Element>, rootmargin: string) {
+//   const [isIntersecting, setIntersecting] = useState(false);
 
-  const observer1 = new IntersectionObserver(
-    ([entry]) => {
-      setIntersecting(entry.isIntersecting);
-      console.log(entry);
-    },
-    { rootMargin: rootmargin }
-  );
-//   console.log(observer1);
-  useEffect(() => {
-    observer1.observe(ref.current);
-    return () => observer1.disconnect();
-  }, []);
-  //   console.log(isIntersecting)
-  return isIntersecting;
-}
+//   const observer1 = new IntersectionObserver(
+//     ([entry]) => {
+//       setIntersecting(entry.isIntersecting);
+//       console.log(entry);
+//     },
+//     { rootMargin: rootmargin }
+//   );
+// //   console.log(observer1);
+//   useEffect(() => {
+//     observer1.observe(ref.current);
+//     return () => observer1.disconnect();
+//   }, []);
+//     console.log(isIntersecting)
+//   return isIntersecting;
+// }
 //   import { createRef, RefObject, useEffect, useState } from "react";
 // import throttle from "lodash.throttle";
 

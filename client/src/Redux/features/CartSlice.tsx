@@ -24,7 +24,7 @@ type cartitem = {
   name: string;
   summary: string;
   desc: string;
-  quantity: number | undefined;
+  quantity: number;
   id: number;
 };
 export const CartSlice = createSlice({

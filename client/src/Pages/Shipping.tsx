@@ -40,7 +40,7 @@ const Shipping = ({
   options,
 }: shippingProps) => {
   const dispatch = useDispatch();
-  const redirect = (event: Event | undefined) => {
+  const redirect = (event: any) => {
     // navigation(whatsappUrl)
     event.preventDefault();
     dispatch(removeAll(products))
@@ -117,7 +117,7 @@ const Shipping = ({
               height: '100%',
             }}
             component={'form'}
-            onSubmit={() => redirect(event)}
+            onSubmit={(event) => redirect(event)}
           >
             {/* email address box */}
             <Box sx={{ width: { xs: '80%', md: '100%' }, margin: '50px 0' }}>

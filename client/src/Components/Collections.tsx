@@ -4,13 +4,13 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import SlideShow from './Slideshow';
 import ExploreMore from '../utils/ExploreMore';
 import SampleCard from './SampleCard';
-import useOnScreen from '../hooks/useOnScreen';
+// import useOnScreen from '../hooks/useOnScreen';
 import collection1 from '../assets/flside1.png';
 import collection2 from '../assets/fslide2.png';
 import collection3 from '../assets/fslide3.png';
 import collection4 from '../assets/fslide4.png';
 import grass from '../assets/grass.png'
-const Collections = (props: any) => {
+const Collections = () => {
   const contentItems = [
     { name: 'Ready To Eat', background: collection1 },
     { name: 'Rice', background: collection2 },
@@ -28,22 +28,22 @@ const Collections = (props: any) => {
     <SampleCard background={collection3} />,
     <SampleCard background={collection4} />,
   ];
-  const ref1 = props.ref1;
-  const width1100 = useMediaQuery('(min-width:1100px)');
-  const width900 = useMediaQuery('(min-width:900px)');
-  const width600 = useMediaQuery('(min-width:600px)');
-  const width400 = useMediaQuery('(min-width:400px)');
-  const rootmargin = !width1100
-    ? !width900
-      ? !width600
-        ? !width400
-          ? '10px 0px -90px 0px'
-          : '10px 0px -90px 0px'
-        : '55px 0px -90px 0px'
-      : '220px 0px -145px 0px'
-    : '140px 0px -155px 0px';
+  // const ref1 = props.ref1;
+  // const width1100 = useMediaQuery('(min-width:1100px)');
+  // const width900 = useMediaQuery('(min-width:900px)');
+  // const width600 = useMediaQuery('(min-width:600px)');
+  // const width400 = useMediaQuery('(min-width:400px)');
+  // const rootmargin = !width1100
+  //   ? !width900
+  //     ? !width600
+  //       ? !width400
+  //         ? '10px 0px -90px 0px'
+  //         : '10px 0px -90px 0px'
+  //       : '55px 0px -90px 0px'
+  //     : '220px 0px -145px 0px'
+  //   : '140px 0px -155px 0px';
   // console.log(rootmargin);
-  const onscreen = useOnScreen(ref1, rootmargin);
+  // const onscreen = useOnScreen(ref1, rootmargin);
   return (
     <Box
       sx={{
@@ -93,7 +93,7 @@ const Collections = (props: any) => {
           // margin='50px'
           // ref1={ref1}
         />
-        <ExploreMore ref1={ref1} />
+        <ExploreMore />
         {/* sample boxes */}
       </Box>
       <Box

@@ -21,7 +21,8 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
   const details = cartitems[Number(id)];
   const slides = cartitems.map((value, mapindex) => {
     const [dimensions, { loading, error }] = useImageSize(value.image);
-    const aspectratio = dimensions?.width / dimensions?.height;
+    // console.log(error)
+    const aspectratio = error === null ? Number(dimensions?.width) / Number(dimensions?.height): 0;
     if (value.id === index) {
       return (
         <Box
@@ -65,6 +66,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
         flexDirection: { xs: 'column', sm: 'row' },
         height: height,
         width: width,
+        paddingBottom:'75px'
       }}
     >
       <SlideShow
