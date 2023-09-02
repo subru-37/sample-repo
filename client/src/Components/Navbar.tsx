@@ -25,7 +25,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
     { name: 'Home', link: '/' },
     { name: 'Shop', link: '/products' },
     { name: 'About Us', link: '/' },
-    // { name: 'Blog', link: '/' }, 
+    // { name: 'Blog', link: '/' },
     // { name: 'Contact Us', link: '/' },
   ];
   const [value, open, setValue, width900] = useNavbar();
@@ -80,7 +80,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             src={logo}
             alt={''}
             sx={{ height: '60px', width: '177px' }}
-            onClick={()=> navigation('/')}
+            onClick={() => navigation('/')}
           />
           <Box
             sx={{
@@ -88,7 +88,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 xs: 'none',
                 md: 'flex',
                 flexDirection: 'row',
-                width: '20vw',
+                width: '300px',
                 justifyContent: 'space-between',
                 marginRight: '100px',
               },
@@ -118,31 +118,46 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
             {/* <Button color="inherit">
               <SignIcon />
             </Button> */}
-            <Button
+            <Box
               onClick={() => setCartOpen(true)}
-              sx={{ position: 'relative' }}
+              sx={{
+                position: 'relative',
+                width: '50px',
+                height: '40px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor:'pointer'
+              }}
             >
-              <Box sx={{
-                position:'absolute',
-                backgroundColor:'green.darker',
-                color:'#F5FCE7',
-                borderRadius:'100%',
-                width:'22px',
-                height:'22px',
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'center',
-                right:'-5px',
-                top:'-5px'
-              }}>{NumberOfItems}</Box>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  backgroundColor: 'green.darker',
+                  color: '#F5FCE7',
+                  borderRadius: '100%',
+                  width: '22px',
+                  height: '22px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  right: '-10px',
+                  top: '-5px',
+                }}
+              >
+                {NumberOfItems}
+              </Box>
               <Cart />
-            </Button>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={open} onClose={() => setValue(false)}>
-        <Box onClick={()=> setValue(false)} sx={{position:'absolute', top:'20px', right:'20px'}}>
-          <Close/>
+        <Box
+          onClick={() => setValue(false)}
+          sx={{ position: 'absolute', top: '20px', right: '20px' }}
+        >
+          <Close />
         </Box>
         <Box
           sx={{

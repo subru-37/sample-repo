@@ -17,14 +17,14 @@ const Message = (value: string | null, formData: formData) => {
       [keys[7]]: values[7],
     };
   });
-  console.log(items);
+  // console.log(items);
   const itemMessage = items.map(
     (value: any) =>
       `Product id: ${value.id} Product Price: ${value.price} Discounted Price: ${value.discprice} Product Name: ${value.name} Quantity of Product: ${value.quantity}\n`
   );
-  console.log(
-    itemMessage.reduce((total: any, initial: any) => total + '' + initial, 'cartitems \n')
-  );
+  // console.log(
+  //   itemMessage.reduce((total: any, initial: any) => total + '' + initial, 'cartitems \n')
+  // );
   const text = `${itemMessage.reduce(
     (total: any, initial: any) => total + '' + initial,
     'cartitems  \n'

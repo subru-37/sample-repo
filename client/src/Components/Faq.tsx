@@ -17,20 +17,21 @@ const Faq = () => {
         justifyContent: 'center',
         zIndex: '1000',
         position: 'relative',
+        backgroundColor: 'green.darker',
       }}
     >
       <Box
         sx={{
           width: { xs: '100vw', sm: '90vw', md: '80vw' },
           display: 'flex',
-          alignItems: 'flex-start',
+          alignItems: 'center',
           justifyContent: 'space-between',
           flexDirection: { xs: 'column', sm: 'row' },
         }}
       >
         <Box
           sx={{
-            width: { xs: '95vw', sm: '45%', md: '30%' },
+            width: { xs: '90vw', sm: '45%', md: '30%' },
             display: 'flex',
             justifyContent: 'center',
             padding: { xs: '10px', sm: '20px' },
@@ -65,7 +66,7 @@ const Faq = () => {
         </Box>
         <Box
           sx={{
-            width: { xs: '95vw', sm: '55%', md: '70%' },
+            width: { xs: '90vw', sm: '55%', md: '70%' },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -74,7 +75,7 @@ const Faq = () => {
           }}
         >
           <MUIAccordion
-          panel='panel1'
+            panel="panel1"
             handleChange={handleChange}
             expanded={expanded}
             setExpanded={setExpanded}
@@ -83,7 +84,7 @@ const Faq = () => {
             Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
-          panel='panel2'
+            panel="panel2"
             handleChange={handleChange}
             expanded={expanded}
             setExpanded={setExpanded}
@@ -92,7 +93,7 @@ const Faq = () => {
           Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
-          panel='panel3'
+            panel="panel3"
             handleChange={handleChange}
             expanded={expanded}
             setExpanded={setExpanded}
@@ -101,7 +102,7 @@ const Faq = () => {
         Aliquam eget maximus est, id dignissim quam."
           />
           <MUIAccordion
-          panel='panel4'
+            panel="panel4"
             handleChange={handleChange}
             expanded={expanded}
             setExpanded={setExpanded}

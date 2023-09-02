@@ -36,7 +36,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
         margin: index === 0 ? '0' : '30px 0 0 0',
         width: '100%',
       }}
@@ -45,21 +45,21 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
       {/* picture */}
       <Box
         sx={{
-          width: '180px', //180
-          height: '222px', //x
+          width: {xs:'150px',sm:'180px'}, //150
+          height: {xs:'185px', sm:'222px'}, //185
           borderRadius: '20px',
           background: image,
-          backgroundSize: '180px 222px',
+          backgroundSize: {xs:'150px 180px', sm:'180px 222px'},
         }}
       />
       {/* product details */}
       <Box
         sx={{
-          height: '222px',
-          width: '180px',
+          height: {xs:'185px', sm:'222px'}, //185
+          width: {xs:'150px',sm:'180px'}, //150
           display: 'flex',
           alignItems: 'flex-end',
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
         }}
       >
         <Box sx={{ marginBottom: '30px' }}>
@@ -82,7 +82,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
               sx={{
                 color: 'green.darker',
                 fontSize: '14px',
-                margin: '10px 5px',
+                margin: '7px 0px',
                 fontWeight: '600',
               }}
             >
@@ -93,7 +93,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
               sx={{
                 color: '#C2D76D',
                 fontSize: '12px',
-                margin: '10px 5px',
+                margin: '7px 10px',
                 fontWeight: '600',
                 textDecorationLine: 'line-through',
               }}

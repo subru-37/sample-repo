@@ -39,8 +39,8 @@ const CartButton = ({ id }: BoxProps) => {
             backgroundColor: 'green.darker',
           },
           backgroundColor: 'green.darker',
-          minHeight: '50px',
-          minWidth: '120px',
+          minHeight: {xs:'30px',sm:'50px'},
+          minWidth: {xs:'90px',sm:'120px'},
           // marginLeft: '25px',
           padding: '0px',
           cursor: 'pointer',
@@ -52,7 +52,7 @@ const CartButton = ({ id }: BoxProps) => {
         <Typography
           sx={{
             color: '#F5FCE7',
-            fontSize: '1rem',
+            fontSize: {xs:'12px',sm:'16px'},
             fontWeight: '500',
             marginRight: '25px',
           }}
@@ -67,8 +67,8 @@ const CartButton = ({ id }: BoxProps) => {
       <Box
         sx={{
           backgroundColor: 'green.darker',
-          height: '50px',
-          width: '120px',
+          height: {xs:'30px',sm:'50px'},
+          width: {xs:'90px',sm:'120px'},
           borderRadius: '5px',
           backdropFilter: 'blur(3px)',
           display: 'flex',
@@ -92,7 +92,7 @@ const CartButton = ({ id }: BoxProps) => {
         <Typography
           sx={{
             color: '#F5FCE7',
-            fontSize: '16px',
+            fontSize: {xs:'14px',sm:'16px'},
             fontWeight: '400',
             height: '75%',
             width: '33%',

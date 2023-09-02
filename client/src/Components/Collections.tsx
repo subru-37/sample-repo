@@ -5,16 +5,17 @@ import SlideShow from './Slideshow';
 import ExploreMore from '../utils/ExploreMore';
 import SampleCard from './SampleCard';
 import useOnScreen from '../hooks/useOnScreen';
-import Grass from './Grass';
 import collection1 from '../assets/flside1.png';
 import collection2 from '../assets/fslide2.png';
 import collection3 from '../assets/fslide3.png';
 import collection4 from '../assets/fslide4.png';
+import grass from '../assets/grass.png'
 const Collections = (props: any) => {
   const contentItems = [
     { name: 'Ready To Eat', background: collection1 },
     { name: 'Rice', background: collection2 },
     { name: 'Millets', background: collection3 },
+    { name: 'Oats', background:collection4}
   ];
   const collectionItems = contentItems.map((value) => {
     return (
@@ -53,9 +54,12 @@ const Collections = (props: any) => {
         minHeight: '100dvh',
         position: 'relative',
         width: '100vw',
+        backgroundImage: `url(${grass})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize:{xs:'1300px 700px', lg:'100vw 700px'},
+        backgroundPosition: 'bottom left'
       }}
     >
-      <Grass checkposn={onscreen} />
       <Box
         sx={{
           display: 'flex',
@@ -79,7 +83,7 @@ const Collections = (props: any) => {
           Collections
         </Typography>
         <SlideShow
-          show1100={3}
+          show1100={4}
           show900={3}
           show600={2}
           show400={1}

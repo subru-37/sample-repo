@@ -11,6 +11,7 @@ const AboutUs = () => {
         width: '100vw',
         position: 'relative',
         zIndex: '1000',
+        backgroundColor:'green.darker'
       }}
     >
       {/* container */}

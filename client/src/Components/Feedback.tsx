@@ -33,7 +33,7 @@ const Feedback = () => {
     },
   ];
   return (
-    <Box>
+    <Box sx={{ backgroundColor: 'green.darker' }}>
       <Box
         sx={{
           display: { xs: 'none', sm: 'flex' },
@@ -42,7 +42,7 @@ const Feedback = () => {
           flexDirection: { xs: 'column', sm: 'row' },
           minHeight: '100vh',
           minWidth: '100vw',
-          marginTop: '100px',
+          paddingTop: '100px',
           flexWrap: 'wrap',
         }}
       >

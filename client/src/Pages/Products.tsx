@@ -48,7 +48,7 @@ const Products = (props: props) => {
   });
   const payments = ['Loreum Ipsum 1', 'Loreum Ipsum 2', 'Loreum Ipsum 3'];
   const productItems = products('/products');
-  console.log(productItems)
+  console.log(productItems);
   const [drawer, setDrawer] = React.useState<boolean>(false);
   return (
     <Box
@@ -58,6 +58,7 @@ const Products = (props: props) => {
         alignItems: 'center',
         flexDirection: 'column',
         position: 'relative',
+        paddingBottom: '75px',
       }}
     >
       <TextField
@@ -132,7 +133,7 @@ const Products = (props: props) => {
           alignItems: 'flex-start',
           justifyContent: 'space-between',
           flexDirection: { xs: 'column', md: 'row' },
-          marginTop: {xs:'20px', md:'75px'},
+          marginTop: { xs: '20px', md: '75px' },
         }}
       >
         {width900 ? (
@@ -172,15 +173,15 @@ const Products = (props: props) => {
             margin: '0px !important',
           }}
         >
-          <Grid item sx={{padding:'0px !important'}}>
+          <Grid item sx={{ padding: '0px !important' }}>
             <Button
               onClick={() => setDrawer(true)}
               sx={{
                 color: 'green.darker',
                 display: { xs: 'flex', md: 'none' },
-                justifyContent:'center',
-                alignItems:'center',
-                padding:'0px 0px !important'
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '0px 0px !important',
               }}
             >
               <MenuIcon /> Filters
@@ -195,10 +196,10 @@ const Products = (props: props) => {
               md={3}
               lg={2}
               sx={{
-                padding: '25px !important',
+                padding: { xs: '10px 5px !important', sm: '25px !important' },
               }}
             >
-                {value.element}
+              {value.element}
             </Grid>
           ))}
         </Grid>

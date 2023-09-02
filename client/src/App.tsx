@@ -10,6 +10,8 @@ import CartModal from './Components/CartModal';
 import ProductDetail from './Components/ProductDetail';
 import Checkout from './Pages/Checkout';
 import Shipping from './Pages/Shipping';
+import Footer from './Components/Footer';
+import { Box } from '@mui/material';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -20,11 +22,11 @@ declare module '@mui/material/styles' {
     green?: PaletteOptions['primary'];
   }
   interface PaletteColorOptions {
-    lighter: string,
-    light: string,
-    main:string,
-    dark: string,
-    darker: string
+    lighter: string;
+    light: string;
+    main: string;
+    dark: string;
+    darker: string;
   }
 }
 type formData = {
@@ -48,30 +50,55 @@ const App = () => {
   });
   const [cartopen, setCartOpen] = React.useState(false);
   const theme = createTheme({
-    palette:{
+    palette: {
       green: {
         lighter: '#C5E9C7',
         light: '#5AB65F',
         main: '#00584A',
         dark: '#5AB65F',
-        darker: '#00584A;',  
+        darker: '#00584A;',
+      },
     },
-    }
-  })
+  });
   const [name, setName] = React.useState('');
 
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar cartopen={cartopen} setCartOpen={setCartOpen}/>
-      <CartModal cartopen={cartopen} setCartOpen={setCartOpen}/>
-      <Routes>
-        <Route path="/" element={<Landing name={name} setName={setName}/>}/>
-        <Route path="/products" element={<Products name={name} setName={setName}/>}/>
-        <Route path="/products/:id" element={<ProductDetail width='100vw' height="100vh" bgsize="50vw 100vh"/>}/>
-        <Route path="/checkout" element={<Checkout formData={formData} setFormData={setFormData}/>}/>
-        <Route path="/shipping" element={<Shipping formData={formData} setFormData={setFormData} options={options} value={value} setValue={setValue}/>}/>
-      </Routes>
-    </ThemeProvider>
+    <Box sx={{position:'relative'}}>
+      <ThemeProvider theme={theme}>
+        <Navbar cartopen={cartopen} setCartOpen={setCartOpen} />
+        <CartModal cartopen={cartopen} setCartOpen={setCartOpen} />
+        <Routes>
+          <Route path="/" element={<Landing name={name} setName={setName} />} />
+          <Route
+            path="/products"
+            element={<Products name={name} setName={setName} />}
+          />
+          <Route
+            path="/products/:id"
+            element={
+              <ProductDetail width="100vw" height="100vh" bgsize="50vw 100vh" />
+            }
+          />
+          <Route
+            path="/checkout"
+            element={<Checkout formData={formData} setFormData={setFormData} />}
+          />
+          <Route
+            path="/shipping"
+            element={
+              <Shipping
+                formData={formData}
+                setFormData={setFormData}
+                options={options}
+                value={value}
+                setValue={setValue}
+              />
+            }
+          />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
+    </Box>
   );
 };
 
