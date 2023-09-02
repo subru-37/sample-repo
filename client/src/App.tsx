@@ -29,7 +29,7 @@ declare module '@mui/material/styles' {
     darker: string;
   }
 }
-type formData = {
+type FormData = {
   email: string;
   firstName: string;
   lastName: string;
@@ -40,7 +40,7 @@ type formData = {
 const App = () => {
   const options = ['Cash On Delivery'];
   const [value, setValue] = React.useState<string | null>(options[0]);
-  const [formData, setFormData] = React.useState<formData>({
+  const [FormData, setFormData] = React.useState<FormData>({
     email: '',
     firstName: '',
     lastName: '',
@@ -81,13 +81,13 @@ const App = () => {
           />
           <Route
             path="/checkout"
-            element={<Checkout formData={formData} setFormData={setFormData} />}
+            element={<Checkout FormData={FormData} setFormData={setFormData} />}
           />
           <Route
             path="/shipping"
             element={
               <Shipping
-                formData={formData}
+                FormData={FormData}
                 setFormData={setFormData}
                 options={options}
                 value={value}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { formData } from '../Pages/Checkout';
+import { FormData } from '../Pages/Checkout';
 
-const Message = (value: string | null, formData: formData) => {
+const Message = (value: string | null, FormData: FormData) => {
   const products = useSelector((state: any) => state.cart);
 
   const items = products.cart.map((value: any, index: number) => {
@@ -28,12 +28,12 @@ const Message = (value: string | null, formData: formData) => {
   const text = `${itemMessage.reduce(
     (total: any, initial: any) => total + '' + initial,
     'cartitems  \n'
-  )} ${value} email:  ${formData.email} FirstName:  ${
-    formData.firstName
-  } LastName:  ${formData.lastName} address:  ${
-    formData.address
-  } landmark:  ${formData.landmark} phoneNumber:  ${
-    formData.phoneNumber
+  )} ${value} email:  ${FormData.email} FirstName:  ${
+    FormData.firstName
+  } LastName:  ${FormData.lastName} address:  ${
+    FormData.address
+  } landmark:  ${FormData.landmark} phoneNumber:  ${
+    FormData.phoneNumber
   }`;
   console.log(encodeURIComponent(text))
   const whatsappUrl = `https://wa.me/917356029354?text=${text}`

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { Box, Typography, Drawer, Button, TextField } from '@mui/material';
-import { formData } from '../Pages/Checkout';
+import { FormData } from '../Pages/Checkout';
 type formProps = {
   id: string;
   label: string;
@@ -13,7 +13,7 @@ type formProps = {
   InputProps: any;
   InputLabelProps: any;
   value: string | number | undefined;
-  onChange: Dispatch<SetStateAction<formData>>;
+  onChange: Dispatch<SetStateAction<FormData>>;
   generalcolor: string;
   name: string;
   type?:string;

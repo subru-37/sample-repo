@@ -7,7 +7,7 @@ import LeftArrow from '../utils/LeftArrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import '../styles/Landing.css';
-type formData = {
+type FormData = {
   email: string;
   firstName: string;
   lastName: string;
@@ -16,10 +16,10 @@ type formData = {
   phoneNumber: string | number | undefined;
 };
 type checkoutProps = {
-  formData: formData;
-  setFormData: React.Dispatch<React.SetStateAction<formData>>;
+  FormData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 };
-const Checkout = ({ formData, setFormData }: checkoutProps) => {
+const Checkout = ({ FormData, setFormData }: checkoutProps) => {
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
 
@@ -124,7 +124,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.phoneNumber}
+                value={FormData.phoneNumber}
                 onChange={setFormData}
                 name={'phoneNumber'}
                 generalcolor="#00584A"
@@ -178,7 +178,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                       fontSize: '12px',
                     },
                   }}
-                  value={formData.firstName}
+                  value={FormData.firstName}
                   onChange={setFormData}
                   name={'firstName'}
                   generalcolor="#00584A"
@@ -206,7 +206,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                       fontSize: '12px',
                     },
                   }}
-                  value={formData.lastName}
+                  value={FormData.lastName}
                   onChange={setFormData}
                   name={'lastName'}
                   generalcolor="#00584A"
@@ -235,7 +235,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.address}
+                value={FormData.address}
                 onChange={setFormData}
                 name={'address'}
                 generalcolor="#00584A"
@@ -263,7 +263,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.landmark}
+                value={FormData.landmark}
                 onChange={setFormData}
                 name={'landmark'}
                 generalcolor="#00584A"
@@ -295,7 +295,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={formData.email}
+                value={FormData.email}
                 onChange={setFormData}
                 name={'email'}
                 generalcolor="#00584A"
@@ -377,4 +377,4 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
 };
 
 export default Checkout;
-export type { formData };
+export type { FormData };

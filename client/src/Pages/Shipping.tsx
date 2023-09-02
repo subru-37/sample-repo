@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { removeAll } from '../Redux/features/CartSlice';
 import Message from '../Components/Message';
-type formData = {
+type FormData = {
   email: string;
   firstName: string;
   lastName: string;
@@ -24,26 +24,26 @@ type formData = {
   landmark: string;
   phoneNumber: string | number | undefined;
 };
-type shippingProps = {
+type ShippingProps = {
   value: string | null;
   setValue: React.Dispatch<React.SetStateAction<string | null>>;
-  formData: formData;
-  setFormData: React.Dispatch<React.SetStateAction<formData>>;
+  FormData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   options: string[];
 };
 
 const Shipping = ({
   value,
   setValue,
-  formData,
+  FormData,
   setFormData,
   options,
-}: shippingProps) => {
+}: ShippingProps) => {
   const dispatch = useDispatch();
   const redirect = (event: any) => {
     // navigation(whatsappUrl)
     event.preventDefault();
-    dispatch(removeAll(products))
+    dispatch(removeAll(products));
     setFormData({
       email: '',
       firstName: '',
@@ -51,17 +51,17 @@ const Shipping = ({
       address: '',
       landmark: '',
       phoneNumber: undefined,
-    })
+    });
     window.location.href = whatsappUrl;
   };
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
-  const whatsappUrl = Message(value,formData)
+  const whatsappUrl = Message(value, FormData);
   useEffect(() => {
     if (products.cart.length === 0) {
       navigation('/products');
     }
-  }, [products.cart]);
+  }, [navigation, products.cart]);
   return (
     <Box
       sx={{
@@ -91,7 +91,7 @@ const Shipping = ({
             padding: '5px 0px',
             fontSize: '40px',
             fontWeight: '500',
-            textAlign:'center'
+            textAlign: 'center',
           }}
         >
           Checkout
@@ -111,7 +111,7 @@ const Shipping = ({
             sx={{
               display: 'flex',
               alignItems: { xs: 'center', md: 'flex-start' },
-              width: { xs: '100%',md:'50%', lg: '60%' },
+              width: { xs: '100%', md: '50%', lg: '60%' },
               justifyContent: 'space-between',
               flexDirection: 'column',
               height: '100%',
@@ -148,9 +148,9 @@ const Shipping = ({
                     fontSize: '12px',
                   },
                 }}
-                value={formData.email}
+                value={FormData.email}
                 onChange={setFormData}
-                name={'email'}
+                name='email'
                 generalcolor="#00584A"
                 margin="20px 0"
               />
@@ -176,9 +176,9 @@ const Shipping = ({
                     fontSize: '12px',
                   },
                 }}
-                value={formData.address}
+                value={FormData.address}
                 onChange={setFormData}
-                name={'address'}
+                name='address'
                 generalcolor="#00584A"
                 margin="20px 0"
               />
@@ -313,8 +313,8 @@ const Shipping = ({
 
           <Box
             sx={{
-              width: { xs: '100%',md:'50%', lg: '550px' },
-              display: {xs:'none', sm:'flex'},
+              width: { xs: '100%', md: '50%', lg: '550px' },
+              display: { xs: 'none', sm: 'flex' },
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
               borderLeft: { md: '1px solid #ACD2AE' },
@@ -329,4 +329,4 @@ const Shipping = ({
 };
 
 export default Shipping;
-export type { formData };
+export type { FormData };
