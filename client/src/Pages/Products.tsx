@@ -53,7 +53,7 @@ const Products = (props: props) => {
   return (
     <Box
       sx={{
-        // marginTop: '75px',
+        marginTop: '75px',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
@@ -61,7 +61,7 @@ const Products = (props: props) => {
         paddingBottom: '75px',
       }}
     >
-      <TextField
+      {/* <TextField
         id="outlined-controlled"
         label=""
         placeholder="Search.."
@@ -125,7 +125,7 @@ const Products = (props: props) => {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           props.setName(event.target.value);
         }}
-      />
+      /> */}
       <Box
         sx={{
           width: '90vw',

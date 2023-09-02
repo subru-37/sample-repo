@@ -22,8 +22,13 @@ const FeatureCard = (props: props) => {
         justifyContent: 'space-between',
         flexDirection: { xs: 'row', sm: 'column' },
         cursor: 'pointer',
+        minWidth:{xs:'90vw', sm:'0px'}
       }}
     >
+      {/*
+      145   150 
+      179   185  
+      */}
       <Box
         sx={{
           width: { xs: '145px', sm: '290px' },
