@@ -7,6 +7,7 @@ import LeftArrow from '../utils/LeftArrow';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import '../styles/Landing.css';
+import { setUserData } from '../Redux/features/FormSlice';
 type FormData = {
   email: string;
   firstName: string;
@@ -53,14 +54,6 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       margin: '0 0 10px 0',
     },
     {
-      id: 'Address',
-      label: 'Address',
-      width: '100%',
-      value: FormData.address,
-      name: 'address',
-      margin: '0 0 10px 0',
-    },
-    {
       id: 'Landmark',
       label: 'Landmark',
       width: '100%',
@@ -77,6 +70,11 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       margin: '0 0 10px 0',
     },
   ];
+  const dispatch = useDispatch();
+  function handleSubmit(){
+    navigation('/shipping')
+    dispatch(setUserData(FormData))
+  }
   return (
     <Box
       sx={{
@@ -133,7 +131,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
               height: '100%',
             }}
             component={'form'}
-            onSubmit={() => navigation('/shipping')}
+            onSubmit={handleSubmit}
           >
             {/* email address box */}
             <Box sx={{ width: { xs: '80%', md: '100%' }, margin: '50px 0' }}>
@@ -242,7 +240,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
                 })}
               </Box>
               {formComponents.map((value, index) => {
-                  if (index >=1){
+                  if (index >1){
                     return (
                       <FormSample
                         id={value.id}

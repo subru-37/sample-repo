@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { cartitems } from '../../sampledata/cartitem';
 type inistate = {
   cart: Array<cartitem>;
 };
