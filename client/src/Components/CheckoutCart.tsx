@@ -5,20 +5,14 @@ import React, { useEffect } from 'react';
 import Close from '../utils/Close';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
-const CheckoutCart = () => {
-  const delivery = 40;
-  const products = useSelector((state: any) => state.cart);
-  const totalPrice =
-    products.cart.length > 0
-      ? products.cart
-          .map(
-            (value: any) =>
-              Number(value.discprice.substring(2)) * value.quantity
-          )
-          .reduce((total: any, value: any) => total + value)
-      : 0;
-  const shipping = 4.9;
-  const gst = 9;
+type CartProps = {
+  delivery: number;
+  totalPrice: number;
+  shipping: number;
+  gst: number;
+  products: any;
+};
+const CheckoutCart = ({delivery, totalPrice, shipping, gst, products}:CartProps) => {
   return (
     <Box
       sx={{

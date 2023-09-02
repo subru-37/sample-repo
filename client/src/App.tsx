@@ -43,7 +43,7 @@ const App = () => {
   const navigation = useNavigate();
   const options = ['Cash On Delivery'];
   const [value, setValue] = React.useState<string | null>(options[0]);
-  const [FormData, setFormData] = React.useState<FormData>({
+  const [formData, setFormData] = React.useState<FormData>({
     email: '',
     firstName: '',
     lastName: '',
@@ -89,13 +89,13 @@ const App = () => {
           />
           <Route
             path="/checkout"
-            element={<Checkout FormData={FormData} setFormData={setFormData} />}
+            element={<Checkout formData={formData} setFormData={setFormData} />}
           />
           <Route
             path="/shipping"
             element={
               <Shipping
-                FormData={FormData}
+                formData={formData}
                 setFormData={setFormData}
                 options={options}
                 value={value}

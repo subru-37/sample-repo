@@ -27,7 +27,7 @@ type FormData = {
 type ShippingProps = {
   value: string | null;
   setValue: React.Dispatch<React.SetStateAction<string | null>>;
-  FormData: FormData;
+  formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   options: string[];
 };
@@ -35,7 +35,7 @@ type ShippingProps = {
 const Shipping = ({
   value,
   setValue,
-  FormData,
+  formData,
   setFormData,
   options,
 }: ShippingProps) => {
@@ -56,7 +56,20 @@ const Shipping = ({
   };
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
-  const whatsappUrl = Message(value, FormData);
+  const delivery = 40;
+  const totalPrice =
+    products.cart.length > 0
+      ? products.cart
+          .map(
+            (value: any) =>
+              Number(value.discprice.substring(2)) * value.quantity
+          )
+          .reduce((total: any, value: any) => total + value)
+      : 0;
+  const shipping = 4.9;
+  const gst = 9;
+  const grandtotal = delivery + totalPrice + shipping + gst;
+  const whatsappUrl = Message(value, formData, grandtotal);
   useEffect(() => {
     if (products.cart.length === 0) {
       navigation('/products');
@@ -149,9 +162,9 @@ const Shipping = ({
                     fontSize: '12px',
                   },
                 }}
-                value={FormData.email}
+                value={formData.email}
                 onChange={setFormData}
-                name='email'
+                name="email"
                 generalcolor="#00584A"
                 margin="20px 0"
               />
@@ -177,9 +190,9 @@ const Shipping = ({
                     fontSize: '12px',
                   },
                 }}
-                value={FormData.address}
+                value={formData.address}
                 onChange={setFormData}
-                name='address'
+                name="address"
                 generalcolor="#00584A"
                 margin="20px 0"
               />
@@ -321,7 +334,13 @@ const Shipping = ({
               borderLeft: { md: '1px solid #ACD2AE' },
             }}
           >
-            <CheckoutCart />
+            <CheckoutCart
+              gst={gst}
+              delivery={delivery}
+              totalPrice={totalPrice}
+              shipping={shipping}
+              products={products}
+            />
           </Box>
         </Box>
       </Box>

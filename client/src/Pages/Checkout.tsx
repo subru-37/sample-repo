@@ -17,10 +17,10 @@ type FormData = {
   phoneNumber: string | number | undefined;
 };
 type checkoutProps = {
-  FormData: FormData;
+  formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 };
-const Checkout = ({ FormData, setFormData }: checkoutProps) => {
+const Checkout = ({ formData, setFormData }: checkoutProps) => {
   const navigation = useNavigate();
   const products = useSelector((state: any) => state.cart);
   useEffect(() => {
@@ -28,12 +28,25 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       navigation('/products');
     }
   }, [products.cart]);
+  const delivery = 40;
+  const totalPrice =
+    products.cart.length > 0
+      ? products.cart
+          .map(
+            (value: any) =>
+              Number(value.discprice.substring(2)) * value.quantity
+          )
+          .reduce((total: any, value: any) => total + value)
+      : 0;
+  const shipping = 4.9;
+  const gst = 9;
+  const grandtotal = delivery + totalPrice + shipping + gst;
   const formComponents = [
     {
       id: 'First Name',
       label: 'First Name',
       width: { xs: '100%', md: '49.5%' },
-      value: FormData.firstName,
+      value: formData.firstName,
       name: 'firstName',
       margin: '10px 0',
     },
@@ -41,7 +54,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       id: 'Last Name',
       label: 'Last Name',
       width: { xs: '100%', md: '49.5%' },
-      value: FormData.lastName,
+      value: formData.lastName,
       name: 'lastName',
       margin: '10px 0',
     },
@@ -49,7 +62,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       id: 'Address',
       label: 'Address',
       width: '100%',
-      value: FormData.address,
+      value: formData.address,
       name: 'address',
       margin: '0 0 10px 0',
     },
@@ -57,7 +70,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       id: 'Landmark',
       label: 'Landmark',
       width: '100%',
-      value: FormData.landmark,
+      value: formData.landmark,
       name: 'landmark',
       margin: '0 0 10px 0',
     },
@@ -65,16 +78,16 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       id: 'Email',
       label: 'Email',
       width: '100%',
-      value: FormData.email,
+      value: formData.email,
       name: 'email',
       margin: '0 0 10px 0',
     },
   ];
-  
+
   const dispatch = useDispatch();
-  function handleSubmit(){
-    navigation('/shipping')
-    dispatch(setUserData(FormData))
+  function handleSubmit() {
+    navigation('/shipping');
+    dispatch(setUserData(formData));
   }
   return (
     <Box
@@ -173,7 +186,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
                     fontSize: '12px',
                   },
                 }}
-                value={FormData.phoneNumber}
+                value={formData.phoneNumber}
                 onChange={setFormData}
                 name={'phoneNumber'}
                 generalcolor="#00584A"
@@ -206,7 +219,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
                 }}
               >
                 {formComponents.map((value, index) => {
-                  if (index <=1){
+                  if (index <= 1) {
                     return (
                       <FormSample
                         id={value.id}
@@ -241,39 +254,39 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
                 })}
               </Box>
               {formComponents.map((value, index) => {
-                  if (index >1){
-                    return (
-                      <FormSample
-                        id={value.id}
-                        label={value.label}
-                        height="50px"
-                        width={value.width}
-                        generalbgcolor="#F5FCE7"
-                        fieldsetbgcolor="#F5FCE7"
-                        fieldsetborder=" 1px solid #ACD2AE"
-                        fieldsetborderradius="8px"
-                        InputProps={{
-                          style: {
-                            color: '#00584A',
-                            fontFamily: 'Plus Jakarta Sans',
-                          },
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            color: '#5AB65F',
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontSize: '12px',
-                          },
-                        }}
-                        value={value.value}
-                        onChange={setFormData}
-                        name={value.name}
-                        generalcolor="#00584A"
-                        margin={value.margin}
-                      />
-                    );
-                  }
-                })}
+                if (index > 1) {
+                  return (
+                    <FormSample
+                      id={value.id}
+                      label={value.label}
+                      height="50px"
+                      width={value.width}
+                      generalbgcolor="#F5FCE7"
+                      fieldsetbgcolor="#F5FCE7"
+                      fieldsetborder=" 1px solid #ACD2AE"
+                      fieldsetborderradius="8px"
+                      InputProps={{
+                        style: {
+                          color: '#00584A',
+                          fontFamily: 'Plus Jakarta Sans',
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: {
+                          color: '#5AB65F',
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontSize: '12px',
+                        },
+                      }}
+                      value={value.value}
+                      onChange={setFormData}
+                      name={value.name}
+                      generalcolor="#00584A"
+                      margin={value.margin}
+                    />
+                  );
+                }
+              })}
             </Box>
             <Box
               sx={{
@@ -341,7 +354,13 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
               borderLeft: { md: '1px solid #ACD2AE' },
             }}
           >
-            <CheckoutCart />
+            <CheckoutCart
+              gst={gst}
+              delivery={delivery}
+              totalPrice={totalPrice}
+              shipping={shipping}
+              products={products}
+            />
           </Box>
         </Box>
       </Box>
