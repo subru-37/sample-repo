@@ -36,7 +36,7 @@ const Message = (value: string | null, formData: FormData,grandtotal: number) =>
     `Customer: ${formData.firstName} ${formData.lastName}, \n\nI would like to order: \n\nItems in Cart:\n\n` +
     itemMessage +
     data;
-  console.log(encodeURIComponent(message));
+  // console.log(encodeURIComponent(message));
   const whatsappUrl = `https://wa.me/917356029354?text=${encodeURIComponent(
     message
   )}`;
