@@ -70,6 +70,7 @@ const Checkout = ({ FormData, setFormData }: checkoutProps) => {
       margin: '0 0 10px 0',
     },
   ];
+  
   const dispatch = useDispatch();
   function handleSubmit(){
     navigation('/shipping')
