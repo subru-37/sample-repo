@@ -71,6 +71,7 @@ const Shipping = ({
         justifyContent: 'center',
         minHeight: '100vh',
         minWidth: '100vw',
+        paddingBottom: '75px',
       }}
     >
       <Box

@@ -4,7 +4,7 @@ import Navbar from './Components/Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Products from './Pages/Products';
 import CartModal from './Components/CartModal';
 import ProductDetail from './Components/ProductDetail';
@@ -12,6 +12,7 @@ import Checkout from './Pages/Checkout';
 import Shipping from './Pages/Shipping';
 import Footer from './Components/Footer';
 import { Box } from '@mui/material';
+import UserModal from './Components/UserModal';
 AOS.init();
 declare module '@mui/material/styles' {
   interface Palette {
@@ -38,6 +39,8 @@ type FormData = {
   phoneNumber: string | number | undefined;
 };
 const App = () => {
+  const [modal, setModal] = React.useState<boolean>(false);
+  const navigation = useNavigate();
   const options = ['Cash On Delivery'];
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [FormData, setFormData] = React.useState<FormData>({
@@ -48,7 +51,7 @@ const App = () => {
     landmark: '',
     phoneNumber: undefined,
   });
-  const [cartopen, setCartOpen] = React.useState(false);
+  const [cartopen, setCartOpen] = React.useState<boolean>(false);
   const theme = createTheme({
     palette: {
       green: {
@@ -61,12 +64,17 @@ const App = () => {
     },
   });
   const [name, setName] = React.useState('');
-
+  console.log(modal)
   return (
-    <Box sx={{position:'relative'}}>
+    <Box sx={{ position: 'relative' }}>
       <ThemeProvider theme={theme}>
         <Navbar cartopen={cartopen} setCartOpen={setCartOpen} />
-        <CartModal cartopen={cartopen} setCartOpen={setCartOpen} />
+        <CartModal
+          cartopen={cartopen}
+          setCartOpen={setCartOpen}
+          setModal={setModal}
+          modal={modal}
+        />
         <Routes>
           <Route path="/" element={<Landing name={name} setName={setName} />} />
           <Route
@@ -97,6 +105,16 @@ const App = () => {
           />
         </Routes>
         <Footer />
+        <UserModal
+          close={modal}
+          onClose={setModal}
+          yesFunction={() => {
+            navigation('/shipping');
+          }}
+          noFunction={() => {
+            navigation('/checkout');
+          }}
+        />
       </ThemeProvider>
     </Box>
   );

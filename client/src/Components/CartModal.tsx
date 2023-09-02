@@ -5,13 +5,15 @@ import Close from '../utils/Close';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Cart from '../utils/Cart';
+import UserModal from './UserModal';
 
 type props = {
   cartopen: boolean;
   setCartOpen: (open: boolean) => void;
+  setModal: (open: boolean) => void;
+  modal: boolean;
 };
-const CartModal = ({ cartopen, setCartOpen }: props) => {
-  const navigation = useNavigate();
+const CartModal = ({ cartopen, setCartOpen, setModal, modal }: props) => {
   const delivery = 40;
   const products = useSelector((state: any) => state.cart);
   const totalPrice =
@@ -283,7 +285,7 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
                         justifyContent: 'center',
                       }}
                       onClick={() => {
-                        navigation('/checkout');
+                        setModal(true);
                         setCartOpen(false);
                       }}
                     >
@@ -358,9 +360,10 @@ const CartModal = ({ cartopen, setCartOpen }: props) => {
               margin: '25px 0',
             }}
           >
-            Your Cart is empty, <br/>add some items!!
+            Your Cart is empty, <br />
+            add some items!!
           </Typography>
-          <Box onClick={()=> setCartOpen(false)} sx={{cursor:'pointer'}}>
+          <Box onClick={() => setCartOpen(false)} sx={{ cursor: 'pointer' }}>
             <Cart size="40px" />
           </Box>
         </Box>

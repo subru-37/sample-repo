@@ -130,7 +130,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 cursor:'pointer'
               }}
             >
-              <Box
+              <Typography
                 sx={{
                   position: 'absolute',
                   backgroundColor: 'green.darker',
@@ -146,7 +146,7 @@ export default function Navbar({ cartopen, setCartOpen }: props) {
                 }}
               >
                 {NumberOfItems}
-              </Box>
+              </Typography>
               <Cart />
             </Box>
           </Box>
