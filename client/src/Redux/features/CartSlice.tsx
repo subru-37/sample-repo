@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-type inistate = {
-  cart: Array<cartitem>;
+type IniState = {
+  [key: string]: Array<CartItemType>;
 };
-const initialState : inistate = {
+const initialState : IniState = {
   cart: [
     // {
     //   image: '',
@@ -16,7 +16,7 @@ const initialState : inistate = {
     // },
   ],
 };
-type cartitem = {
+type CartItemType = {
   image: string;
   price: string;
   discprice: string;
@@ -26,6 +26,8 @@ type cartitem = {
   quantity: number;
   id: number;
 };
+export type {CartItemType}
+export type {IniState}
 export const CartSlice = createSlice({
   name: 'cart',
   initialState,

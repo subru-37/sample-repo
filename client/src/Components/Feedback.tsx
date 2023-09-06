@@ -37,10 +37,10 @@ const Feedback = () => {
       <Box
         sx={{
           display: { xs: 'none', sm: 'flex' },
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           flexDirection: { xs: 'column', sm: 'row' },
-          minHeight: '100vh',
+          minHeight: '80vh',
           minWidth: '100vw',
           paddingTop: '100px',
           flexWrap: 'wrap',

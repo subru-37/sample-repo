@@ -5,6 +5,7 @@ import {
   reduceProduct,
   incrementProduct,
   addToCart,
+  CartItemType,
 } from '../Redux/features/CartSlice';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -21,7 +22,7 @@ const CartButton = ({ id }: BoxProps) => {
   const cartindex = products.cart.findIndex(
     (item: any) => item.id === sampleData[index].id
   );
-
+    // console.log(products)
   // const index = Number(id);
   // console.log(index);
   const removeProductHandler = (product: any) => {

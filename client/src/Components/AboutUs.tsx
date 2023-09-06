@@ -5,9 +5,9 @@ const AboutUs = () => {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
-        height: '100vh',
+        minHeight: '80vh',
         width: '100vw',
         position: 'relative',
         zIndex: '1000',
@@ -23,7 +23,6 @@ const AboutUs = () => {
           height: { xs: '100vh', sm: '80vh' },
           width: { xs: '95vw', sm: '90vw' },
           flexDirection: 'column',
-          marginTop: { xs: '0px', sm: '50px' },
           boxSizing: 'border-box',
         }}
       >
@@ -36,7 +35,8 @@ const AboutUs = () => {
             justifyContent: 'center',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            minHeight: { xs: '150px', sm: '200px' },
+            marginTop:'50px',
+            minHeight: { sm: '200px' },
           }}
         >
           <Typography
