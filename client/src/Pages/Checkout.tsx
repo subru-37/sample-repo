@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import '../styles/Landing.css';
 import { setUserData } from '../Redux/features/FormSlice';
+import { TotalPriceMain } from '../Components/TotalPrice';
 type FormData = {
   email: string;
   firstName: string;
@@ -31,12 +32,7 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
   const delivery = 40;
   const totalPrice =
     products.cart.length > 0
-      ? products.cart
-          .map(
-            (value: any) =>
-              Number(value.discprice.substring(2)) * value.quantity
-          )
-          .reduce((total: any, value: any) => total + value)
+      ? TotalPriceMain(products.cart)
       : 0;
   const shipping = 4.9;
   const gst = 9;

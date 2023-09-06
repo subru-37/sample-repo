@@ -84,7 +84,7 @@ const FeatureCard = (props: props) => {
                 fontSize: '16px',
               }}
             >
-              {props.discprice}
+              {props.price}
             </Typography>
             {/* <Typography
               sx={{

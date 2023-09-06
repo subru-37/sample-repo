@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Cart from '../utils/Cart';
 import UserModal from './UserModal';
+import {TotalPriceMain} from './TotalPrice';
 
 type props = {
   cartopen: boolean;
@@ -18,12 +19,7 @@ const CartModal = ({ cartopen, setCartOpen, setModal, modal }: props) => {
   const products = useSelector((state: any) => state.cart);
   const totalPrice =
     products.cart.length > 0
-      ? products.cart
-          .map(
-            (value: any) =>
-              Number(value.discprice.substring(2)) * value.quantity
-          )
-          .reduce((total: any, value: any) => total + value)
+      ? TotalPriceMain(products.cart)
       : 0;
   // if (products.length === 0) {
   //   return <EmptyCart />;

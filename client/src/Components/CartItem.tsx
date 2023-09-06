@@ -86,7 +86,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
                 fontWeight: '600',
               }}
             >
-              {discprice}
+              {price}
             </Typography>
             {/* <Typography
               //   component={'h6'}

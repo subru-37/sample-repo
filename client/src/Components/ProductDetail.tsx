@@ -137,7 +137,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
                 fontWeight: '600',
               }}
             >
-              {details.discprice}
+              {details.price}
             </Typography>
             {/* <Typography
               //   component={'h6'}
