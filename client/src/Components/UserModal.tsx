@@ -20,9 +20,10 @@ const UserModal = ({ close, onClose, yesFunction, noFunction }: ModalProps) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '500px',
+          minHeight: '300px',
           minWidth: { xs: '90vw', sm: '500px' },
-          padding: '40px',
+          padding: '50px',
+          boxSizing:'border-box',
           position:'fixed',
           left:'50%',
           translate:'-50% -50%',
@@ -36,13 +37,14 @@ const UserModal = ({ close, onClose, yesFunction, noFunction }: ModalProps) => {
             alignItems: 'center',
             justifyContent: 'space-between',
             height:'150px',
-            flexDirection:'column'
+            flexDirection:'column',
+            minWidth:'300px'
           }}
         >
           <Typography
             component={'h3'}
             sx={{
-              fontSize: '2rem',
+              fontSize: {xs:'1.5rem',md: '2rem'},
               color: 'green.darker',
             }}
           >

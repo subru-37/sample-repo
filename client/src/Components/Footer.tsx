@@ -16,7 +16,7 @@ const Footer = () => {
         zIndex:'1000'
       }}
     >
-      <Typography sx={{ color: 'green.dark', fontSize: '20px' }}>
+      <Typography sx={{ color: 'green.dark', fontSize: '14px', opacity:'0.8' }}>
         Copyright © {year} Subscribe Nature
       </Typography>
     </Box>

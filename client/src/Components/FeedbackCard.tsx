@@ -55,7 +55,7 @@ const FeedbackCard = (props: styleprops) => {
             sx={{
               color: props.titlecolor,
               textAlign: 'center',
-              fontSize: '28px',
+              fontSize: {xs:'28px',md:'32px'},
               fontWeight: '700',
               letterSpacing: '-1.28px',
             }}
@@ -67,7 +67,7 @@ const FeedbackCard = (props: styleprops) => {
             sx={{
               color: props.titlecolor,
               textAlign: 'center',
-              fontSize: '20px',
+              fontSize: {xs:'24px',md:'28px'},
               fontWeight: '300',
               letterSpacing: '-0.96px',
               fontStyle: 'italic',
@@ -88,7 +88,7 @@ const FeedbackCard = (props: styleprops) => {
           sx={{
             color: props.titlecolor,
             textAlign: 'center',
-            fontSize: '28px',
+            fontSize: {xs:'22px',md:'24px'},
             fontWeight: '500',
             letterSpacing: '-1.28px',
           }}
