@@ -139,7 +139,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
             >
               {details.discprice}
             </Typography>
-            <Typography
+            {/* <Typography
               //   component={'h6'}
               sx={{
                 color: '#ACD1AE',
@@ -150,7 +150,7 @@ const ProductDetail = ({ height, width, bgsize }: props) => {
               }}
             >
               {details.price}
-            </Typography>
+            </Typography> */}
             <Typography
               sx={{
                 width: '100%',

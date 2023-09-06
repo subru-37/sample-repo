@@ -23,7 +23,8 @@ const Message = (
   const itemMessage = items.length !==0 && items
   .map(
     (value: any) =>
-      `   Product id: ${value.id}\n   Product Price: ${value.price}\n   Discounted Price: ${value.discprice}\n   Product Name: ${value.name}\n   Quantity of Product: ${value.quantity}\n\n`
+    // Discounted Price: ${value.discprice}\n
+      `   Product id: ${value.id}\n   Product Price: ${value.discprice}\n   Product Name: ${value.name}\n   Quantity of Product: ${value.quantity}\n\n`
   )
   .reduce((total: any, initial: any) => total + '' + initial);
 

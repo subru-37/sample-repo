@@ -64,7 +64,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
       >
         <Box sx={{ marginBottom: '30px' }}>
           <Typography
-            sx={{ color: 'green.darker', fontSize: '12px', fontWeight: '300' }}
+            sx={{ color: 'green.darker', fontSize: '1rem', fontWeight: '300' }}
           >
             {name}
           </Typography>
@@ -88,7 +88,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
             >
               {discprice}
             </Typography>
-            <Typography
+            {/* <Typography
               //   component={'h6'}
               sx={{
                 color: '#C2D76D',
@@ -99,7 +99,7 @@ const CartItem = ({ price, discprice, name, quantity, image, id }: props) => {
               }}
             >
               {price}
-            </Typography>
+            </Typography> */}
           </Box>
           {/* quantity */}
           <Box

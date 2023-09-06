@@ -86,7 +86,7 @@ const FeatureCard = (props: props) => {
             >
               {props.discprice}
             </Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 fontWeight: '600',
                 color: '#ACD2AE',
@@ -96,7 +96,7 @@ const FeatureCard = (props: props) => {
               }}
             >
               {props.price}
-            </Typography>
+            </Typography> */}
           </Box>
         </Box>
         <Box
