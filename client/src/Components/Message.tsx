@@ -27,11 +27,9 @@ const Message = (value: string | null, formData: FormData,grandtotal: number) =>
   // console.log(
   //   itemMessage.reduce((total: any, initial: any) => total + '' + initial, 'cartitems \n')
   // );
-  const total = items
-    .map((value: any) => Number(value.price.substring(2)))
-    .reduce((total: number, initial: number) => total + initial) + grandtotal;
+ 
   // console.log(total)
-  const data = `\n${value}\n\nShipping Address:  ${formData.address}\nLandmark:  ${formData.landmark}\n\nTotal Amount: ${total}\n\nEmail: ${formData.email}\nPhone Number: ${formData.phoneNumber}`;
+  const data = `\n${value}\n\nShipping Address:  ${formData.address}\nLandmark:  ${formData.landmark}\n\nTotal Amount: ${grandtotal}\n\nEmail: ${formData.email}\nPhone Number: ${formData.phoneNumber}`;
   const message =
     `Customer: ${formData.firstName} ${formData.lastName}, \n\nI would like to order: \n\nItems in Cart:\n\n` +
     itemMessage +

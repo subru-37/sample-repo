@@ -40,7 +40,6 @@ const Checkout = ({ formData, setFormData }: checkoutProps) => {
       : 0;
   const shipping = 4.9;
   const gst = 9;
-  const grandtotal = delivery + totalPrice + shipping + gst;
   const formComponents = [
     {
       id: 'First Name',
